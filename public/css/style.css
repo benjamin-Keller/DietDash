@@ -1,0 +1,55 @@
+.sidebar{
+    width: 200px;
+    background-color: #400040;
+    padding: 20px 0 0 0;
+    height: 100vh;
+    position: relative;
+    top: 0px;
+    left: -15px;
+}
+.topbar-color {
+    background-color: #400040;
+    color: white;
+    text-decoration-color: white;
+}
+.color-white {
+    color: #FFFFFF;
+    text-decoration-color: white;
+
+}
+
+.sidebar img {
+    border-radius: 50px;
+}
+
+.sidebar h5 {
+    color: white;
+    margin-top: 10px;
+}
+ /*.item-container {
+
+}*/
+
+.menu-item {
+    width: 200px;
+    padding: 10px 0 10px 10px;
+    transition: background-color .5s;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color: lightgray;
+    color: black;
+}
+.item-container a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn-purple, .btn-purple:hover, .btn-purple:active, .btn-purple:visited {
+    background-color: #800080;
+    color: white;
+}
+.text-purple {
+    color: #800080 !important;
+}
