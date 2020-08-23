@@ -21,6 +21,8 @@ Auth::routes();
 
 //Home
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/action', 'HomeController@action')->name('home.action');
+
 
 //Patients
 Route::get('/patients', 'PatientController@index')->name('patients.index');

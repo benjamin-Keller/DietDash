@@ -34,7 +34,12 @@ class BookingController extends Controller
 
         $upcoming = $upcomings->count();
 
-        return view('home', ['userCount' => $userCount, 'today' => $today, 'upcoming' => $upcoming]);
+        $bookings = Booking::all()
+            ->where('user_id', '=', Auth::id())
+            ->where('active', '=', '1')
+            ->toArray();
+
+        return view('home', ['userCount' => $userCount, 'today' => $today, 'upcoming' => $upcoming, 'bookings' => $bookings]);
     }
 
     //Views

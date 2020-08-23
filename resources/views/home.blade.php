@@ -62,11 +62,120 @@
                                 </div>
                             </div>
                         </a>
-                    </div></div>
+                    </div>
+                </div>
                 <!-- <div class="col">col</div> -->
+                <div class="container pt-5">
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="card shadow h-100">
+                                <div class="card-header container-fluid">
+                                    <div class="row align-middle">
+                                        <div class="col-sm">
+                                            <h3 class="float-left">{{ __('Patients') }}</h3>
+                                        </div>
+                                        <div class="col-sm">
+                                            <div class="float-right">
+                                                <input class="form-control" type="text" id="search" placeholder="Search">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="pl-5 pr-5 pt-3">
+                                        @include('inc.messages')
+
+                                        <table class="table table-bordered table-striped w-100
+                                        table-responsive-sm
+                                        table-responsive-md
+                                        table-responsive-lg">
+                                            <thead>
+                                            <tr>
+                                                <th>{{ 'First Name' }}</th>
+                                                <th>{{ 'Last Name' }}</th>
+                                                <th>{{ 'Gender' }}</th>
+                                                <th>{{ 'ID Number' }}</th>
+                                                <th>{{ 'Phone Number' }}</th>
+                                                <th>{{ 'Email Address' }}</th>
+                                                <th>{{ 'Edit' }}</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="patient">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container pt-5">
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="card shadow h-100">
+                                <div class="card-header container-fluid">
+                                    <div class="row align-middle">
+                                        <div class="col-sm">
+                                            <h3 class="float-left">{{ __('Bookings') }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pl-5 pr-5 pt-3">
+                                    @include('inc.messages')
+
+                                    <table class="table table-bordered table-striped">
+                                        <tr>
+                                            <th>{{ 'Booking Name' }}</th>
+                                            <th>{{ 'Description' }}</th>
+                                            <th>{{ 'Patient' }}</th>
+                                            <th>{{ 'Date' }}</th>
+                                            <th>{{ 'Time' }}</th>
+                                            <th>{{ 'Edit' }}</th>
+                                        </tr>
+                                        @foreach($bookings as $row)
+                                            <tr>
+                                                <td>{{ $row['event_name'] }}</td>
+                                                <td>{{ $row['description'] }}</td>
+                                                <td>{{ $row['patient_name'] }}</td>
+                                                <td>{{ $row['date'] }}</td>
+                                                <td>{{ $row['time'] }}</td>
+                                                <td><a href="" style="color: #ff1744;"><i class="far fa-trash-alt"></i></a></td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
         </div>
     </div>
 
-    </div>
+    <script>
+        $(document).ready(function(){
+
+            fetch_customer_data();
+
+            function fetch_customer_data(query = '')
+            {
+                $.ajax({
+                    url:"{{ route('patients.action') }}",
+                    method:'GET',
+                    data:{query:query},
+                    dataType:'json',
+                    success:function(data)
+                    {
+                        $('#patient').html(data.table_data);
+                    }
+                })
+            }
+
+            $(document).on('keyup', '#search', function(){
+                var query = $(this).val();
+                fetch_customer_data(query);
+            });
+        });
+    </script>
 @endsection
