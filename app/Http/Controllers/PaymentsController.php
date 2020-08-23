@@ -78,7 +78,7 @@ class PaymentsController extends Controller
             ->get()
             ->pluck('description');
 
-        return view('payments.create', compact('payments', 'patient'));
+        return view('payments.create', compact('payments'));
     }
 
     public function store(Request $request) {
