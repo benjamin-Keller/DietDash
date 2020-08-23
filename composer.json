@@ -19,6 +19,7 @@
         "laravel/ui": "^2.1",
         "laravelcollective/html": "^6.1",
         "nesbot/carbon": "^2.38",
+        "phpseclib/bcmath_compat": "1.0.4",
         "yajra/laravel-datatables-oracle": "^9.10"
     },
     "require-dev": {
