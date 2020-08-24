@@ -27,7 +27,7 @@ class PaymentsController extends Controller
             if($query != '')
             {
                 $data = DB::table('payments')
-                    ->where('user_id', '=', Auth::id())
+                    ->where('user_id', '=', Auth::user()->id)
                     ->orWhere('patient_name', 'like', '%'.$query.'%')
                     ->orWhere('date', 'like', '%'.$query.'%')
                     ->orderBy('patient_name', 'desc')
@@ -37,7 +37,7 @@ class PaymentsController extends Controller
             else
             {
                 $data = DB::table('payments')
-                    ->where('user_id', '=', Auth::id())
+                    ->where('user_id', '=', Auth::user()->id)
                     ->orderBy('patient_name', 'desc')
                     ->get();
             }

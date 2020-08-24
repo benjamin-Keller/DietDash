@@ -37,7 +37,7 @@ class PatientController extends Controller
             if($query != '')
             {
                 $data = DB::table('patients')
-                    ->where('user_id', '=', Auth::id())
+                    ->where('user_id', '=', Auth::user()->id)
                     ->where('Deleted', 'like', '0')
                     ->where('FirstName', 'like', '%'.$query.'%')
                     ->orWhere('LastName', 'like', '%'.$query.'%')
@@ -53,7 +53,7 @@ class PatientController extends Controller
             else
             {
                 $data = DB::table('patients')
-                    ->where('user_id', '=', Auth::id())
+                    ->where('user_id', '=', Auth::user()->id)
                     ->where('Deleted', 'like', '0')
                     ->orderBy('FirstName', 'desc')
                     ->orderBy('LastName', 'desc')
