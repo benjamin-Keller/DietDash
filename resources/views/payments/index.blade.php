@@ -40,6 +40,7 @@
                                     <th>{{ 'Sub Total' }}</th>
                                     <th>{{ 'Total' }}</th>
                                     <th>{{ 'Date' }}</th>
+                                    <th>{{ 'Edit' }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>

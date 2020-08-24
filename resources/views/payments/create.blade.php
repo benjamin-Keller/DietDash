@@ -23,14 +23,16 @@
                     <h5 class="font-weight-bold">General Information</h5>
                         {!! Form::open(['action' => 'PaymentsController@store', 'method' => 'POST']) !!}
                         @csrf
-                        <div class="form-group">
-                            <div>{{ Form::label('first_name', 'First Name') }} <p style="display: inline; color: red">*</p></div>
-                            {{ Form::text('first_name', '', ['class'=> 'form-control']) }}
+                    <div class="form-group">
+                        <div class="">
+                            <select id='patient_name' name='patient_name' class="form-control">
+                                <option value='null' selected>Select Patient</option>
+                                @foreach ($patient as $key => $value)
+                                    <option value='{{ $key }}'>{{ $value }}</option>
+                                @endforeach
+                            </select>
                         </div>
-                        <div class="form-group">
-                        <div> {{ Form::label('last_name', 'Last Name') }} <p style="display: inline; color: red">*</p></div>
-                            {{ Form::text('last_name', '', ['class'=> 'form-control']) }}
-                        </div>
+                    </div>
                         <div class="form-group">
                         <div> {{ Form::label('amount', 'Amount') }} <p style="display: inline; color: red">*</p></div>
                             {{ Form::text('amount', '', ['class'=> 'form-control']) }}

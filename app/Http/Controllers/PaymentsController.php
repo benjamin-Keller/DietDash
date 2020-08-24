@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use App\Patient;
 use App\Payment;
 use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 use DB;
+use PDF;
 
 class PaymentsController extends Controller
 {
     public function index() {
+
         return view('payments.index');
     }
     function action(Request $request)
@@ -24,11 +28,9 @@ class PaymentsController extends Controller
             {
                 $data = DB::table('payments')
                     ->where('user_id', '=', Auth::id())
-                    ->where('first_name', 'like', '%'.$query.'%')
-                    ->orWhere('last_name', 'like', '%'.$query.'%')
+                    ->orWhere('patient_name', 'like', '%'.$query.'%')
                     ->orWhere('date', 'like', '%'.$query.'%')
-                    ->orderBy('first_name', 'desc')
-                    ->orderBy('last_name', 'desc')
+                    ->orderBy('patient_name', 'desc')
                     ->get();
 
             }
@@ -36,8 +38,7 @@ class PaymentsController extends Controller
             {
                 $data = DB::table('payments')
                     ->where('user_id', '=', Auth::id())
-                    ->orderBy('first_name', 'desc')
-                    ->orderBy('last_name', 'desc')
+                    ->orderBy('patient_name', 'desc')
                     ->get();
             }
             $total_row = $data->count();
@@ -47,11 +48,13 @@ class PaymentsController extends Controller
                 {
                     $output .= '
                         <tr>
-                         <td>'.$row->first_name.' '.$row->last_name.'</td>
+                         <td>'.$row->patient_name.'</td>
                          <td>'.$row->amount.'</td>
                          <td>'.$row->sub_total.'</td>
                          <td>'.$row->total.'</td>
                          <td>'.$row->date.'</td>
+                         <td><a alt="Report" href="'.url('/payments/'.$row->id.'/export').'" style="color: #00b248;"><i class="fas fa-file-pdf"></i></a>
+                            </td>
 ';
                 }
             }
@@ -78,13 +81,22 @@ class PaymentsController extends Controller
             ->get()
             ->pluck('description');
 
-        return view('payments.create', compact('payments'));
+        $patient = DB::table('patients')
+            ->select('id', DB::raw("CONCAT(FirstName, ' ', LastName) AS full_name"))
+            ->where('user_id', '=', Auth::id())
+            ->get()
+            ->sortBy('full_name')
+            ->pluck('full_name', 'id');
+
+        $user = DB::table('user')
+            ->where('id', 'like', Auth::id());
+
+        return view('payments.create', compact('payments', 'patient', 'user'));
     }
 
     public function store(Request $request) {
         $this->validate($request, [
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
+            'patient_name' => '',
             'amount' => 'required|string',
             'sub_total' => '',
             'total' => '',
@@ -96,16 +108,27 @@ class PaymentsController extends Controller
         //Create Payment
         $payment = new Payment();
             $payment->user_id = Auth::id();
-            $payment->first_name = $request->input('first_name');
-            $payment->last_name = $request->input('last_name');
+            $payment->patient_name = $request->get('patient_name');
             $payment->amount = $request->input('amount');
             $payment->sub_total = $request->input('amount');
             $payment->total = $request->input('amount') + $request->input('sub_total');
-            $payment->date = Carbon::now();
+            $payment->date = Carbon::now()->toFormattedDateString();
             $payment->payment_info = $request->input('payment_info');
 
         $payment->save();
 
         return redirect('/payments')->with('success', 'Payment Added.');
+    }
+
+    public function exportPDF($id) {
+        $patientInfo = Patient::find($id);
+
+        $payments = DB::table('payments')
+            ->where('patient_name', 'like', $id)
+            ->first();
+
+        $pdf = PDF::loadView('payments.export', compact('patientInfo','payments'));
+
+        return $pdf->download($patientInfo->LastName.'_'.$patientInfo->FirstName.'-invoice.pdf');
     }
 }
