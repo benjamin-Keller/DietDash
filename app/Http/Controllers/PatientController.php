@@ -31,7 +31,6 @@ class PatientController extends Controller
 
     function action(Request $request)
     {
-        $this->user = User::find(Auth::user()->id);
         if($request->ajax())
         {
             $output = '';
@@ -39,7 +38,7 @@ class PatientController extends Controller
             if($query != '')
             {
                 $data = DB::table('patients')
-                    ->where('user_id', '=', $this->user->id)
+                    ->where('user_id', '=', Auth::user()->id)
                     ->where('Deleted', 'like', '0')
                     ->where('FirstName', 'like', '%'.$query.'%')
                     ->orWhere('LastName', 'like', '%'.$query.'%')
