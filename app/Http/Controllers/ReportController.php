@@ -51,6 +51,7 @@ class ReportController extends Controller
 
         return $pdf->download($patientInfo->LastName.'_'.$patientInfo->FirstName.'-latest_report.pdf');
     }
+
     public function exportFullPDF($id) {
         $patientInfo = Patient::find($id);
         $calc = DB::table('calculators')

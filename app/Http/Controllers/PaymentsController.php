@@ -121,13 +121,12 @@ class PaymentsController extends Controller
     }
 
     public function exportPDF($id) {
-        $patientInfo = Patient::find($id);
+        $payments = Payment::find($id);
 
-        $payments = DB::table('payments')
-            ->where('patient_name', 'like', $id)
-            ->first();
+        $patientInfo = Patient::find($payments->patient_name);
 
-        $pdf = PDF::loadView('payments.export', compact('patientInfo','payments'));
+
+        $pdf = PDF::loadView('payments.export', compact( 'patientInfo','payments'));
 
         return $pdf->download($patientInfo->LastName.'_'.$patientInfo->FirstName.'-invoice.pdf');
     }

@@ -17,4 +17,9 @@ class Payments extends Model
         'total',
         'date',
     ];
+
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+    }
 }

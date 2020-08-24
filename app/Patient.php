@@ -30,5 +30,8 @@ class Patient extends Model
     public function calculator() {
         return $this->hasOne(Calculator::class);
     }
+    public function payments() {
+        return $this->hasMany(Booking::class);
+    }
 
 }

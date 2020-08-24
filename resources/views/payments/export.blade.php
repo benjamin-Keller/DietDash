@@ -13,7 +13,7 @@
     <h1>INVOICE #{{ $payments->id }}</h1>
     <div style="float: right" >
         <div>DietDash</div>
-        <div>{{ \Illuminate\Support\Facades\Auth::user()->name }}</div>
+    <div>{{ \Illuminate\Support\Facades\Auth::user()->name }}</div>
         <div>{{ \Illuminate\Support\Facades\Auth::user()->email }}</div>
     </div>
     <div id="project">
