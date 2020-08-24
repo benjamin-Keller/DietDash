@@ -41,8 +41,6 @@ class PatientController extends Controller
                     ->where([
                         ['user_id', '=', Auth::user()->id],
                         ['Deleted', 'like', '0'],
-                    ])
-                    ->where([
                         ['FirstName', 'like', '%'.$query.'%'],
                         ['LastName', 'like', '%'.$query.'%'],
                         ['Gender', 'like', '%'.$query.'%'],
