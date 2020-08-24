@@ -111,8 +111,6 @@ class PatientController extends Controller
             'IdNumber' => 'required|unique:patients,IdNumber',
             'PhoneNumber' => '',
             'Email' => 'email',
-            'MedicalAid' => '',
-            'PaymentInfo' => '',
             'Deleted' => '',
         ]);
 
@@ -126,8 +124,6 @@ class PatientController extends Controller
             $patient->IdNumber = $request->input('IdNumber');
             $patient->PhoneNumber = $request->input('PhoneNumber');
             $patient->Email = $request->input('Email');
-            $patient->MedicalAid = $request->input('MedicalAid');
-            $patient->PaymentInfo = $request->input('PaymentInfo');
             $patient->Deleted = '0';
         $patient->save();
 
@@ -156,8 +152,6 @@ class PatientController extends Controller
             'LastName' => 'required|string',
             'PhoneNumber' => '',
             'Email' => '',
-            'MedicalAid' => '',
-            'PaymentInfo' => '',
             'Deleted' => '',
         ]);
 
@@ -167,8 +161,6 @@ class PatientController extends Controller
             $patient->LastName = $request->get('LastName');
             $patient->PhoneNumber = $request->get('PhoneNumber');
             $patient->Email = $request->get('Email');
-            $patient->MedicalAid = $request->get('MedicalAid');
-            $patient->PaymentInfo = $request->get('PaymentInfo');
             $patient->Deleted = '0';
         $patient->save();
 
