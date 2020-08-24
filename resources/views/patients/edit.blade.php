@@ -18,7 +18,7 @@
 
                     <h4>Edit Patient Record</h4>
 
-                    <form method="post" action="{{action('PatientController@update', $id)}}">
+                    <form method="post" action="{{action('PatientController@update', $id)}}" autocomplete="off">
                         @csrf
                         <input type="hidden" name="_method" value="PATCH" />
                         <div class="form-group">
@@ -40,22 +40,6 @@
                         <div class="form-group">
                             {{ __('Email Address:') }}
                             <input type="text" class="form-control" name="Email" value="{{$patient->Email}}" placeholder="Enter Email">
-                        </div>
-                        <hr />
-                        <div class="form-group">
-                            {{ __('Medical Aid:') }}
-                            <input type="text" class="form-control" name="MedicalAid" value="{{$patient->MedicalAid}}" placeholder="Enter Medical Aid Info">
-                        </div>
-                        <div class="form-group">
-                            {{ __('Payment Info:') }}
-                            <div class="">
-                                <select id='PaymentInfo' name='PaymentInfo' class="form-control">
-                                    <option value='null' selected>Select Payment Type</option>
-                                    @foreach ($payments as $key => $value)
-                                        <option value='{{ $value }}'>{{ $value }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Edit">

@@ -20,7 +20,7 @@
                                 <a href="{{ route('payments.create') }}" class="btn btn-primary btn-m ml-2" style="text-decoration: none; color: white;">Add Payment</a>
                             </div>
                             <div class="float-right">
-                                <input class="form-control" type="text" id="search" placeholder="Search">
+                                <input class="form-control" type="text" id="search" placeholder="Search" autocomplete="off">
                             </div>
                         </div>
                     </div>

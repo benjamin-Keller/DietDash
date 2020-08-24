@@ -9,4 +9,7 @@ class Payment extends Model
     protected $fillable = [
         'description',
     ];
+    /**
+     * @var mixed
+     */
 }

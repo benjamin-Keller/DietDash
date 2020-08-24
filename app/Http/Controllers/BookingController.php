@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Patient;
 use Carbon\Carbon;
 use App\Booking;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Connection;
 use Illuminate\Support\Facades\DB;
 
 class BookingController extends Controller
@@ -53,6 +51,7 @@ class BookingController extends Controller
 
         $patient = DB::table('patients')
             ->select('id', DB::raw("CONCAT(FirstName, ' ', LastName) AS full_name"))
+            ->where('user_id', 'like', Auth::id())
             ->get()
             ->sortBy('full_name')
             ->pluck('full_name', 'id');

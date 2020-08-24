@@ -21,7 +21,7 @@
 
                     <hr />
                     <h5 class="font-weight-bold">General Information</h5>
-                        {!! Form::open(['action' => 'PatientController@store', 'method' => 'POST']) !!}
+                        {!! Form::open(['action' => 'PatientController@store', 'method' => 'POST', 'autocomplete' => 'off']) !!}
                         @csrf
                         <div class="form-group">
                             <div>{{ Form::label('FirstName', 'First Name') }} <p style="display: inline; color: red">*</p></div>
@@ -49,21 +49,6 @@
                         {{ Form::text('Email', '', ['class'=> 'form-control']) }}
                     </div>
                     <hr />
-                    <h5 class="font-weight-bold">Financial Information</h5>
-
-                    <div class="form-group">
-                        {{ Form::label('MedicalAid', 'Medical Aid Number') }}
-                        {{ Form::text('MedicalAid', '', ['class'=> 'form-control']) }}
-                    </div>
-                    {{ Form::label('PaymentInfo', 'Payment Info') }}
-                    <div class="">
-                        <select id='PaymentInfo' name='PaymentInfo' class="form-control">
-                            <option value='null' selected>Select Payment Type</option>
-                            @foreach ($payments as $key => $value)
-                                <option value='{{ $value }}'>{{ $value }}</option>
-                            @endforeach
-                        </select>
-                    </div>
                     <br />
 
                         {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}

@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="card-body container-fluid">
-                    {{ Form::open(array('route' => 'bookings.add', 'method'=> 'POST', 'files' => 'true')) }}
+                    {{ Form::open(array('route' => 'bookings.add', 'method'=> 'POST', 'files' => 'true', 'autocomplete' => 'off')) }}
                     {{Form::token()}}
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12">

@@ -23,8 +23,6 @@ class CreatePatientsTable extends Migration
             $table->string('IdNumber')->unique();
             $table->string('PhoneNumber')->nullable();
             $table->string('Email')->nullable();
-            $table->string('MedicalAid')->nullable();
-            $table->string('PaymentInfo')->nullable();
 
             $table->boolean('Deleted');
             $table->timestamps();

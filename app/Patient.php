@@ -14,8 +14,6 @@ class Patient extends Model
         'IdNumber',
         'PhoneNumber',
         'Email',
-        'MedicalAid',
-        'PaymentInfo',
         'Deleted'
     ];
 

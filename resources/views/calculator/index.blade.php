@@ -24,7 +24,7 @@
 
                         {{ __('Fill in the following to calculate:') }}
 
-                        {!! Form::open(['action' => 'CalculatorController@store', 'method' => 'POST']) !!}
+                        {!! Form::open(['action' => 'CalculatorController@store', 'method' => 'POST', 'autocomplete' => 'off']) !!}
 
                             <div class="form-group">
                                 <div class="">

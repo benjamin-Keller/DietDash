@@ -76,7 +76,7 @@
                                         </div>
                                         <div class="col-sm">
                                             <div class="float-right">
-                                                <input class="form-control" type="text" id="search" placeholder="Search">
+                                                <input class="form-control" type="text" id="search" placeholder="Search" autocomplete="off">
                                             </div>
                                         </div>
                                     </div>

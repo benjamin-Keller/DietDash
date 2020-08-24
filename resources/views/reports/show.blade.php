@@ -42,16 +42,6 @@
                             <label>Email</label>
                             <input type="text" class="form-control" name="Email" value="{{$patient->Email}}" readonly>
                         </div>
-                    <hr />
-                    <h4>Financial Information</h4>
-                        <div class="form-group">
-                            <label>Medical Aid</label>
-                            <input type="text" class="form-control" name="MedicalAid" value="{{$patient->MedicalAid}}" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>Payment Info</label>
-                            <input type="text" class="form-control" name="PaymentInfo" value="{{$patient->PaymentInfo}}" readonly>
-                        </div>
                 </div>
 
                 {{--<table class="table table-striped">

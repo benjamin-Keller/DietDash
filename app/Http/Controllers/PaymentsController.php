@@ -128,6 +128,6 @@ class PaymentsController extends Controller
 
         $pdf = PDF::loadView('payments.export', compact( 'patientInfo','payments'));
 
-        return $pdf->download($patientInfo->LastName.'_'.$patientInfo->FirstName.'-invoice.pdf');
+        return $pdf->download($patientInfo->LastName.'_'.$patientInfo->FirstName.'-invoice.pdf')->with('success', 'PDF printed.');
     }
 }

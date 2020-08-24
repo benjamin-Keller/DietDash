@@ -21,14 +21,14 @@
 
                     <hr />
                     <h5 class="font-weight-bold">General Information</h5>
-                        {!! Form::open(['action' => 'PaymentsController@store', 'method' => 'POST']) !!}
+                        {!! Form::open(['action' => 'PaymentsController@store', 'method' => 'POST', 'autocomplete' => 'off']) !!}
                         @csrf
                     <div class="form-group">
                         <div class="">
                             <select id='patient_name' name='patient_name' class="form-control">
                                 <option value='null' selected>Select Patient</option>
                                 @foreach ($patient as $key => $value)
-                                    <option value='{{ $key }}'>{{ $value }}</option>
+                                    <option value='{{ $value }}'>{{ $value }}</option>
                                 @endforeach
                             </select>
                         </div>
