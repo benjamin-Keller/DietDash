@@ -38,24 +38,32 @@ class PatientController extends Controller
             if($query != '')
             {
                 $data = DB::table('patients')
-                    ->where('Deleted', 'like', '0')
-                    ->where('FirstName', 'like', '%'.$query.'%')
-                    ->orWhere('LastName', 'like', '%'.$query.'%')
-                    ->orWhere('Gender', 'like', '%'.$query.'%')
-                    ->orWhere('IdNumber', 'like', '%'.$query.'%')
-                    ->orWhere('PhoneNumber', 'like', '%'.$query.'%')
-                    ->orWhere('Email', 'like', '%'.$query.'%')
+                    ->where([
+                        ['user_id', '=', Auth::user()->id],
+                        ['Deleted', 'like', '0'],
+                    ])
+                    ->where([
+                        ['FirstName', 'like', '%'.$query.'%'],
+                        ['LastName', 'like', '%'.$query.'%'],
+                        ['Gender', 'like', '%'.$query.'%'],
+                        ['IdNumber', 'like', '%'.$query.'%'],
+                        ['PhoneNumber', 'like', '%'.$query.'%'],
+                        ['Email', 'like', '%'.$query.'%'],
+                        ['IdNumber', 'like', '%'.$query.'%'],
+                        ['IdNumber', 'like', '%'.$query.'%'],
+                    ])
                     ->orderBy('FirstName', 'desc')
                     ->orderBy('LastName', 'desc')
-                    ->having('user_id', '=', Auth::user()->id)
                     ->get();
 
             }
             else
             {
                 $data = DB::table('patients')
-                    ->where()
-                    ->where('Deleted', 'like', '0')
+                    ->where([
+                        ['user_id', '=', Auth::user()->id],
+                        ['Deleted', 'like', '0'],
+                    ])
                     ->orderBy('FirstName', 'desc')
                     ->orderBy('LastName', 'desc')
                     ->having('user_id', '=', Auth::user()->id)
