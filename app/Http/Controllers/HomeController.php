@@ -33,7 +33,7 @@ class HomeController extends Controller
             if($query != '')
             {
                 $data = DB::table('patients')
-                    ->where('user_id', '=', Auth::id())
+                    ->where('user_id', 'like', Auth::id())
                     ->where('Deleted', 'like', '0')
                     ->where('FirstName', 'like', '%'.$query.'%')
                     ->orWhere('LastName', 'like', '%'.$query.'%')
