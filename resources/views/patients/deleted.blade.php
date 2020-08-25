@@ -30,55 +30,42 @@
                     @include('inc.messages')
 
                     <!-- Patient table -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>{{ 'First Name' }}</th>
-                                    <th>{{ 'Last Name' }}</th>
-                                    <th>{{ 'ID Number' }}</th>
-                                    <th>{{ 'Phone Number' }}</th>
-                                    <th>{{ 'Email Address' }}</th>
-                                    <th>{{ 'Edit' }}</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-bordered table-striped" id="patients">
+                                    <thead>
+                                    <tr>
+                                        <th>{{ 'First Name' }}</th>
+                                        <th>{{ 'Last Name' }}</th>
+                                        <th>{{ 'Gender' }}</th>
+                                        <th>{{ 'ID Number' }}</th>
+                                        <th>{{ 'Phone Number' }}</th>
+                                        <th>{{ 'Email Address' }}</th>
+                                        <th>{{ 'Edit' }}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($patients as $row)
+                                        <tr>
+                                            <td>{{$row->FirstName}}</td>
+                                            <td>{{$row->LastName}}</td>
+                                            <td>{{$row->Gender}}</td>
+                                            <td>{{$row->IdNumber}}</td>
+                                            <td>{{$row->PhoneNumber}}</td>
+                                            <td>{{$row->Email}}</td>
+                                            <td><a alt="Delete" href="{{ url('/patients/restore/'.$row->id) }}" style="color: #ff1744;"><i class="fas fa-trash-restore"></i></a></td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
 
-                                </tbody>
-                            </table>
-
+                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function(){
 
-        fetch_customer_data();
-
-        function fetch_customer_data(query = '')
-        {
-            $.ajax({
-                url:"{{ route('patients.deletedAction') }}",
-                method:'GET',
-                data:{query:query},
-                dataType:'json',
-                success:function(data)
-                {
-                    $('tbody').html(data.table_data);
-                }
-            })
-        }
-
-        $(document).on('keyup', '#search', function(){
-            var query = $(this).val();
-            fetch_customer_data(query);
-        });
-    });
-</script>
 @endsection
 

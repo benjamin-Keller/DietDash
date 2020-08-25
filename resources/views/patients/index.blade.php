@@ -23,9 +23,6 @@
                                 <a href="{{ route('patients.create') }}" class="btn btn-primary btn-m ml-2" style="text-decoration: none; color: white;">Add Patient</a>
                                 <a href="{{ route('patients.deleted') }}" class="btn btn-danger btn-m " style="text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></a>
                             </div>
-                            <div class="float-right">
-                                <input class="form-control" type="text" id="search" placeholder="Search" autocomplete="off">
-                            </div>
                         </div>
                     </div>
                 </div>

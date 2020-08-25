@@ -38,7 +38,7 @@ class BookingController extends Controller
             ->where('active', '=', '1')
             ->toArray();
 
-        return view('home', ['userCount' => $userCount, 'today' => $today, 'upcoming' => $upcoming, 'bookings' => $bookings, 'patients' => Patient::all()->where('user_id', Auth::user()->id)->all(),]);
+        return view('home', ['userCount' => $userCount, 'today' => $today, 'upcoming' => $upcoming, 'bookings' => $bookings, 'patients' => Patient::all()->where('user_id', Auth::user()->id)->where('Deleted', 'like', '0')->all(),]);
     }
 
     //Views

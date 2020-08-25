@@ -6,6 +6,8 @@
     position: relative;
     top: 0px;
     left: -15px;
+    text-decoration: none;
+
 }
 .topbar-color {
     background-color: #400040;
@@ -15,7 +17,6 @@
 .color-white {
     color: #FFFFFF;
     text-decoration-color: white;
-
 }
 
 .sidebar img {
@@ -26,20 +27,24 @@
     color: white;
     margin-top: 10px;
 }
- /*.item-container {
-
-}*/
+.a-none {
+    color: #FFFFFF;
+    text-decoration: none;
+}
 
 .menu-item {
     width: 200px;
     padding: 10px 0 10px 10px;
     transition: background-color .5s;
     cursor: pointer;
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 .menu-item:hover {
     background-color: lightgray;
     color: black;
+
 }
 .item-container a {
     text-decoration: none;

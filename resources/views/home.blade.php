@@ -80,12 +80,13 @@
                                         </div>
                                         <div class="col-sm">
                                             <div class="float-right">
-                                                <input class="form-control" type="text" id="search" placeholder="Search" autocomplete="off">
+                                                <a href="{{ route('patients.create') }}" class="btn btn-primary btn-m ml-2" style="text-decoration: none; color: white;">Add Patient</a>
+                                                <a href="{{ route('patients.deleted') }}" class="btn btn-danger btn-m " style="text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                    <div class="pl-5 pr-5 pt-3">
+                                    <div class="pl-5 pr-5 pt-3 pb-3">
                                         @include('inc.messages')
 
                                         <table class="table table-bordered table-striped w-100
@@ -132,6 +133,11 @@
                                     <div class="row align-middle">
                                         <div class="col-sm">
                                             <h3 class="float-left">{{ __('Bookings') }}</h3>
+                                        </div>
+                                        <div class="col-sm">
+                                            <div class="float-right">
+                                                <a href="{{ url('/bookings') }}" class="btn btn-primary btn-m ml-2" style="text-decoration: none; color: white;">Add Booking</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
