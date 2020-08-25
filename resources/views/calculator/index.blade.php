@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
+        <div class="col-md-12 pb-5">
+            <div class="card ">
                 <div class="card-header container-fluid">
                     <div class="row align-middle">
                         <div class="col-sm">

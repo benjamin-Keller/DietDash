@@ -30,9 +30,10 @@
         crossorigin="anonymous"></script>
 
     <!-- Bootstrap 4 created by the Bootstrap team. Available from https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 
 
     <!-- DataTables designed and created by SpryMedia Ltd. Available from https://datatables.net/ -->
@@ -49,7 +50,7 @@
 <div id="app">
     <nav class="navbar navbar-expand-md color-white topbar-color shadow-sm">
         <div class="container color-white">
-            <a class="navbar-brand color-white" href="{{ url('/') }}">
+            <a class="navbar-brand color-white a-none" href="{{ url('/') }}">
                 {{ 'DietDash' }}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -74,7 +75,7 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle color-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle color-white a-none" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
@@ -105,28 +106,28 @@
                 <h5>{{ Auth::user()->name }}</h5>
             </div>
             <div class="item-container">
-                <a href="{{ route('home') }}">
+                <a href="{{ route('home') }}" class="a-none">
                     <h6 class="menu-item"><i class="fas fa-tachometer-alt"></i> Dashboard</h6>
                 </a>
-                <a href="{{ route('patients.index') }}">
+                <a href="{{ route('patients.index') }}" class="a-none">
                     <h6 class="menu-item"><i class="fas fa-users"></i> Patients</h6>
                 </a>
-                <a href="{{ route('calculator.index') }}">
+                <a href="{{ route('calculator.index') }}" class="a-none">
                     <h6 class="menu-item"><i class="fas fa-calculator"></i> Calculations</h6>
                 </a>
-                <a href="{{ route('bookings.index') }}">
+                <a href="{{ route('bookings.index') }}" class="a-none">
                     <h6 class="menu-item"><i class="fas fa-calendar-alt"></i> Bookings</h6>
                 </a>
-                <a href="{{ route('payments.index') }}">
+                <a href="{{ route('payments.index') }}" class="a-none">
                     <h6 class="menu-item"><i class="fas fa-credit-card"></i> Payments</h6>
                 </a>
                 <hr />
-                <a href="{{ route('help.index') }}">
+                <a href="{{ route('help.index') }}" class="a-none">
                     <h6 class="menu-item"><i class="fa fa-info-circle" aria-hidden="true"></i> Help</h6>
                 </a>
                 <a href="{{ route('logout') }}"
                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
+                    document.getElementById('logout-form').submit();" class="a-none">
                     <h6 class="menu-item"><i class="fa fa-sign-out"></i> {{ __('Logout') }}</h6>
                 </a>
             </div>

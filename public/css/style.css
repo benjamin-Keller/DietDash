@@ -1,13 +1,13 @@
+
 .sidebar{
     width: 200px;
-    background-color: #400040;
+    background: #400040;
     padding: 20px 0 0 0;
-    height: 100vh;
     position: relative;
+    height: 100vmax;
     top: 0px;
     left: -15px;
     text-decoration: none;
-
 }
 .topbar-color {
     background-color: #400040;
@@ -31,6 +31,11 @@
     color: #FFFFFF;
     text-decoration: none;
 }
+.a-none:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+    text-decoration-color: #ffffff;
+}
 
 .menu-item {
     width: 200px;
@@ -42,10 +47,11 @@
 }
 
 .menu-item:hover {
-    background-color: lightgray;
-    color: black;
-
+    background-color: #800080;
+    color: white;
+    font-weight: bold;
 }
+
 .item-container a {
     text-decoration: none;
     color: white;
