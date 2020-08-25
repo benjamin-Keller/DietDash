@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Patient;
 use App\Payment;
+use App\Payments;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class PaymentsController extends Controller
 {
     public function index() {
 
-        return view('payments.index');
+        return view('payments.index', ['payments' => Payments::all()->where('user_id', Auth::user()->id)->all(), ]);
     }
     function action(Request $request)
     {

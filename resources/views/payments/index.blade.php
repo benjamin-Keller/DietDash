@@ -4,6 +4,9 @@
 
 @endsection
 
+@section('scripts')
+    $(document).ready(function(){ $('#payments').DataTable(); });
+@endsection
 
 @section('content')
 <div class="container">
@@ -32,7 +35,7 @@
                     <!-- Patient table -->
                     <div class="row">
                         <div class="col-md-12">
-                            <table class="table table-bordered table-striped">
+                            <table class="table table-bordered table-striped" id="payments">
                                 <thead>
                                 <tr>
                                     <th>{{ 'Full Name' }}</th>
@@ -44,7 +47,16 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
+                                    @foreach($payments as $row)
+                                        <tr>
+                                            <td>{{$row->patient_name}}</td>
+                                            <td>{{$row->amount}}</td>
+                                            <td>{{$row->sub_total}}</td>
+                                            <td>{{$row->total}}</td>
+                                            <td>{{$row->date}}</td>
+                                            <td><a alt="Report" href="{{url('/payments/'.$row->id.'/export')}}" style="color: #00b248;"><i class="fas fa-file-pdf"></i></a></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -54,30 +66,5 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function(){
-
-        fetch_payments_data();
-
-        function fetch_payments_data(query = '')
-        {
-            $.ajax({
-                url:"{{ route('payments.action') }}",
-                method:'GET',
-                data:{query:query},
-                dataType:'json',
-                success:function(data)
-                {
-                    $('tbody').html(data.table_data);
-                }
-            })
-        }
-
-        $(document).on('keyup', '#search', function(){
-            var query = $(this).val();
-            fetch_payments_data(query);
-        });
-    });
-</script>
 @endsection
 
