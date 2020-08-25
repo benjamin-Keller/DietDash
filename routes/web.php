@@ -21,7 +21,6 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::post('/', 'WelcomeController@index')->name('welcome');
 
-
 Auth::routes();
 
 //Home
