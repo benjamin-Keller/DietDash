@@ -26,7 +26,8 @@ class PatientController extends Controller
 
     public function index()
     {
-        return view('patients.index');
+
+        return view('patients.index', ['patients' => Patient::all(),]);
     }
 
     function action(Request $request)
@@ -39,12 +40,14 @@ class PatientController extends Controller
             {
                 $data = Auth::user()->patients()
                     ->where('Deleted', 'like', '0')
-                    ->where('FirstName', 'like', '%'.$query.'%')
-                    ->orWhere('LastName', 'like', '%'.$query.'%')
-                    ->orWhere('Gender', 'like', '%'.$query.'%')
-                    ->orWhere('IdNumber', 'like', '%'.$query.'%')
-                    ->orWhere('PhoneNumber', 'like', '%'.$query.'%')
-                    ->orWhere('Email', 'like', '%'.$query.'%')
+                    ->where(function($query) {
+                        $query->where('FirstName', 'like', '%' . $query . '%')
+                            ->orWhere('LastName', 'like', '%' . $query . '%')
+                            ->orWhere('Gender', 'like', '%' . $query . '%')
+                            ->orWhere('IdNumber', 'like', '%' . $query . '%')
+                            ->orWhere('PhoneNumber', 'like', '%' . $query . '%')
+                            ->orWhere('Email', 'like', '%' . $query . '%');
+                    })
                     ->orderBy('FirstName', 'desc')
                     ->orderBy('LastName', 'desc')
                     ->get();

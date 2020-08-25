@@ -4,6 +4,9 @@
 
 @endsection
 
+@section('scripts')
+    $(document).ready(function(){ $('#patients').DataTable(); });
+@endsection
 
 @section('content')
 <div class="container">
@@ -33,7 +36,7 @@
                     <!-- Patient table -->
                     <div class="row">
                         <div class="col-md-12">
-                            <table class="table table-bordered table-striped">
+                            <table class="table table-bordered table-striped" id="patients">
                                 <thead>
                                 <tr>
                                     <th>{{ 'First Name' }}</th>
@@ -46,7 +49,19 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
+                                @foreach($patients as $row)
+                                    <tr>
+                                        <td>{{$row->FirstName}}</td>
+                                        <td>{{$row->LastName}}</td>
+                                        <td>{{$row->Gender}}</td>
+                                        <td>{{$row->IdNumber}}</td>
+                                        <td>{{$row->PhoneNumber}}</td>
+                                        <td>{{$row->Email}}</td>
+                                        <td><a alt="Edit" href="{{url('/patients/edit/'.$row->id)}}"><i class="far fa-edit"></i></a>
+                                            <a alt="Report" href="{{url('/reports/'.$row->id)}}" style="color: #00b248;"><i class="fas fa-book"></i></a>
+                                            <a alt="Delete" href="{{url('/patients/delete/'.$row->id)}}" style="color: #ff1744;"><i class="far fa-trash-alt"></i></a></td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
 
@@ -57,30 +72,5 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function(){
-
-        fetch_customer_data();
-
-        function fetch_customer_data(query = '')
-        {
-            $.ajax({
-                url:"{{ route('patients.action') }}",
-                method:'GET',
-                data:{query:query},
-                dataType:'json',
-                success:function(data)
-                {
-                    $('tbody').html(data.table_data);
-                }
-            })
-        }
-
-        $(document).on('keyup', '#search', function(){
-            var query = $(this).val();
-            fetch_customer_data(query);
-        });
-    });
-</script>
 @endsection
 
