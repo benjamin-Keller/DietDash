@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Patient;
 use Carbon\Carbon;
 use App\Booking;
 use App\User;
@@ -37,7 +38,7 @@ class BookingController extends Controller
             ->where('active', '=', '1')
             ->toArray();
 
-        return view('home', ['userCount' => $userCount, 'today' => $today, 'upcoming' => $upcoming, 'bookings' => $bookings]);
+        return view('home', ['userCount' => $userCount, 'today' => $today, 'upcoming' => $upcoming, 'bookings' => $bookings, 'patients' => Patient::all()->where('user_id', Auth::user()->id)->all(),]);
     }
 
     //Views

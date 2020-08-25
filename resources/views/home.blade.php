@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('scripts')
+    $(document).ready(function(){ $('#patients').DataTable();  });
+@endsection
+
 @section('content')
     <div class="container">
         <!-- header -->
@@ -17,7 +21,7 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary mb-1">Total Patients</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $patients = Auth::user()->patients->where('Deleted','=','0')->count() }}</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ Auth::user()->patients->where('Deleted','=','0')->count() }}</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-users fa-2x text-gray-300 text-primary"></i>
@@ -87,7 +91,7 @@
                                         <table class="table table-bordered table-striped w-100
                                         table-responsive-sm
                                         table-responsive-md
-                                        table-responsive-lg">
+                                        table-responsive-lg" id="patients">
                                             <thead>
                                             <tr>
                                                 <th>{{ 'First Name' }}</th>
@@ -100,7 +104,19 @@
                                             </tr>
                                             </thead>
                                             <tbody id="patient">
-
+                                            @foreach($patients as $row)
+                                                <tr>
+                                                    <td>{{$row->FirstName}}</td>
+                                                    <td>{{$row->LastName}}</td>
+                                                    <td>{{$row->Gender}}</td>
+                                                    <td>{{$row->IdNumber}}</td>
+                                                    <td>{{$row->PhoneNumber}}</td>
+                                                    <td>{{$row->Email}}</td>
+                                                    <td><a alt="Edit" href="{{url('/patients/edit/'.$row->id)}}"><i class="far fa-edit"></i></a>
+                                                        <a alt="Report" href="{{url('/reports/'.$row->id)}}" style="color: #00b248;"><i class="fas fa-book"></i></a>
+                                                        <a alt="Delete" href="{{url('/patients/delete/'.$row->id)}}" style="color: #ff1744;"><i class="far fa-trash-alt"></i></a></td>
+                                                </tr>
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -122,7 +138,7 @@
                                 <div class="pl-5 pr-5 pt-3">
                                     @include('inc.messages')
 
-                                    <table class="table table-bordered table-striped">
+                                    <table class="table table-bordered table-striped" id="bookings">
                                         <tr>
                                             <th>{{ 'Booking Name' }}</th>
                                             <th>{{ 'Description' }}</th>
@@ -152,30 +168,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        $(document).ready(function(){
-
-            fetch_customer_data();
-
-            function fetch_customer_data(query = '')
-            {
-                $.ajax({
-                    url:"{{ route('patients.action') }}",
-                    method:'GET',
-                    data:{query:query},
-                    dataType:'json',
-                    success:function(data)
-                    {
-                        $('#patient').html(data.table_data);
-                    }
-                })
-            }
-
-            $(document).on('keyup', '#search', function(){
-                var query = $(this).val();
-                fetch_customer_data(query);
-            });
-        });
-    </script>
 @endsection

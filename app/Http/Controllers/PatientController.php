@@ -27,7 +27,7 @@ class PatientController extends Controller
     public function index()
     {
 
-        return view('patients.index', ['patients' => Auth::user()->patients(),]);
+        return view('patients.index', ['patients' => Patient::all()->where('user_id', Auth::user()->id)->all(),]);
     }
 
     function action(Request $request)
