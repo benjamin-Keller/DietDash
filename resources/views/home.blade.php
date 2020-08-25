@@ -89,7 +89,7 @@
                                     <div class="pl-5 pr-5 pt-3 pb-3">
                                         @include('inc.messages')
 
-                                        <table class="table table-bordered table-striped w-100
+                                        <table class="table table-bordered table-striped
                                         table-responsive-sm
                                         table-responsive-md
                                         table-responsive-lg" id="patients">
@@ -144,7 +144,10 @@
                                 <div class="pl-5 pr-5 pt-3">
                                     @include('inc.messages')
 
-                                    <table class="table table-bordered table-striped" id="bookings">
+                                    <table class="table table-bordered table-striped
+                                        table-responsive-sm
+                                        table-responsive-md
+                                        table-responsive-lg" id="bookings">
                                         <tr>
                                             <th>{{ 'Booking Name' }}</th>
                                             <th>{{ 'Description' }}</th>

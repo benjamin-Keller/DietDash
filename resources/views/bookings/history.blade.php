@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('scripts')
+    $(document).ready(function(){ $('#history').DataTable(); });
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -22,16 +26,22 @@
 
             </div>
 
-            <!-- Patient table -->
-            <div class="row">
+            <!-- Booking History table -->
+            <div class="row pt-3">
                 <div class="col-md-12">
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped
+                                table-responsive-sm
+                                table-responsive-md
+                                table-responsive-lg" id="history">
+                        <thead>
                         <tr>
                             <th>{{ 'Booking Name' }}</th>
                             <th>{{ 'Description' }}</th>
                             <th>{{ 'Date' }}</th>
                             <th>{{ 'Time' }}</th>
                         </tr>
+                        </thead>
+                        <tbody>
                         @foreach($all as $row)
                             <tr>
                                 <td>{{ $row['event_name'] }}</td>
@@ -40,7 +50,9 @@
                                 <td>{{ $row['time'] }}</td>
                             </tr>
                         @endforeach
+                        </tbody>
                     </table>
+
                 </div>
             </div>
 

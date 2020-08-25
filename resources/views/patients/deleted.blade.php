@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('header')
-
+@section('scripts')
+    $(document).ready(function(){ $('#patients').DataTable(); });
 @endsection
 
 
@@ -32,7 +32,10 @@
                     <!-- Patient table -->
                         <div class="row">
                             <div class="col-md-12">
-                                <table class="table table-bordered table-striped" id="patients">
+                                <table class="table table-bordered table-striped
+                                    table-responsive-sm
+                                    table-responsive-md
+                                    table-responsive-lg" id="patients">
                                     <thead>
                                     <tr>
                                         <th>{{ 'First Name' }}</th>

@@ -32,7 +32,10 @@
                     <!-- Patient table -->
                     <div class="row">
                         <div class="col-md-12">
-                            <table class="table table-bordered table-striped" id="payments">
+                            <table class="table table-bordered table-striped
+                                table-responsive-sm
+                                table-responsive-md
+                                table-responsive-lg" id="payments">
                                 <thead>
                                 <tr>
                                     <th>{{ 'Full Name' }}</th>
