@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'auth'], function() {
+    // For Usage, see https://github.com/KieranGateley/awp-2-KieranGateley/blob/master/routes/web.php
+    // All routes inside this function will require the user to be logged in
+    // Can work for any middleware
+});
 
 //Welcome
 Route::get('/', 'WelcomeController@index')->name('welcome');
