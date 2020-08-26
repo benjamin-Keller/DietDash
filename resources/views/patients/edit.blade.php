@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -42,7 +42,7 @@
                             <input type="text" class="form-control" name="Email" value="{{$patient->Email}}" placeholder="Enter Email">
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary" value="Edit">
+                            <input type="submit" class="btn btn-purple" value="Edit">
                         </div>
 
                     </form>

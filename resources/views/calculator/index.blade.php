@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -224,7 +224,7 @@
                         </div>
 
                         <hr />
-                        {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
+                        {{ Form::submit('Submit', ['class' => 'btn btn-purple']) }}
                         {!! Form::close() !!}
                 </div>
             </div>

@@ -1,16 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('scripts')
     $(document).ready(function(){ $('#patients').DataTable();  });
 @endsection
 
+@section('header')
+    Dashboard
+@endsection
+
 @section('content')
     <div class="container">
-        <!-- header -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-
-        </div>
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -80,8 +79,8 @@
                                         </div>
                                         <div class="col-sm">
                                             <div class="float-right">
-                                                <a href="{{ route('patients.create') }}" class="btn btn-primary btn-m ml-2" style="text-decoration: none; color: white;">Add Patient</a>
-                                                <a href="{{ route('patients.deleted') }}" class="btn btn-danger btn-m " style="text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></a>
+                                                <a href="{{ route('patients.create') }}" class="btn btn-purple btn-m ml-2" style="text-decoration: none; color: white;">Add Patient</a>
+                                                <a href="{{ route('patients.deleted') }}" class="btn btn-m " style="background-color: #be0000; text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -136,7 +135,7 @@
                                         </div>
                                         <div class="col-sm">
                                             <div class="float-right">
-                                                <a href="{{ url('/bookings') }}" class="btn btn-primary btn-m ml-2" style="text-decoration: none; color: white;">Add Booking</a>
+                                                <a href="{{ url('/bookings') }}" class="btn btn-purple btn-m ml-2" style="text-decoration: none; color: white;">Add Booking</a>
                                             </div>
                                         </div>
                                     </div>
@@ -171,10 +170,13 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('sidebar')
+    <h5>Dashboard</h5>
+    <p>The dashboard is an overview of all your daily information.</p>
 @endsection

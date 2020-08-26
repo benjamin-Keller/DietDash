@@ -1,8 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 
 @section('scripts')
-    $(document).ready(function(){ $('#patients').DataTable(); });
+    $(document).ready(function(){ $('#patients').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        });
+    });
+
+
 @endsection
 
 @section('content')
@@ -17,7 +27,7 @@
                         </div>
                         <div class="col-sm">
                             <div class="float-right">
-                                <a href="{{ route('patients.create') }}" class="btn btn-primary btn-m ml-2" style="text-decoration: none; color: white;">Add Patient</a>
+                                <a href="{{ route('patients.create') }}" class="btn btn-purple btn-m ml-2" style="text-decoration: none; color: white;">Add Patient</a>
                                 <a href="{{ route('patients.deleted') }}" class="btn btn-danger btn-m " style="text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></a>
                             </div>
                         </div>
@@ -33,7 +43,7 @@
                             <table class="table table-bordered table-striped
                                 table-responsive-sm
                                 table-responsive-md
-                                table-responsive-lg" id="patients">
+                                table-responsive-lg " id="patients">
                                 <thead>
                                 <tr>
                                     <th>{{ 'First Name' }}</th>
@@ -69,5 +79,20 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('sidebar')
+    <h5>Patients</h5>
+    <hr />
+    <h6>Adding</h6>
+    <p>To add a Patient, go to the Patients page and click the Add button. After filling in the required information, click the Submit button.
+        <br />The Patient is now added and will be shown on the Patients page and on the Dashboard.</p>
+    <h6>Editing</h6>
+    <p>To edit a Patient, go to the Patients page (or from the Dashboard) click the blue button in the same row as the Patient you want to edit. There you will be able to change the information you need, click Submit once you are done.
+        <br />The Patient is now edited and the new information will now be shown on the Patients page and on the Dashboard.</p>
+    <h6>Deleting</h6>
+    <p>To delete a Patient, go to the Patients page (or from the Dashboard) click the red button (trash can) in the same row as the Patient you want to delete.
+        <br />The Patient is now deleted, you can undelete a patient by clicking on the red button next to the Add patient button, then clicking on the red restore button in the same row as the Patient you want to restore.</p>
+    <br />
 @endsection
 

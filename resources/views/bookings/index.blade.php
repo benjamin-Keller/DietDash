@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -13,8 +13,8 @@
 
                         <div class="col-sm">
                             <div class="float-right">
-                                <a href="{{ route('bookings.today') }}" class="btn btn-primary btn-m" style="text-decoration: none; color: white;">Today</a>
-                                <a href="{{ route('bookings.history') }}" class="btn btn-primary btn-m" style="text-decoration: none; color: white;">Booking History</a>
+                                <a href="{{ route('bookings.today') }}" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Today</a>
+                                <a href="{{ route('bookings.history') }}" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Booking History</a>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="col-xs-1 col-sm-1 col-md-1 text-center">&nbsp;<br />
-                            {{ Form::submit('Add Booking', ['class'=>'btn btn-primary mt-2']) }}
+                            {{ Form::submit('Add Booking', ['class'=>'btn btn-purple mt-2']) }}
                         </div>
                     </div>
                     {{Form::close() }}

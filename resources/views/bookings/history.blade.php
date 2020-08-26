@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('scripts')
     $(document).ready(function(){ $('#history').DataTable(); });
