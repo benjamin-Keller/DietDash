@@ -69,6 +69,13 @@
         </div>
     </div>
 </div>
-
 @endsection
 
+@section('sidebar')
+    <h5>Patients</h5>
+    <hr />
+    <h6>Restore</h6>
+    <p>To restore a deleted Patient, click the restore button (red trashcan with an upwards arrow).
+        <br />The Patient is now restored and will be shown on the Patients page and on the Dashboard.</p>
+    <br />
+@endsection

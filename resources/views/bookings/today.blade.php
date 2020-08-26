@@ -17,8 +17,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
 
             <!-- Patient table -->
