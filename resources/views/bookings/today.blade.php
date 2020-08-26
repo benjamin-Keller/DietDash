@@ -12,7 +12,7 @@
                         </div>
                         <div class="col-sm">
                             <div class="float-right">
-                                <a href="{{ route('bookings.index') }}" class="btn btn-primary btn-m" style="text-decoration: none; color: white;">Bookings</a>
+                                <a href="{{ route('bookings.index') }}" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Bookings</a>
                             </div>
                         </div>
                     </div>

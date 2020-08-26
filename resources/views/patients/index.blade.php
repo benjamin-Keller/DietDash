@@ -1,17 +1,7 @@
 @extends('layouts.admin')
 
-
 @section('scripts')
-    $(document).ready(function(){ $('#patients').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        });
-    });
-
+    $(document).ready(function(){ $('#patients').DataTable({"lengthMenu": [ 5, 10, 25, 50, 75, 100 ]}); });
 
 @endsection
 

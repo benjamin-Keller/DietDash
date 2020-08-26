@@ -28,6 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
         crossorigin="anonymous"></script>
+    <script src="{{ asset('bower_components/admin-lte/plugins/jquery/jquery.min.js') }}"></script>
     <style>
         .btn-purple, .btn-purple:hover, .btn-purple:active, .btn-purple:visited {
             background-color: #800080;
@@ -36,16 +37,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
         .text-purple {
             color: #800080 !important;
         }
+        .pagination > li > a, .pagination > li > span{color: #800080;}
+        .pagination > li.active > a, .pagination > li.active > span{
+            background-color: #800080 !important;
+            border-color: #800080 !important;
+        }
 
     </style>
     <!-- DataTables designed and created by SpryMedia Ltd. Available from https://datatables.net/ -->
-    <script src="https://cdn.datatables.net/v/bs4/dt-1.10.21/b-1.6.3/b-colvis-1.6.3/b-print-1.6.3/r-2.2.5/sp-1.1.1/datatables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/b-1.6.3/b-colvis-1.6.3/b-print-1.6.3/r-2.2.5/sp-1.1.1/datatables.min.css"/>
-
+{{--    <script src="https://cdn.datatables.net/v/bs4/dt-1.10.21/b-1.6.3/b-colvis-1.6.3/b-print-1.6.3/r-2.2.5/sp-1.1.1/datatables.min.js"></script>--}}
+    <script src="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+{{--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/b-1.6.3/b-colvis-1.6.3/b-print-1.6.3/r-2.2.5/sp-1.1.1/datatables.min.css"/>--}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}"/>
+    <script>
+        @yield('scripts')
+    </script>
 </head>
-<script>
-    @yield('scripts')
-</script>
+
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
@@ -191,5 +199,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('bower_components/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('bower_components/admin-lte/dist/js/adminlte.min.js') }}"></script>
+<!-- DataTables -->
+<script src="{{ asset('bower_components/admin-lte/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 </body>
 </html>

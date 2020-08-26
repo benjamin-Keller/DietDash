@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-sm">
                             <div class="float-right">
-                                <a href="{{ route('patients.index') }}" class="btn btn-primary btn-m ml-2" style="text-decoration: none; color: white;"><i class="fas fa-arrow-left"></i></a>
+                                <a href="{{ route('patients.index') }}" class="btn btn-purple btn-m ml-2" style="text-decoration: none; color: white;"><i class="fas fa-arrow-left"></i></a>
                             </div>
                             <div class="float-right">
                                 <input class="form-control" type="text" id="search" placeholder="Search">

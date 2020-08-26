@@ -5,7 +5,7 @@
 @endsection
 
 @section('scripts')
-    $(document).ready(function(){ $('#payments').DataTable(); });
+    $(document).ready(function(){ $('#payments').DataTable({"lengthMenu": [ 5, 10, 25, 50, 75, 100 ]}); });
 @endsection
 
 @section('content')

@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 
 @section('scripts')
-    $(document).ready(function(){ $('#patients').DataTable();  });
+    $(document).ready(function(){ $('#patients').DataTable({"lengthMenu": [ 5, 10, 25, 50, 75, 100 ]}); });
+
 @endsection
 
 @section('header')
@@ -19,7 +20,7 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-primary mb-1">Total Patients</div>
+                                        <div class="text-md font-weight-bold text-primary mb-1">Total Patients</div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ Auth::user()->patients->where('Deleted','=','0')->count() }}</div>
                                     </div>
                                     <div class="col-auto">
@@ -38,7 +39,7 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success mb-1">Upcoming Bookings</div>
+                                        <div class="text-md font-weight-bold text-success mb-1">Upcoming Bookings</div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $upcoming }}</div>
                                     </div>
                                     <div class="col-auto">
@@ -55,7 +56,7 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold mb-1" style="color: #FF8C00">Today's Bookings</div>
+                                        <div class="text-md font-weight-bold mb-1" style="color: #FF8C00">Today's Bookings</div>
 
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $today }}</div>
                                     </div>

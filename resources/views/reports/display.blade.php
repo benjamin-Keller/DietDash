@@ -13,8 +13,8 @@
                         <div class="col-sm">
                             <div class="float-right">
                                 @if($history != null)
-                                    <a href="{{action('ReportController@exportFullPDF', $patient->id)}}" class="btn btn-primary btn-m" style="text-decoration: none; color: white;">Export History</a>
-                                    <a href="{{action('ReportController@exportPDF', $patient->id)}}" class="btn btn-primary btn-m" style="text-decoration: none; color: white;">Export Latest</a>
+                                    <a href="{{action('ReportController@exportFullPDF', $patient->id)}}" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Export History</a>
+                                    <a href="{{action('ReportController@exportPDF', $patient->id)}}" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Export Latest</a>
                                 @endif
                             </div>
                         </div>
