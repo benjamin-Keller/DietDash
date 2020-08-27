@@ -33,8 +33,12 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div> {{ Form::label('email', 'Email') }} <p style="display: inline; color: red">*</p></div>
+                        {{ Form::text('email', '', ['class'=> 'form-control']) }}
+                    </div>
                         <div class="form-group">
-                        <div> {{ Form::label('amount', 'Amount') }} <p style="display: inline; color: red">*</p></div>
+                            {{ Form::label('amount', 'Amount') }}
                             {{ Form::text('amount', '', ['class'=> 'form-control']) }}
                         </div>
                         {{ Form::label('payment_info', 'Payment Info') }}

@@ -18,7 +18,7 @@
     </div>
     <div id="project">
         <div><span>CLIENT</span> {{ $payments->patient_name }}</div>
-        <div><span>EMAIL</span> </div>
+        <div><span>EMAIL</span> {{ $payments->email }}</div>
         <div><span>DUE DATE</span> {{ $payments->date }}</div>
     </div>
 </header>

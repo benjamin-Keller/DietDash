@@ -43,6 +43,7 @@ class PaymentsController extends Controller
     public function store(Request $request) {
         $this->validate($request, [
             'patient_name' => '',
+            'email' => '',
             'amount' => 'required|string',
             'sub_total' => '',
             'total' => '',
@@ -55,6 +56,7 @@ class PaymentsController extends Controller
         $payment = new Payment();
             $payment->user_id = Auth::id();
             $payment->patient_name = $request->get('patient_name');
+            $payment->email = $request->get('email');
             $payment->amount = $request->input('amount');
             $payment->sub_total = $request->input('amount');
             $payment->total = $request->input('amount') + $request->input('sub_total');
@@ -68,7 +70,6 @@ class PaymentsController extends Controller
 
     public function exportPDF($id) {
         $payments = Payment::find($id);
-
 
         $pdf = PDF::loadView('payments.export', compact( 'patientInfo','payments'));
 

@@ -9,8 +9,8 @@ class Payments extends Model
     protected $fillable = [
         'user_id',
         'patient_name',
-        'first_name',
-        'last_name',
+        'email',
+
         'amount',
         'sub_total',
         'sub_total',

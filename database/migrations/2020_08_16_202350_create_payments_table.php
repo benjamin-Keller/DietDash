@@ -17,6 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('patient_name')->nullable();
+            $table->string('email')->nullable();
 
             $table->string('amount');
             $table->string('sub_total')->nullable();
