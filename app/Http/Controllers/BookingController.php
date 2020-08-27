@@ -53,6 +53,7 @@ class BookingController extends Controller
         $patient = DB::table('patients')
             ->select('id', DB::raw("CONCAT(FirstName, ' ', LastName) AS full_name"))
             ->where('user_id', 'like', Auth::id())
+            ->where('Deleted', 'like', '0')
             ->get()
             ->sortBy('full_name')
             ->pluck('full_name', 'id');

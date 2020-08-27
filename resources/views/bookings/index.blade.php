@@ -82,34 +82,33 @@
                     </div>
                     {{Form::close() }}
                 </div>
-            </div>
 
-            <!-- Booking table -->
-            <div class="row">
-                <div class="col-md-12">
-                    <table class="table table-bordered table-striped">
-                        <tr>
-                            <th>{{ 'Booking Name' }}</th>
-                            <th>{{ 'Description' }}</th>
-                            <th>{{ 'Patient' }}</th>
-                            <th>{{ 'Date' }}</th>
-                            <th>{{ 'Time' }}</th>
-                            <th>{{ 'Edit' }}</th>
-                        </tr>
-                        @foreach($bookings as $row)
+                <!-- Booking table -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-bordered table-striped">
                             <tr>
-                                <td>{{ $row['event_name'] }}</td>
-                                <td>{{ $row['description'] }}</td>
-                                <td>{{ $row['patient_name'] }}</td>
-                                <td>{{ $row['date'] }}</td>
-                                <td>{{ $row['time'] }}</td>
-                                <td><a href="" style="color: #ff1744;"><i class="far fa-trash-alt"></i></a></td>
+                                <th>{{ 'Booking Name' }}</th>
+                                <th>{{ 'Description' }}</th>
+                                <th>{{ 'Patient' }}</th>
+                                <th>{{ 'Date' }}</th>
+                                <th>{{ 'Time' }}</th>
+                                <th>{{ 'Edit' }}</th>
                             </tr>
-                        @endforeach
-                    </table>
+                            @foreach($bookings as $row)
+                                <tr>
+                                    <td>{{ $row['event_name'] }}</td>
+                                    <td>{{ $row['description'] }}</td>
+                                    <td>{{ $row['patient_name'] }}</td>
+                                    <td>{{ $row['date'] }}</td>
+                                    <td>{{ $row['time'] }}</td>
+                                    <td><a href="" style="color: #ff1744;"><i class="far fa-trash-alt"></i></a></td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
