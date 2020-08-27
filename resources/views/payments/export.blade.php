@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{{ $patientInfo->FirstName }} {{ $patientInfo->LastName }} Invoice</title>
+    <title>{{ $payments->patient_name }} Invoice</title>
     <link rel="stylesheet" href="css/payments.css" media="all" />
 </head>
 <body>
@@ -17,8 +17,8 @@
         <div>{{ \Illuminate\Support\Facades\Auth::user()->email }}</div>
     </div>
     <div id="project">
-        <div><span>CLIENT</span> {{ $patientInfo->FirstName }} {{ $patientInfo->LastName }}</div>
-        <div><span>EMAIL</span>{{ $patientInfo->Email }}</div>
+        <div><span>CLIENT</span> {{ $payments->patient_name }}</div>
+        <div><span>EMAIL</span> </div>
         <div><span>DUE DATE</span> {{ $payments->date }}</div>
     </div>
 </header>

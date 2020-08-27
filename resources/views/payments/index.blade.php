@@ -20,7 +20,7 @@
                         </div>
                         <div class="col-sm">
                             <div class="float-right">
-                                <a href="{{ route('payments.create') }}" class="btn btn-primary btn-m ml-2" style="text-decoration: none; color: white;">Add Payment</a>
+                                <a href="{{ route('payments.create') }}" class="btn btn-purple btn-m ml-2" style="text-decoration: none; color: white;">Add Payment</a>
                             </div>
                         </div>
                     </div>

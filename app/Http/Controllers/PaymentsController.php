@@ -19,62 +19,6 @@ class PaymentsController extends Controller
 
         return view('payments.index', ['payments' => Payments::all()->where('user_id', Auth::user()->id)->all(), ]);
     }
-    function action(Request $request)
-    {
-        if($request->ajax())
-        {
-            $output = '';
-            $query = $request->get('query');
-            if($query != '')
-            {
-                $data = DB::table('payments')
-                    ->where('user_id', '=', Auth::user()->id)
-                    ->orWhere('patient_name', 'like', '%'.$query.'%')
-                    ->orWhere('date', 'like', '%'.$query.'%')
-                    ->orderBy('patient_name', 'desc')
-                    ->get();
-
-            }
-            else
-            {
-                $data = DB::table('payments')
-                    ->where('user_id', '=', Auth::user()->id)
-                    ->orderBy('patient_name', 'desc')
-                    ->get();
-            }
-            $total_row = $data->count();
-            if($total_row > 0)
-            {
-                foreach($data as $row)
-                {
-                    $output .= '
-                        <tr>
-                         <td>'.$row->patient_name.'</td>
-                         <td>'.$row->amount.'</td>
-                         <td>'.$row->sub_total.'</td>
-                         <td>'.$row->total.'</td>
-                         <td>'.$row->date.'</td>
-                         <td><a alt="Report" href="'.url('/payments/'.$row->id.'/export').'" style="color: #00b248;"><i class="fas fa-file-pdf"></i></a>
-                            </td>
-';
-                }
-            }
-
-
-            else
-            {
-                $output = '<tr>
-        <td align="center" colspan="7">No Data Found</td>
-       </tr>
-       ';
-            }
-            $data = array(
-                'table_data'  => $output,
-            );
-
-            echo json_encode($data);
-        }
-    }
 
     public function create() {
         $payments = DB::table('payment_types')
@@ -85,6 +29,7 @@ class PaymentsController extends Controller
         $patient = DB::table('patients')
             ->select('id', DB::raw("CONCAT(FirstName, ' ', LastName) AS full_name"))
             ->where('user_id', '=', Auth::id())
+            ->where('Deleted', 'like', '0')
             ->get()
             ->sortBy('full_name')
             ->pluck('full_name', 'id');
@@ -124,11 +69,9 @@ class PaymentsController extends Controller
     public function exportPDF($id) {
         $payments = Payment::find($id);
 
-        $patientInfo = Patient::find($payments->patient_name);
-
 
         $pdf = PDF::loadView('payments.export', compact( 'patientInfo','payments'));
 
-        return $pdf->download($patientInfo->LastName.'_'.$patientInfo->FirstName.'-invoice.pdf')->with('success', 'PDF printed.');
+        return $pdf->download($payments->patient_name.'-invoice.pdf');
     }
 }

@@ -46,15 +46,8 @@
                                 @endforeach
                             </select>
                         </div>
-                        <hr />
-
-                        <h5 class="font-weight-bold">Totals</h5>
-                        <div class="form-group">
-                            {{ Form::label('sub_total', 'Sub Total') }}
-                            {{ Form::text('sub_total', '', ['class'=> 'form-control', 'readonly']) }}
-                        </div>
                         <br />
-                            {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
+                            {{ Form::submit('Submit', ['class' => 'btn btn-purple']) }}
                             {!! Form::close() !!}
                     </div>
                 <br />

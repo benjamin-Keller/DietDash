@@ -21,6 +21,7 @@ class CalculatorController extends Controller
         $patient = DB::table('patients')
             ->select('id', DB::raw("CONCAT(FirstName, ' ', LastName) AS full_name"))
             ->where('user_id', '=', Auth::id())
+            ->where('Deleted', 'like', '0')
             ->get()
             ->sortBy('full_name')
             ->pluck('full_name', 'id');
@@ -178,126 +179,162 @@ class CalculatorController extends Controller
 
 
         //Bio Chemestry
-        if($request->input('sodium') >= 135) {
+        if($request->input('sodium') == null) {
+            $sodium = 'n/a';
+        } else if($request->input('sodium') >= 135) {
             $sodium = 'Normal';
         } else if($request->input('sodium') < 135) {
             $sodium = 'Low';
         } else if($request->input('sodium') >= 147) {
             $sodium = 'High';
         }
-        if($request->input('potassium') >= 3.3) {
+        if($request->input('potassium') == null) {
+            $potassium = 'n/a';
+        } else if($request->input('potassium') >= 3.3) {
             $potassium = 'Normal';
         } else if($request->input('potassium') < 3.3) {
             $potassium = 'Low';
         } else if($request->input('potassium') >= 5.0) {
             $potassium = 'High';
         }
-        if($request->input('chloride') >= 99) {
+        if($request->input('chloride') == null) {
+            $chloride = 'n/a';
+        } else if($request->input('chloride') >= 99) {
             $chloride = 'Normal';
         } else if($request->input('chloride') < 99) {
             $chloride = 'Low';
         } else if($request->input('chloride') >= 111) {
             $chloride = 'High';
         }
-        if($request->input('urea') >= 2.6) {
+        if($request->input('urea') == null) {
+            $urea = 'n/a';
+        } else if($request->input('urea') >= 2.6) {
             $urea = 'Normal';
         } else if($request->input('urea') < 2.6) {
             $urea = 'Low';
         } else if($request->input('urea') >= 7) {
             $urea = 'High';
         }
-        if($request->input('creatinine') >= 60) {
+        if($request->input('creatinine') == null) {
+            $creatinine = 'n/a';
+        } else if($request->input('creatinine') >= 60) {
             $creatinine = 'Normal';
         } else if($request->input('creatinine') < 60) {
             $creatinine = 'Low';
         } else if($request->input('creatinine') >= 120) {
             $creatinine = 'High';
         }
-        if($request->input('egfr') >= 90) {
+        if($request->input('egfr') == null) {
+            $egfr = 'n/a';
+        } else if($request->input('egfr') >= 90) {
             $egfr = 'Normal';
         } else if($request->input('egfr') < 90) {
             $egfr = 'Low';
         } else if($request->input('egfr') >= 120) {
             $egfr = 'High';
         }
-        if($request->input('hba1c') >= 4) {
+        if($request->input('hba1c') == null) {
+            $hba1c = 'n/a';
+        } else if($request->input('hba1c') >= 4) {
             $hba1c = 'Normal';
         } else if($request->input('hba1c') < 4) {
             $hba1c = 'Low';
         } else if($request->input('hba1c') >= 5.6) {
             $hba1c = 'High';
         }
-        if($request->input('uric_acid') >= 0.2) {
+        if($request->input('uric_acid') == null) {
+            $uric_acid = 'n/a';
+        } else if($request->input('uric_acid') >= 0.2) {
             $uric_acid = 'Normal';
         } else if($request->input('uric_acid') < 0.2) {
             $uric_acid = 'Low';
         } else if($request->input('uric_acid') >= 0.59) {
             $uric_acid = 'High';
         }
-        if($request->input('cholesterol') >= 3.8) {
+        if($request->input('cholesterol') == null) {
+            $cholesterol = 'n/a';
+        } else if($request->input('cholesterol') >= 3.8) {
             $cholesterol = 'Normal';
         } else if($request->input('cholesterol') < 3.8) {
             $cholesterol = 'Low';
         } else if($request->input('cholesterol') >= 5.7) {
             $cholesterol = 'High';
         }
-        if($request->input('triglycerides') >= 0.5) {
+        if($request->input('triglycerides') == null) {
+            $triglycerides = 'n/a';
+        } else if($request->input('triglycerides') >= 0.5) {
             $triglycerides = 'Normal';
         } else if($request->input('triglycerides') < 0.5) {
             $triglycerides = 'Low';
         } else if($request->input('triglycerides') >= 2.5) {
             $triglycerides = 'High';
         }
-        if($request->input('hdl') >= 0.5) {
+        if($request->input('hdl') == null) {
+            $hdl = 'n/a';
+        } else if($request->input('hdl') >= 0.5) {
             $hdl = 'Normal';
         } else if($request->input('hdl') < 0.5) {
             $hdl = 'Low';
         } else if($request->input('hdl') > 0.5) {
             $hdl = 'High';
         }
-        if($request->input('ldl') >= 4.4) {
+        if($request->input('ldl') == null) {
+            $ldl = 'n/a';
+        } else if($request->input('ldl') >= 4.4) {
             $ldl = 'Normal';
         } else if($request->input('ldl') < 4.4) {
             $ldl = 'Low';
         } else if($request->input('ldl') > 4.4) {
             $ldl = 'High';
         }
-        if($request->input('vldl') >= 0.1) {
+        if($request->input('vldl') == null) {
+            $vldl = 'n/a';
+        } else if($request->input('vldl') >= 0.1) {
             $vldl = 'Normal';
         } else if($request->input('vldl') < 0.1) {
             $vldl = 'Low';
         } else if($request->input('vldl') >= 2.32) {
             $vldl = 'High';
         }
-        if($request->input('total_protein') >= 60) {
+        if($request->input('total_protein') == null) {
+            $total_protein = 'n/a';
+        } else if($request->input('total_protein') >= 60) {
             $total_protein = 'Normal';
         } else if($request->input('total_protein') < 60) {
             $total_protein = 'Low';
         } else if($request->input('total_protein') >= 80) {
             $total_protein = 'High';
         }
-        if($request->input('albumin') >= 30) {
+        if($request->input('albumin') == null) {
+            $albumin = 'n/a';
+        } else if($request->input('albumin') >= 30) {
             $albumin = 'Normal';
         } else if($request->input('albumin') < 30) {
             $albumin = 'Low';
         } else if($request->input('albumin') >= 80) {
             $albumin = 'High';
         }
-        if($request->input('calcium') >= 2.1) {
+        if($request->input('calcium') == null) {
+            $calcium = 'n/a';
+        } else if($request->input('calcium') >= 2.1) {
             $calcium = 'Normal';
         } else if($request->input('calcium') < 2.1) {
             $calcium = 'Low';
         } else if($request->input('calcium') >= 2.5) {
             $calcium = 'High';
         }
-        if($request->input('phosphorus') >= 0.8) {
+        if($request->input('phosphorus') == null) {
+            $phosphorus = 'n/a';
+        } else if($request->input('phosphorus') >= 0.8) {
             $phosphorus = 'Normal';
         } else if($request->input('phosphorus') < 0.8) {
             $phosphorus = 'Low';
         } else if($request->input('phosphorus') >= 1.4) {
             $phosphorus = 'High';
         }
-        if($request->input('magnesium') >= 0.74) {
+        if($request->input('magnesium') == null) {
+            $magnesium = 'n/a';
+        } else if($request->input('magnesium') >= 0.74) {
             $magnesium = 'Normal';
         } else if($request->input('magnesium') < 0.74) {
             $magnesium = 'Low';
@@ -305,7 +342,9 @@ class CalculatorController extends Controller
             $magnesium = 'High';
         }
         if($Patient->Gender == "Male") {
-            if ($request->input('copper') >= 10.5) {
+            if($request->input('copper') == null) {
+                $copper = 'n/a';
+            } else if ($request->input('copper') >= 10.5) {
                 $copper = 'Normal';
             } else if ($request->input('copper') < 10.5) {
                 $copper = 'Low';
@@ -314,7 +353,9 @@ class CalculatorController extends Controller
             }
         }
         if($Patient->Gender == "Female") {
-            if($request->input('copper') >= 13.2) {
+            if($request->input('copper') == null) {
+                $copper = 'n/a';
+            } else if($request->input('copper') >= 13.2) {
                 $copper = 'Normal';
             } else if($request->input('copper') < 13.2) {
                 $copper = 'Low';
@@ -323,126 +364,162 @@ class CalculatorController extends Controller
             }
         }
 
-        if($request->input('zinc') >= 11.6) {
+        if($request->input('zinc') == null) {
+            $zinc = 'n/a';
+        } else if($request->input('zinc') >= 11.6) {
             $zinc = 'Normal';
         } else if($request->input('zinc') < 11.6) {
             $zinc = 'Low';
         } else if($request->input('zinc') >= 22.5) {
             $zinc = 'High';
         }
-        if($request->input('bilirubin_total') >= 2) {
+        if($request->input('bilirubin_total') == null) {
+            $bilirubin_total = 'n/a';
+        } else if($request->input('bilirubin_total') >= 2) {
             $bilirubin_total = 'Normal';
         } else if($request->input('bilirubin_total') < 2) {
             $bilirubin_total = 'Low';
         } else if($request->input('bilirubin_total') >= 21) {
             $bilirubin_total = 'High';
         }
-        if($request->input('bilirubin_conj') >= 0) {
+        if($request->input('bilirubin_conj') == null) {
+            $bilirubin_conj = 'n/a';
+        } else if($request->input('bilirubin_conj') >= 0) {
             $bilirubin_conj = 'Normal';
         } else if($request->input('bilirubin_conj') < 0) {
             $bilirubin_conj = 'Low';
         } else if($request->input('bilirubin_conj') >= 8) {
             $bilirubin_conj = 'High';
         }
-        if($request->input('bilirubin_unconj') >= 1) {
+        if($request->input('bilirubin_unconj') == null) {
+            $bilirubin_unconj = 'n/a';
+        } else if($request->input('bilirubin_unconj') >= 1) {
             $bilirubin_unconj = 'Normal';
         } else if($request->input('bilirubin_unconj') < 1) {
             $bilirubin_unconj = 'Low';
         } else if($request->input('bilirubin_unconj') >= 17) {
             $bilirubin_unconj = 'High';
         }
-        if($request->input('ast') >= 0) {
+        if($request->input('ast') == null) {
+            $ast = 'n/a';
+        } else if($request->input('ast') >= 0) {
             $ast = 'Normal';
         } else if($request->input('ast') < 0) {
             $ast = 'Low';
         } else if($request->input('ast') >= 31) {
             $ast = 'High';
         }
-        if($request->input('alt') >= 0) {
+        if($request->input('alt') == null) {
+            $alt = 'n/a';
+        } else if($request->input('alt') >= 0) {
             $alt = 'Normal';
         } else if($request->input('alt') < 0) {
             $alt = 'Low';
         } else if($request->input('alt') >= 31) {
             $alt = 'High';
         }
-        if($request->input('ldh') >= 230) {
+        if($request->input('ldh') == null) {
+            $ldh = 'n/a';
+        } else if($request->input('ldh') >= 230) {
             $ldh = 'Normal';
         } else if($request->input('ldh') < 230) {
             $ldh = 'Low';
         } else if($request->input('ldh') >= 462) {
             $ldh = 'High';
         }
-        if($request->input('ggt') >= 0) {
+        if($request->input('ggt') == null) {
+            $ggt = 'n/a';
+        } else if($request->input('ggt') >= 0) {
             $ggt = 'Normal';
         } else if($request->input('ggt') < 0) {
             $ggt = 'Low';
         } else if($request->input('ggt') >= 35) {
             $ggt = 'High';
         }
-        if($request->input('alp') >= 40) {
+        if($request->input('alp') == null) {
+            $alp = 'n/a';
+        } else if($request->input('alp') >= 40) {
             $alp = 'Normal';
         } else if($request->input('alp') < 40) {
             $alp = 'Low';
         } else if($request->input('alp') >= 120) {
             $alp = 'High';
         }
-        if($request->input('wbc') >= 4) {
+        if($request->input('wbc') == null) {
+            $wbc = 'n/a';
+        } else if($request->input('wbc') >= 4) {
             $wbc = 'Normal';
         } else if($request->input('wbc') < 4) {
             $wbc = 'Low';
         } else if($request->input('wbc') >= 11000000000) {
             $wbc = 'High';
         }
-        if($request->input('rbc') >= 4) {
+        if($request->input('rbc') == null) {
+            $rbc = 'n/a';
+        } else if($request->input('rbc') >= 4) {
             $rbc = 'Normal';
         } else if($request->input('rbc') < 4) {
             $rbc = 'Low';
         } else if($request->input('rbc') >= 5700000000000) {
             $rbc = 'High';
         }
-        if($request->input('haemoglobin') >= 11.5) {
+        if($request->input('haemoglobin') == null) {
+            $haemoglobin = 'n/a';
+        } else if($request->input('haemoglobin') >= 11.5) {
             $haemoglobin = 'Normal';
         } else if($request->input('haemoglobin') < 11.5) {
             $haemoglobin = 'Low';
         } else if($request->input('haemoglobin') >= 16.5) {
             $haemoglobin = 'High';
         }
-        if($request->input('haematocrit') >= 36) {
+        if($request->input('haematocrit') == null) {
+            $haematocrit = 'n/a';
+        } else if($request->input('haematocrit') >= 36) {
             $haematocrit = 'Normal';
         } else if($request->input('haematocrit') < 36) {
             $haematocrit = 'Low';
         } else if($request->input('haematocrit') >= 50) {
             $haematocrit = 'High';
         }
-        if($request->input('mcv') >= 80) {
+        if($request->input('mcv') == null) {
+            $mcv = 'n/a';
+        } else if($request->input('mcv') >= 80) {
             $mcv = 'Normal';
         } else if($request->input('mcv') < 80) {
             $mcv = 'Low';
         } else if($request->input('mcv') >= 100) {
             $mcv = 'High';
         }
-        if($request->input('mch') >= 26) {
+        if($request->input('mch') == null) {
+            $mch = 'n/a';
+        } else if($request->input('mch') >= 26) {
             $mch = 'Normal';
         } else if($request->input('mch') < 26) {
             $mch = 'Low';
         } else if($request->input('mch') >= 34) {
             $mch = 'High';
         }
-        if($request->input('mchc') >= 31) {
+        if($request->input('mchc') == null) {
+            $mchc = 'n/a';
+        } else if($request->input('mchc') >= 31) {
             $mchc = 'Normal';
         } else if($request->input('mchc') < 31) {
             $mchc = 'Low';
         } else if($request->input('mchc') >= 37) {
             $mchc = 'High';
         }
-        if($request->input('platelet_count') >= 150) {
+        if($request->input('platelet_count') == null) {
+            $platelet_count = 'n/a';
+        } else if($request->input('platelet_count') >= 150) {
             $platelet_count = 'Normal';
         } else if($request->input('platelet_count') < 150) {
             $platelet_count = 'Low';
         } else if($request->input('platelet_count') >= 3400000000000) {
             $platelet_count = 'High';
         }
-        if($request->input('crp') <= 10) {
+        if($request->input('crp') == null) {
+            $crp = 'n/a';
+        } else if($request->input('crp') <= 10) {
             $crp = 'Normal';
         } else if($request->input('crp') > 10) {
             $crp = 'Low';

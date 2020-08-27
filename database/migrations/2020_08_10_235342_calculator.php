@@ -16,7 +16,7 @@ class Calculator extends Migration
         Schema::create('calculators', function (Blueprint $table) {
             $table->id();
 
-            $table->string('patient_name')->nullable();
+            $table->string('patient_name');
             $table->string('age')->nullable();
             $table->string('comment')->nullable();
 

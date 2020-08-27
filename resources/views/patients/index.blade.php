@@ -72,7 +72,7 @@
 @endsection
 
 @section('sidebar')
-    <h5>Patients</h5>
+    <h5>Help</h5>
     <hr />
     <h6>Adding</h6>
     <p>To add a Patient, go to the Patients page and click the Add button. After filling in the required information, click the Submit button.

@@ -28,7 +28,7 @@
 
                             <div class="form-group">
                                 <div class="">
-                                    <select id='patient_name' name='patient_name' class="form-control">
+                                    <select id='patient_name' name='patient_name' class="form-control" required>
                                         <option value='null' selected>Select Patient</option>
                                         @foreach ($patient as $key => $value)
                                             <option value='{{ $key }}'>{{ $value }}</option>
@@ -57,7 +57,6 @@
                                 {{ Form::label('hip', 'Hip Circumference (cm)') }}
                                 {{ Form::text('hip', '', ['class'=> 'form-control', 'placeholder' => 'Hip Circumference']) }}
                         </div>
-                        <hr />
                         <div class="form-group">
                                 {{ Form::label('muac', 'MUAC (cm)') }}
                                 {{ Form::text('muac', '', ['class'=> 'form-control', 'placeholder' => 'MUAC']) }}
@@ -231,4 +230,13 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('sidebar')
+    <h5>Help</h5>
+    <hr />
+    <h6>Calculating</h6>
+    <p>Fill in the information on the side. and click Submit.</p>
+
+    <br />
 @endsection

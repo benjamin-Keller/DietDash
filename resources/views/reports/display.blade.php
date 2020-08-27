@@ -50,6 +50,7 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <br />
                         <h4>Anthropometry</h4>
                         <table class="table table-bordered table-striped table-responsive">
                             <thead>
@@ -81,6 +82,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <br />
                         <h4>Biochemestry</h4>
                         <table class="table table-bordered table-striped">
                             <thead>
@@ -95,6 +97,8 @@
                                     <th>{{ 'Uric Acid' }}</th>
                                     <th>{{ 'Cholesterol' }}</th>
                                     <th>{{ 'Triglycerides' }}</th>
+                                    <th>{{ 'Date' }}</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -110,6 +114,7 @@
                                         <td>{{ $row['uric_acid'] }}<br /> {{ $row['uric_acid_class'] }}</td>
                                         <td>{{ $row['cholesterol'] }}<br /> {{ $row['cholesterol_class'] }}</td>
                                         <td>{{ $row['triglycerides'] }}<br /> {{ $row['triglycerides_class'] }}</td>
+                                        <td>{{ $row['date'] }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -126,6 +131,7 @@
                                     <th>{{ 'Phosphorus' }}</th>
                                     <th>{{ 'Magnesium' }}</th>
                                     <th>{{ 'Copper' }}</th>
+                                    <th>{{ 'Date' }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -140,6 +146,7 @@
                                         <td>{{ $row['phosphorus'] }}<br /> {{ $row['phosphorus_class'] }}</td>
                                         <td>{{ $row['magnesium'] }}<br /> {{ $row['magnesium_class'] }}</td>
                                         <td>{{ $row['copper'] }}<br /> {{ $row['copper_class'] }}</td>
+                                        <td>{{ $row['date'] }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -158,6 +165,7 @@
                                     <th>{{ 'ALP' }}</th>
                                     <th>{{ 'WBC' }}</th>
                                     <th>{{ 'RBC' }}</th>
+                                    <th>{{ 'Date' }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -174,6 +182,7 @@
                                         <td>{{ $row['alp'] }}<br /> {{ $row['alp_class'] }}</td>
                                         <td>{{ $row['wbc'] }}<br /> {{ $row['wbc_class'] }}</td>
                                         <td>{{ $row['rbc'] }}<br /> {{ $row['rbc_class'] }}</td>
+                                        <td>{{ $row['date'] }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -188,6 +197,7 @@
                                     <th>{{ 'MCHC' }}</th>
                                     <th>{{ 'Platelet Count' }}</th>
                                     <th>{{ 'CRP' }}</th>
+                                    <th>{{ 'Date' }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -200,6 +210,7 @@
                                         <td>{{ $row['mchc'] }}<br /> {{ $row['mchc_class'] }}</td>
                                         <td>{{ $row['platelet_count'] }}<br /> {{ $row['platelet_count_class'] }}</td>
                                         <td>{{ $row['crp'] }}<br /> {{ $row['crp_class'] }}</td>
+                                        <td>{{ $row['date'] }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
