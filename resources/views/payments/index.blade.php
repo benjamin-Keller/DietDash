@@ -5,7 +5,11 @@
 @endsection
 
 @section('scripts')
-    $(document).ready(function(){ $('#payments').DataTable({"lengthMenu": [ 5, 10, 25, 50, 75, 100 ]}); });
+    $(document).ready(function(){ $('#payments').DataTable({
+        "lengthMenu": [ 5, 10, 25, 50, 75, 100 ],
+        "order": [[ 4, "desc" ]]
+        });
+    });
 @endsection
 
 @section('content')
