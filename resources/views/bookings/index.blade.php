@@ -85,7 +85,7 @@
 
                 <!-- Booking table -->
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 pr-4 pl-4">
                         <table class="table table-bordered table-striped">
                             <tr>
                                 <th>{{ 'Booking Name' }}</th>

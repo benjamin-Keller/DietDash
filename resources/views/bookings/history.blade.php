@@ -1,7 +1,11 @@
 @extends('layouts.admin')
 
 @section('scripts')
-    $(document).ready(function(){ $('#history').DataTable({"lengthMenu": [ 5, 10, 25, 50, 75, 100 ]}); });
+    $(document).ready(function(){ $('#history').DataTable({
+        "lengthMenu": [ 5, 10, 25, 50, 75, 100 ],
+        "order": [[ 2, "desc" ],[ 3, "asc" ]],
+        });
+    });
 @endsection
 
 @section('content')

@@ -17,30 +17,32 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Patient table -->
-            <div class="row">
-                <div class="col-md-12">
-                    <table class="table table-bordered table-striped">
-                        <tr>
-                            <th>{{ 'Booking Name' }}</th>
-                            <th>{{ 'Description' }}</th>
-                            <th>{{ 'Date' }}</th>
-                            <th>{{ 'Time' }}</th>
-                        </tr>
-                        @foreach($today as $row)
+                <!-- Patient table -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-bordered table-striped
+                                    table-responsive-sm
+                                    table-responsive-md
+                                    table-responsive-lg">
                             <tr>
-                                <td>{{ $row['event_name'] }}</td>
-                                <td>{{ $row['description'] }}</td>
-                                <td>{{ $row['date'] }}</td>
-                                <td>{{ $row['time'] }}</td>
+                                <th>{{ 'Booking Name' }}</th>
+                                <th>{{ 'Description' }}</th>
+                                <th>{{ 'Date' }}</th>
+                                <th>{{ 'Time' }}</th>
                             </tr>
-                        @endforeach
-                    </table>
+                            @foreach($today as $row)
+                                <tr>
+                                    <td>{{ $row['event_name'] }}</td>
+                                    <td>{{ $row['description'] }}</td>
+                                    <td>{{ $row['date'] }}</td>
+                                    <td>{{ $row['time'] }}</td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

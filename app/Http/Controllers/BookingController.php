@@ -48,6 +48,8 @@ class BookingController extends Controller
         $bookings = Booking::all()
             ->where('user_id', '=', Auth::id())
             ->where('active', '=', '1')
+            ->sortByDesc('date')
+            ->sortBy('time')
             ->toArray();
 
         $patient = DB::table('patients')
