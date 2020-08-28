@@ -2,6 +2,7 @@
 
 @section('scripts')
     $(document).ready(function(){ $('#patients').DataTable({"lengthMenu": [ 5, 10, 25, 50, 75, 100 ]}); });
+    $(document).ready(function(){ $('#bookings').DataTable({"lengthMenu": [ 5, 10, 25, 50, 75, 100 ],"order": [[ 3, "desc" ],[ 4, "asc" ]],}); });
 
 @endsection
 
@@ -104,7 +105,7 @@
                                                 <th>{{ 'Edit' }}</th>
                                             </tr>
                                             </thead>
-                                            <tbody id="patient">
+                                            <tbody>
                                             @foreach($patients as $row)
                                                 <tr>
                                                     <td>{{$row->FirstName}}</td>
@@ -148,24 +149,28 @@
                                         table-responsive-sm
                                         table-responsive-md
                                         table-responsive-lg" id="bookings">
-                                        <tr>
-                                            <th>{{ 'Booking Name' }}</th>
-                                            <th>{{ 'Description' }}</th>
-                                            <th>{{ 'Patient' }}</th>
-                                            <th>{{ 'Date' }}</th>
-                                            <th>{{ 'Time' }}</th>
-                                            <th>{{ 'Edit' }}</th>
-                                        </tr>
-                                        @foreach($bookings as $row)
+                                        <thead>
                                             <tr>
-                                                <td>{{ $row['event_name'] }}</td>
-                                                <td>{{ $row['description'] }}</td>
-                                                <td>{{ $row['patient_name'] }}</td>
-                                                <td>{{ $row['date'] }}</td>
-                                                <td>{{ $row['time'] }}</td>
-                                                <td><a href="" style="color: #ff1744;"><i class="far fa-trash-alt"></i></a></td>
+                                                <th>{{ 'Booking Name' }}</th>
+                                                <th>{{ 'Description' }}</th>
+                                                <th>{{ 'Patient' }}</th>
+                                                <th>{{ 'Date' }}</th>
+                                                <th>{{ 'Time' }}</th>
+                                                <th>{{ 'Edit' }}</th>
                                             </tr>
-                                        @endforeach
+                                        </thead>
+                                        <tbody>
+                                            @foreach($bookings as $row)
+                                                <tr>
+                                                    <td>{{ $row['event_name'] }}</td>
+                                                    <td>{{ $row['description'] }}</td>
+                                                    <td>{{ $row['patient_name'] }}</td>
+                                                    <td>{{ $row['date'] }}</td>
+                                                    <td>{{ $row['time'] }}</td>
+                                                    <td><a href="" style="color: #ff1744;"><i class="far fa-trash-alt"></i></a></td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>

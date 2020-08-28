@@ -20,7 +20,7 @@
 
                 <!-- Patient table -->
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 p-4">
                         <table class="table table-bordered table-striped
                                     table-responsive-sm
                                     table-responsive-md
