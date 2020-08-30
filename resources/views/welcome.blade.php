@@ -116,7 +116,7 @@
 
     <!-- Masthead -->
     <header class="masthead text-white text-center">
-        <div class="overlay"><img style="height: 100%; width: 100%" src="{{asset('img/berries.jpg')}}"></div>
+        <div class="overlay"><img style="height: 100%; width: 100%; object-fit: cover" src="{{asset('img/berries.jpg')}}"></div>
         <div class="container">
             <div class="row">
                 <div class="col-xl-9 mx-auto">
@@ -176,21 +176,21 @@
         <div class="container-fluid p-0">
             <div class="row no-gutters">
 
-                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{{asset('img/dashboard.jpg')}}');"></div>
+                <div class="col-lg-6 order-lg-2 text-white showcase-img"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{asset('img/dashboard.jpg')}}"></div>
                 <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                     <h2>Up to Date Information</h2>
                     <p class="lead mb-0">Keep up to date with all the information you need to run your own Private Practice!</p>
                 </div>
             </div>
             <div class="row no-gutters">
-                <div class="col-lg-6 text-white showcase-img" style="background-image: url('{{asset('img/bookings.jpg')}}');"></div>
+                <div class="col-lg-6 text-white showcase-img"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{asset('img/bookings.jpg')}}"></div>
                 <div class="col-lg-6 my-auto showcase-text">
                     <h2>Updated For Bootstrap 4</h2>
                     <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
                 </div>
             </div>
             <div class="row no-gutters">
-                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('{{asset('img/reports.jpg')}}');"></div>
+                <div class="col-lg-6 order-lg-2 text-white showcase-img"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{asset('img/reports.jpg')}}"></div>
                 <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                     <h2>Easy to Use &amp; Customize</h2>
                     <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
@@ -313,7 +313,7 @@
 
     <!-- Call to Action -->
     <section class="call-to-action text-white text-center">
-        <div class="overlay"><img style="height: 100%; width: 100%" src="{{asset('img/footer.jpg')}}" /></div>
+        <div class="overlay"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{asset('img/footer.jpg')}}" /></div>
         <div class="container">
             <div class="row">
                 <div class="col-xl-9 mx-auto">
