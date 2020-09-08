@@ -134,12 +134,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <p>Bookings</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route('payments.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-credit-card"></i>
-                            <p>Payments</p>
-                        </a>
-                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
