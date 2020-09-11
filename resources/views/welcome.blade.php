@@ -92,6 +92,27 @@
             }
             .text-purple {
                 color: #800080 !important;
+                text-decoration-color: #800080 !important;
+            }
+
+            /* unvisited link */
+            .text-purple-link:link {
+                color: #800080;
+            }
+
+            /* visited link */
+            .text-purple-link:visited {
+                color: #800080;
+            }
+
+            /* mouse over link */
+            .text-purple-link:hover {
+                color: #800080;
+            }
+
+            /* selected link */
+            .text-purple-link:active {
+                color: #800080;
             }
         </style>
 
@@ -115,7 +136,7 @@
     </nav>
 
     <!-- Masthead -->
-    <header class="masthead text-white text-center">
+    <header class="masthead text-white text-center" oncontextmenu="return false" ondragstart="return false">
         <div class="overlay"><img style="height: 100%; width: 100%; object-fit: cover" src="{{asset('img/berries.jpg')}}"></div>
         <div class="container">
             <div class="row">
@@ -172,28 +193,28 @@
     </section>
 
     <!-- Image Showcases -->
-    <section class="showcase">
+    <section class="showcase" >
         <div class="container-fluid p-0">
             <div class="row no-gutters">
 
-                <div class="col-lg-6 order-lg-2 text-white showcase-img"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{asset('img/dashboard.jpg')}}"></div>
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" oncontextmenu="return false" ondragstart="return false"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{asset('img/dashboard.jpg')}}"></div>
                 <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                     <h2>Up to Date Information</h2>
                     <p class="lead mb-0">Keep up to date with all the information you need to run your own Private Practice!</p>
                 </div>
             </div>
             <div class="row no-gutters">
-                <div class="col-lg-6 text-white showcase-img"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{asset('img/bookings.jpg')}}"></div>
+                <div class="col-lg-6 text-white showcase-img" oncontextmenu="return false" ondragstart="return false"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{asset('img/bookings.jpg')}}"></div>
                 <div class="col-lg-6 my-auto showcase-text">
-                    <h2>Updated For Bootstrap 4</h2>
-                    <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
+                    <h2>Keep track of Bookings</h2>
+                    <p class="lead mb-0">See past, current and future booking events to easily plan your week for your Client!</p>
                 </div>
             </div>
             <div class="row no-gutters">
-                <div class="col-lg-6 order-lg-2 text-white showcase-img"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{asset('img/reports.jpg')}}"></div>
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" oncontextmenu="return false" ondragstart="return false"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{asset('img/reports.jpg')}}"></div>
                 <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                    <h2>Easy to Use &amp; Customize</h2>
-                    <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
+                    <h2>Run Calculations</h2>
+                    <p class="lead mb-0">Run calculations to keep current information for your patient without any human-error in the calculations!</p>
                 </div>
             </div>
         </div>
@@ -205,25 +226,22 @@
             <h2 class="mb-5">What people are saying...</h2>
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3" src="img/testimonials-1.jpg" alt="">
-                        <h5>Margaret E.</h5>
-                        <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
-                    </div>
+
                 </div>
                 <div class="col-lg-4">
                     <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                        <h5>Currently no Testimonials</h5>
+
+                    </div>
+                   {{-- <div class="testimonial-item mx-auto mb-5 mb-lg-0">
                         <img class="img-fluid rounded-circle mb-3" src="img/testimonials-2.jpg" alt="">
-                        <h5>Fred S.</h5>
+                        <h5>Inge J.</h5>
+                        <h6>(Student Dietitian)</h6>
                         <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
-                    </div>
+                    </div>--}}
                 </div>
                 <div class="col-lg-4">
-                    <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                        <img class="img-fluid rounded-circle mb-3" src="img/testimonials-3.jpg" alt="">
-                        <h5>Sarah W.</h5>
-                        <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -313,11 +331,11 @@
 
     <!-- Call to Action -->
     <section class="call-to-action text-white text-center">
-        <div class="overlay"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{asset('img/footer.jpg')}}" /></div>
+        <div class="overlay"><img style="height: 100%; width: 100%; object-fit: cover;" src="{{asset('img/footer.jpg')}}" oncontextmenu="return false" ondragstart="return false" /></div>
         <div class="container">
             <div class="row">
                 <div class="col-xl-9 mx-auto">
-                    <h2 class="mb-4" style="color:black;">Ready to start helping your Patients?<br />Sign up now!</h2>
+                    <h2 class="mb-4" style="color:black;">Ready to start your Private Practise?<br />Sign up now!</h2>
                 </div>
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                     <form>
@@ -336,30 +354,30 @@
     <footer class="footer bg-light">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                <div class="col-lg-6 h-100 text-center text-lg-left my-auto ">
                     <ul class="list-inline mb-2">
                         <li class="list-inline-item">
-                            <a href="#">About</a>
+                            <a href="{{ route('login') }}" class="text-purple-link">Login</a>
                         </li>
                         <li class="list-inline-item">&sdot;</li>
                         <li class="list-inline-item">
-                            <a href="#">Contact</a>
+                            <a href="{{ route('register') }}" class="text-purple-link">Register</a>
                         </li>
-                        <li class="list-inline-item">&sdot;</li>
+                        {{--<li class="list-inline-item">&sdot;</li>
                         <li class="list-inline-item">
                             <a href="#">Terms of Use</a>
                         </li>
                         <li class="list-inline-item">&sdot;</li>
                         <li class="list-inline-item">
                             <a href="#">Privacy Policy</a>
-                        </li>
+                        </li>--}}
                     </ul>
                     <p class="text-muted small mb-4 mb-lg-0">&copy; DietDash. All Rights Reserved. </p>
                 </div>
                 <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item mr-3">
-                            Created by <a href="http://netiquette.co.za/" target="_blank">Netiquette</a>
+                            Created by <a href="http://netiquette.co.za/" target="_blank" class="text-purple-link">Netiquette</a>
                         </li>
                     </ul>
                 </div>
