@@ -6,7 +6,7 @@
     <meta name="description" content="Dashboard to manage being a Dietitian">
     <meta name="author" content="Netiquette">
 
-    <title>DietDash</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">

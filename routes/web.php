@@ -75,3 +75,7 @@ Route::get('/help','HelpController@index')->name('help.index');
 
 //Databindings
 Route::get('/home', 'BookingController@booking')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

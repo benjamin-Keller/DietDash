@@ -6,6 +6,7 @@ use App\Booking;
 use App\Patient;
 use App\User;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,34 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
+        $now = Carbon::today();
+        $userCount = User::count();
+
+        $todays = Booking::WhereDate('date', '=', $now)
+            ->where('user_id', '=', Auth::id())
+            ->where('time', '<=', time())
+            ->where('active', '=', '1')
+            ->get();
+
+        $today = $todays->count();
+
+        $upcomings = Booking::WhereDate('date', '>=', $now)
+            ->where('user_id', '=', Auth::id())
+            ->where('active', '=', '1')
+            ->get();
+
+        $upcoming = $upcomings->count();
+
+        $bookings = Booking::all()
+            ->where('user_id', '=', Auth::id())
+            ->where('active', '=', '1')
+            ->toArray();
+        return view('home', [
+            'userCount' => $userCount,
+            'today' => $today,
+            'upcoming' => $upcoming,
+            'bookings' => $bookings,
+            'patients' => Patient::all()->where('user_id', Auth::user()->id)->where('Deleted', 'like', '0')->all()]);
     }
 
     function action(Request $request)

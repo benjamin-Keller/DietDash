@@ -160,7 +160,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.content-header -->
 
         <!-- Main content -->
-        <div class="content">
+        <div class="content pb-5">
             <div class="container-fluid">
                 @yield('content')
             </div><!-- /.container-fluid -->
