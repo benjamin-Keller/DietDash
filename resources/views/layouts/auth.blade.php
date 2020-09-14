@@ -29,6 +29,14 @@
     <script src="https://kit.fontawesome.com/94ed29262a.js" crossorigin="anonymous"></script>
 
     <style>
+        .btn-purple, .btn-purple:active, .btn-purple:visited {
+            background-color: #800080;
+            color: white;
+        }
+        .btn-purple:hover {
+            background-color: #ac00ac;
+            color: white;
+        }
         .text-purple {
             color: #800080 !important;
         }

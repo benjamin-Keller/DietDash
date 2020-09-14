@@ -30,8 +30,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         crossorigin="anonymous"></script>
     <script src="{{ asset('bower_components/admin-lte/plugins/jquery/jquery.min.js') }}"></script>
     <style>
-        .btn-purple, .btn-purple:hover, .btn-purple:active, .btn-purple:visited {
+        .btn-purple, .btn-purple:active, .btn-purple:visited {
             background-color: #800080;
+            color: white;
+        }
+        .btn-purple:hover {
+            background-color: #ac00ac;
             color: white;
         }
         .text-purple {
