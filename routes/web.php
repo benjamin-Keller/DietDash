@@ -20,6 +20,7 @@ Route::group(['middleware' => 'auth'], function() {
 //Welcome
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::post('/', 'WelcomeController@index')->name('welcome');
+Route::get('/about-us', 'WelcomeController@about')->name('landing.about');
 
 Auth::routes();
 

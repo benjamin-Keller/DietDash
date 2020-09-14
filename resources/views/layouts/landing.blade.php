@@ -126,7 +126,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-        <a class="navbar-brand text-purple" href="#">DietDash</a>
+        <a class="navbar-brand text-purple" href="{{ route('welcome') }}">DietDash</a>
         @if (Route::has('login'))
             <div class="top-right links">
                 @auth

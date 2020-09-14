@@ -23,4 +23,9 @@ class WelcomeController extends Controller
 
         return view('welcome', compact('upcoming', 'users', 'patients'));
     }
+
+    public function about() {
+
+        return view('landing.about');
+    }
 }
