@@ -3,8 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="keywords" content="diet, food, health, dietitian, management">
     <meta name="description" content="Dashboard to manage being a Dietitian">
     <meta name="author" content="Netiquette">
+
 
     <title>{{ config('app.name') }}</title>
 
