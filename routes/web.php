@@ -48,8 +48,8 @@ Route::get('/reports', 'ReportController@index')->name('reports.index');
 Route::get('/reports/{id}', 'ReportController@show')->name('reports.show');
 Route::get('/reports/{id}/display', 'ReportController@display')->name('reports.display');
 
-Route::get('/reports/{id}/export','ReportController@exportPDF')->name('reports.export');
-Route::get('/reports/{id}/full','ReportController@exportFullPDF')->name('reports.exportFull');
+Route::get('/reports/{id}/export','ReportController@exportPDF')->name('exports.export');
+Route::get('/reports/{id}/full','ReportController@exportFullPDF')->name('exports.exportFull');
 
 //Calculator
 Route::get('/calculator', 'CalculatorController@index')->name('calculator.index');

@@ -31,13 +31,70 @@ class ReportController extends Controller
 
     public function display($id) {
         $patient = Patient::find($id);
+        $patient_info = Calculator::find($id);
+
+        $patient_latest = Patient::find($id);
+        $Calculator_latest = Calculator::find($id)->first();
 
         $history = Calculator::orderby('date', 'desc')
             ->where('patient_name', 'like', $id)
             ->get()
             ->take(3)
             ->toArray();
-        return view('reports.display', compact('patient','history'));
+
+
+        switch($Calculator_latest->activeness) {
+            case 'sedentary':
+                if($Calculator_latest->bmi_class == "Overweight" || $Calculator_latest->bmi_class == "Obese I" || $Calculator_latest->bmi_class == "Obese II" || $Calculator_latest->bmi_class == "Obese III") {
+                    $TEE_text = '20 - 25 kcal/kg (Using 25kcal/kg) (Overweight weight)';
+                    $TEE = 25;
+                } else if($Calculator_latest->bmi_class == "Normal" ) {
+                    $TEE_text = '30 kcal/kg (Normal weight)';
+                    $TEE = 30;
+                } else if($Calculator_latest->bmi_class == "Underweight") {
+                    $TEE_text = '30 kcal/kg (Underweight weight)';
+                    $TEE = 30;
+                }
+                break;
+            case 'moderately':
+                if($Calculator_latest->bmi_class == "Overweight" || $Calculator_latest->bmi_class == "Obese I" || $Calculator_latest->bmi_class == "Obese II" || $Calculator_latest->bmi_class == "Obese III") {
+                    $TEE_text = '30 kcal/kg (Overweight weight)';
+                    $TEE = 30;
+                } else if($Calculator_latest->bmi_class == "Normal" ) {
+                    $TEE_text = '35 kcal/kg (Normal weight)';
+                    $TEE = 35;
+                } else if($Calculator_latest->bmi_class == "Underweight") {
+                    $TEE_text = '40 kcal/kg (Underweight weight)';
+                    $TEE = 40;
+                }
+                break;
+            case 'very':
+                if($Calculator_latest->bmi_class == "Overweight" || $Calculator_latest->bmi_class == "Obese I" || $Calculator_latest->bmi_class == "Obese II" || $Calculator_latest->bmi_class == "Obese III") {
+                    $TEE_text = '35 kcal/kg (Overweight weight)';
+                    $TEE = 35;
+                } else if($Calculator_latest->bmi_class == "Normal" ) {
+                    $TEE_text = '40 kcal/kg (Normal weight)';
+                    $TEE = 40;
+                } else if($Calculator_latest->bmi_class == "Underweight") {
+                    $TEE_text = '45 - 50 kcal/kg (Using 50kcal/kg) (Underweight weight)';
+                    $TEE = 50;
+                }
+                break;
+            default:
+                $TEE_text = 'Insufficient Data';
+                $TEE = 0;
+
+                break;
+        }
+
+        $TEE_Total = $TEE * $Calculator_latest->weight;
+
+        $TEE_Carb = 0.60 * $TEE_Total;
+        $TEE_Fat = 0.25 * $TEE_Total;
+        $TEE_Prot = 0.15 * $TEE_Total;
+
+
+        return view('reports.display', compact('patient','history', 'patient_info', 'TEE_text', 'TEE_Carb', 'TEE_Fat', 'TEE_Prot', 'TEE_Total'));
     }
 
     public function exportPDF($id) {
@@ -47,7 +104,7 @@ class ReportController extends Controller
             ->latest('date')
             ->first();
 
-        $pdf = PDF::loadView('reports.export', compact('patientInfo','calc'));
+        $pdf = PDF::loadView('exports.export', compact('patientInfo','calc'));
 
         return $pdf->download($patientInfo->LastName.'_'.$patientInfo->FirstName.'-latest_report.pdf');
     }
@@ -65,7 +122,7 @@ class ReportController extends Controller
             ->take(3)
             ->toArray();
 
-        $pdf = PDF::loadView('reports.exportFull', compact('patientInfo','history', 'calc'));
+        $pdf = PDF::loadView('exports.exportFull', compact('patientInfo','history', 'calc'));
 
         return $pdf->download($patientInfo->LastName.'_'.$patientInfo->FirstName.'-full_report.pdf');
     }
