@@ -41,6 +41,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         .text-purple {
             color: #800080 !important;
         }
+        .link-purple {
+            color: #800080 !important;
+        }
+        .link-purple:hover {
+            color: #ac00ac !important;
+        }
         .pagination > li > a, .pagination > li > span{color: #800080;}
         .pagination > li.active > a, .pagination > li.active > span{
             background-color: #800080 !important;
@@ -70,6 +76,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
         </ul>
 
+
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Notifications Dropdown Menu -->
@@ -90,8 +97,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </form>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+            <li class="nav-item" >
+                <a class="nav-link link-purple" data-widget="control-sidebar" data-slide="true" href="#" role="button">
                     <i class="fas fa-question-circle"></i></a>
             </li>
         </ul>
@@ -170,6 +177,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-wrapper -->
 
     <!-- Control Sidebar -->
+
     <aside class="control-sidebar control-sidebar-dark" style="overflow: auto">
         <!-- Control sidebar content goes here -->
         <div class="p-3">
