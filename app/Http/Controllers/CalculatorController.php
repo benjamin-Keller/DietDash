@@ -35,6 +35,7 @@ class CalculatorController extends Controller
         $this -> validate($request, [
             'patient_name' => 'required',
             'age' => 'required',
+            'activeness' => 'required',
             'comment' => '',
 
             'weight' => 'required|numeric|between:0,99.99',
@@ -530,6 +531,7 @@ class CalculatorController extends Controller
             $calculation = new Calculator();
                 $calculation->patient_name = $request->get('patient_name');
                 $calculation->age = $request->get('age');
+                $calculation->activeness = $request->get('activeness');
                 $calculation->comment = $request->get('comment');
 
             //Anthropology

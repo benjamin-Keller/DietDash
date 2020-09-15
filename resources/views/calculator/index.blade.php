@@ -28,7 +28,7 @@
 
                             <div class="form-group">
                                 <div class="">
-                                    <select id='patient_name' name='patient_name' class="form-control" required>
+                                    <select id='patient_name' name='patient_name' class="form-control">
                                         <option value='null' selected>Select Patient</option>
                                         @foreach ($patient as $key => $value)
                                             <option value='{{ $key }}'>{{ $value }}</option>
@@ -39,6 +39,17 @@
                         <div class="form-group">
                                 {{ Form::label('age', 'Age') }}
                                 {{ Form::text('age', '', ['class'=> 'form-control', 'placeholder' => 'Age']) }}
+                        </div>
+                        <div class="form-group">
+                            {{ Form::label('activeness', 'Activeness') }}
+                            <div class="">
+                                <select id='activeness' name='activeness' class="form-control">
+                                    <option value='null' selected>Select Activeness</option>
+                                        <option value='sedentary'>Sedentary</option>
+                                        <option value='moderate'>Moderately Active</option>
+                                        <option value='very'>Very Active</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
                                 {{ Form::label('weight', 'Weight (kg)') }}

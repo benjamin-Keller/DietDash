@@ -23,6 +23,13 @@
                 </div>
 
                 <div class="card-body">
+                    <div class="row align-middle pb-3">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <a href="#Anthro" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Anthropometry</a>
+                            <a href="#BioChem" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Biochemestry</a>
+                            <a href="#Diet" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Diet</a>
+                        </div>
+                    </div>
                     @csrf
                     <!--Anthropometry -->
                         <h4>General</h4>
@@ -51,7 +58,7 @@
                             </tbody>
                         </table>
                         <br />
-                        <h4>Anthropometry</h4>
+                        <h4 id="Anthro">Anthropometry</h4>
                         <table class="table table-bordered table-striped table-responsive">
                             <thead>
                                 <tr>
@@ -83,7 +90,7 @@
                             </tbody>
                         </table>
                         <br />
-                        <h4>Biochemestry</h4>
+                        <h4 id="BioChem">Biochemestry</h4>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -215,6 +222,53 @@
                                 @endforeach
                             </tbody>
                         </table>
+                </div>
+
+
+            </div>
+            <div class="card" >
+                <div class="card-header container-fluid" id="Diet">
+                    <div class="row align-middle">
+                        <div class="col-sm">
+                            <h3 class="float-left">Diet</h3>
+                        </div>
+                        <div class="col-sm">
+                            <div class="float-right">
+                                <div class="form-group">
+                                    <select id='macro' name='macro' class="form-control">
+                                        <option value='null' selected>Select Macro-nutrients</option>
+                                        <option value='sedentary'>55/30/15</option>
+                                        <option value='moderate'>55/25/20</option>
+                                        <option value='very'>60/25/15</option>
+                                        <option value='very1'>45/30/25</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <!-- General information -->
+                    <table class="table table-bordered table-striped">
+                        <thead><tr><th>Gender</th><th>Weight</th><th>Height</th><th>Age</th></tr></thead>
+                        <tbody><tr><td>{{ $patient->Gender }}</td><td>{{ $patient_info->weight }}</td><td>{{ $patient_info->height }}</td><td>{{ $patient_info->age }}</td></tr></tbody>
+                    </table>
+
+                    <!-- Inset Piechart here -->
+
+
+                    <!-- Total Estimated Energy -->
+
+                    <!-- Javascript to display below -->
+                        <p class="pt-3">
+                            <strong>Macro-nutrients:</strong> 60/25/15<br />
+                            <strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }}<br /><br />
+                            <strong>Estimated Calories Requirements:</strong> {{ $TEE_Carb }}<br />
+                            <strong>Estimated Fat Requirements:</strong> {{ $TEE_Fat }}<br />
+                            <strong>Estimated Protein Requirements:</strong> {{ $TEE_Prot }}
+                        </p>
                 </div>
             </div>
         </div>
