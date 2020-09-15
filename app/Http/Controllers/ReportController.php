@@ -89,12 +89,33 @@ class ReportController extends Controller
 
         $TEE_Total = $TEE * $Calculator_latest->weight;
 
-        $TEE_Carb = 0.60 * $TEE_Total;
-        $TEE_Fat = 0.25 * $TEE_Total;
-        $TEE_Prot = 0.15 * $TEE_Total;
+        { //Carbs
+            $TEE_Carb_60 = (0.60 * $TEE_Total) / 4;
+            $TEE_Carb_55 = (0.55 * $TEE_Total) / 4;
+            $TEE_Carb_45 = (0.45 * $TEE_Total) / 4;
+
+        }
+        { //Fat
+            $TEE_Fat_30 = (0.30 * $TEE_Total) / 9;
+            $TEE_Fat_25 = (0.25 * $TEE_Total) / 9;
+        }
+        { //Protein
+            $TEE_Prot_25 = (0.25 * $TEE_Total) / 4;
+            $TEE_Prot_20 = (0.20 * $TEE_Total) / 4;
+            $TEE_Prot_15 = (0.15 * $TEE_Total) / 4;
+        }
+        /*{ //60/25/15
+            $TEE_Carb = (0.60 * $TEE_Total) / 4;
+            $TEE_Fat = (0.25 * $TEE_Total) / 9;
+            $TEE_Prot = (0.15 * $TEE_Total) / 4;
+        }*/
 
 
-        return view('reports.display', compact('patient','history', 'patient_info', 'TEE_text', 'TEE_Carb', 'TEE_Fat', 'TEE_Prot', 'TEE_Total'));
+
+        return view('reports.display', compact('patient','history', 'patient_info', 'TEE_text',
+            'TEE_Carb_60', 'TEE_Carb_55', 'TEE_Carb_45',
+            'TEE_Fat_30', 'TEE_Fat_25',
+            'TEE_Prot_25', 'TEE_Prot_20', 'TEE_Prot_15', 'TEE_Total'));
     }
 
     public function exportPDF($id) {

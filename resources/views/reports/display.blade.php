@@ -226,15 +226,15 @@
 
 
             </div>
-            <div class="card" >
-                <div class="card-header container-fluid" id="Diet">
+            <div class="card" id="Diet">
+                <div class="card-header container-fluid">
                     <div class="row align-middle">
                         <div class="col-sm">
                             <h3 class="float-left">Diet</h3>
                         </div>
                         <div class="col-sm">
                             <div class="float-right">
-                                <div class="form-group">
+                                @if($history != null)
                                     <select id='macro' name='macro' class="form-control">
                                         <option value='null' selected>Select Macro-nutrients</option>
                                         <option value='sedentary'>55/30/15</option>
@@ -242,12 +242,13 @@
                                         <option value='very'>60/25/15</option>
                                         <option value='very1'>45/30/25</option>
                                     </select>
-                                </div>
+                                @endif
                             </div>
                         </div>
 
                     </div>
                 </div>
+
 
                 <div class="card-body">
                     <!-- General information -->
@@ -265,9 +266,9 @@
                         <p class="pt-3">
                             <strong>Macro-nutrients:</strong> 60/25/15<br />
                             <strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }}<br /><br />
-                            <strong>Estimated Calories Requirements:</strong> {{ $TEE_Carb }}<br />
-                            <strong>Estimated Fat Requirements:</strong> {{ $TEE_Fat }}<br />
-                            <strong>Estimated Protein Requirements:</strong> {{ $TEE_Prot }}
+                            <strong>Estimated Calories Requirements:</strong> {{ round($TEE_Carb_55*4, 2) }}kcal @ {{ round($TEE_Carb_55, 2) }}g<br />
+                            <strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_30*9, 2) }}kcal @ {{ round($TEE_Fat_30, 2) }}g<br />
+                            <strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_15*4, 2) }}kcal @ {{ round($TEE_Prot_15, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)
                         </p>
                 </div>
             </div>
