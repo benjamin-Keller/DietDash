@@ -57,9 +57,7 @@
                                 </h2>
                             </div>
                             <div id="collapseWH" class="collapse show" aria-labelledby="headingWH" data-parent="#wh">
-                                <div class="pt-3 pr-5 pb-3 pl-5">
-                                    <h3>General</h3>
-
+                                <div class="p-5">
                                     <div class="form-group">
                                         {{ Form::label('home_language', 'Home Language') }}
                                         {{ Form::text('home_language', '', ['class'=> 'form-control']) }}
@@ -72,8 +70,6 @@
                                         {{ Form::label('approx_Income', 'Approximate Income') }}
                                         {{ Form::text('approx_Income', '', ['class'=> 'form-control']) }}
                                     </div>
-                                    <hr />
-                                    <h3>Address</h3>
                                     <div class="form-group">
                                         {{ Form::label('address_ln1', 'Address Line 1') }}
                                         {{ Form::text('address_ln1', '', ['class'=> 'form-control']) }}
@@ -93,7 +89,6 @@
                                     <div class="form-group">
                                         {{ Form::label('zip', 'Zip Code') }}
                                         {{ Form::text('zip', '', ['class'=> 'form-control']) }}
-                                    </div>
                                     </div>
                                 </div>
                             </div>
