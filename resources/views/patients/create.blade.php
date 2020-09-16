@@ -31,9 +31,15 @@
                         <div> {{ Form::label('LastName', 'Last Name') }} <p style="display: inline; color: red">*</p></div>
                             {{ Form::text('LastName', '', ['class'=> 'form-control']) }}
                         </div>
-                    <div class="form-group">
-                        <div> {{ Form::label('Gender', 'Gender') }} <p style="display: inline; color: red">*</p></div>
-                            {{ Form::text('Gender', '', ['class'=> 'form-control']) }}
+                        <div class="form-group">
+                            {{ Form::label('Gender', 'Gender') }}
+                            <div class="">
+                                <select id='Gender' name='Gender' class="form-control" required>
+                                    <option value='' selected>Select Gender</option>
+                                    <option value='Male'>Male</option>
+                                    <option value='Female'>Female</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
                             <div> {{ Form::label('IdNumber', 'ID Number') }} <p style="display: inline; color: red">*</p></div>

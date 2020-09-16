@@ -14,7 +14,17 @@ class Patient extends Model
         'IdNumber',
         'PhoneNumber',
         'Email',
-        'Deleted'
+        'Deleted',
+
+        'home_language',
+        'household_size',
+        'approx_Income',
+
+        'address_ln1',
+        'address_ln2',
+        'city',
+        'province',
+        'zip',
     ];
 
     public function user()

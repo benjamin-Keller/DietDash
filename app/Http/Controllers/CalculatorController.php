@@ -36,7 +36,6 @@ class CalculatorController extends Controller
             'patient_name' => 'required',
             'age' => 'required',
             'activeness' => 'required',
-            'comment' => '',
 
             'weight' => 'required|numeric|between:0,999.99',
             'height' => 'required|numeric|between:0,999.99',

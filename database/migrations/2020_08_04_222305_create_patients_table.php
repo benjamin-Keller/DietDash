@@ -24,6 +24,16 @@ class CreatePatientsTable extends Migration
             $table->string('PhoneNumber')->nullable();
             $table->string('Email')->nullable();
 
+            $table->string('home_language')->nullable();
+            $table->string('household_size')->nullable();
+            $table->string('approx_Income')->nullable();
+
+            $table->string('address_ln1')->nullable();
+            $table->string('address_ln2')->nullable();
+            $table->string('city')->nullable();
+            $table->string('province')->nullable();
+            $table->string('zip')->nullable();
+
             $table->boolean('Deleted');
             $table->timestamps();
         });

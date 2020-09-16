@@ -42,42 +42,52 @@
                             <label>Email</label>
                             <input type="text" class="form-control" name="Email" value="{{$patient->Email}}" readonly>
                         </div>
+                    <div class="accordion" id="wh">
+                        <div class="card">
+                            <div class="card-header" id="headingWH" type="button" data-toggle="collapse" data-target="#collapseWH" aria-expanded="true" aria-controls="collapseWH">
+                                <h2 class="btn text-purple text-bold inverted" >
+                                    Demographics
+                                </h2>
+                            </div>
+                            <div id="collapseWH" class="collapse hide" aria-labelledby="headingWH" data-parent="#wh">
+                                <div class="p-5">
+                                    <div class="form-group">
+                                        {{ Form::label('home_language', 'Home Language') }}
+                                        <input type="text" class="form-control" name="home_language" value="{{$patient->home_language}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('household_size', 'Household size') }}
+                                        <input type="text" class="form-control" name="household_size" value="{{$patient->household_size}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('approx_Income', 'Approximate Income') }}
+                                        <input type="text" class="form-control" name="approx_Income" value="{{$patient->approx_Income}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('address_ln1', 'Address Line 1') }}
+                                        <input type="text" class="form-control" name="address_ln1" value="{{$patient->address_ln1}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('address_ln2', 'Address Line 2') }}
+                                        <input type="text" class="form-control" name="address_ln2" value="{{$patient->address_ln2}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('city', 'City') }}
+                                        <input type="text" class="form-control" name="city" value="{{$patient->city}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('province', 'Province') }}
+                                        <input type="text" class="form-control" name="province" value="{{$patient->province}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('zip', 'Zip Code') }}
+                                        <input type="text" class="form-control" name="zip" value="{{$patient->zip}}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                {{--<table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Full Name</th>
-                            <th>ID Number</th>
-                            <th>Phone Number</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{$patient->FirstName}} {{$patient->LastName}}</td>
-                            <td>{{$patient->IdNumber}}</td>
-                            <td>{{$patient->PhoneNumber}}</td>
-                            <td>{{$patient->Email}}</td>
-                        </tr>
-                    </tbody>
-
-                </table>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Medical Aid</th>
-                        <th>Payment Info</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>{{$patient->MedicalAid}}</td>
-                        <td>{{$patient->PaymentInfo}}</td>
-
-                    </tr>
-                    </tbody>
-                </table>--}}
             </div>
         </div>
     </div>

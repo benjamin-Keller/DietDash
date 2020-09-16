@@ -28,7 +28,7 @@
 
                             <div class="form-group">
                                 <div class="">
-                                    <select id='patient_name' name='patient_name' class="form-control">
+                                    <select id='patient_name' name='patient_name' class="form-control" required>
                                         <option value='' selected>Select Patient</option>
                                         @foreach ($patient as $key => $value)
                                             <option value='{{ $key }}'>{{ $value }}</option>

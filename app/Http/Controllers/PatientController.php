@@ -45,23 +45,13 @@ class PatientController extends Controller
             'LastName' => 'required|string',
             'Gender' => 'required|string',
             'IdNumber' => 'required|unique:patients,IdNumber',
-            'PhoneNumber' => '',
             'Email' => 'email',
-            'Deleted' => '',
         ]);
 
         //Create Patient
-
         $patient = new Patient;
-            $patient->user_id = Auth::id();
-            $patient->FirstName = $request->input('FirstName');
-            $patient->LastName = $request->input('LastName');
-            $patient->Gender = $request->input('Gender');
-            $patient->IdNumber = $request->input('IdNumber');
-            $patient->PhoneNumber = $request->input('PhoneNumber');
-            $patient->Email = $request->input('Email');
-            $patient->Deleted = '0';
-        $patient->save();
+            $this->PatientRequest($patient, $request);
+
 
         return redirect('/patients')->with('success', 'Patient Added.');
     }
@@ -86,19 +76,10 @@ class PatientController extends Controller
         $this->validate($request, [
             'FirstName' => 'required|string',
             'LastName' => 'required|string',
-            'PhoneNumber' => '',
-            'Email' => '',
-            'Deleted' => '',
         ]);
 
-        //Edit Patient
         $patient = Patient::findOrFail($id);
-            $patient->FirstName = $request->get('FirstName');
-            $patient->LastName = $request->get('LastName');
-            $patient->PhoneNumber = $request->get('PhoneNumber');
-            $patient->Email = $request->get('Email');
-            $patient->Deleted = '0';
-        $patient->save();
+            $this->PatientRequest($patient, $request);
 
         return redirect('/patients/edit/'.$id);
     }
@@ -121,5 +102,31 @@ class PatientController extends Controller
         $patient->save();
 
         return redirect('/patients/deleted/')->with('success', 'Patient Restored.');
+    }
+
+    /**
+     * @param $patient
+     * @param Request $request
+     */
+    public function PatientRequest($patient, Request $request): void
+    {
+        //Edit Patient
+        $patient->FirstName = $request->get('FirstName');
+        $patient->LastName = $request->get('LastName');
+        $patient->PhoneNumber = $request->get('PhoneNumber');
+        $patient->Email = $request->get('Email');
+
+        $patient->home_language = $request->get('home_language');
+        $patient->household_size = $request->get('household_size');
+        $patient->approx_Income = $request->get('approx_Income');
+
+        $patient->address_ln1 = $request->get('address_ln1');
+        $patient->address_ln2 = $request->get('address_ln2');
+        $patient->city = $request->get('city');
+        $patient->province = $request->get('province');
+        $patient->zip = $request->get('zip');
+
+        $patient->Deleted = '0';
+        $patient->save();
     }
 }
