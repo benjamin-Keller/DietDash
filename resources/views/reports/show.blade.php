@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="card-body">
-                        @csrf
+                    @csrf
                     <h4>General Information</h4>
                         <div class="form-group">
                             <label>First Name</label>
