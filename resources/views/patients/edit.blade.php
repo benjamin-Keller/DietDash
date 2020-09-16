@@ -64,35 +64,35 @@
                                     <div class="p-5">
                                         <div class="form-group">
                                             {{ Form::label('home_language', 'Home Language') }}
-                                            <input type="text" class="form-control" name="home_language" value="{{$patient->home_language}}" placeholder="Enter Home Language">
+                                            <input type="text" class="form-control" name="home_language" value="{{$patient->home_language}}" placeholder="Enter Home Language" autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('household_size', 'Household size') }}
-                                            <input type="text" class="form-control" name="household_size" value="{{$patient->household_size}}" placeholder="Enter Household size">
+                                            <input type="text" class="form-control" name="household_size" value="{{$patient->household_size}}" placeholder="Enter Household size" autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('approx_Income', 'Approximate Income') }}
-                                            <input type="text" class="form-control" name="approx_Income" value="{{$patient->approx_Income}}" placeholder="Enter Approximate Income">
+                                            <input type="text" class="form-control" name="approx_Income" value="{{$patient->approx_Income}}" placeholder="Enter Approximate Income" autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('address_ln1', 'Address Line 1') }}
-                                            <input type="text" class="form-control" name="address_ln1" value="{{$patient->address_ln1}}" placeholder="Enter Address Line 1">
+                                            <input type="text" class="form-control" name="address_ln1" value="{{$patient->address_ln1}}" placeholder="Enter Address Line 1" autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('address_ln2', 'Address Line 2') }}
-                                            <input type="text" class="form-control" name="address_ln2" value="{{$patient->address_ln2}}" placeholder="Enter Address Line 2">
+                                            <input type="text" class="form-control" name="address_ln2" value="{{$patient->address_ln2}}" placeholder="Enter Address Line 2"autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('city', 'City') }}
-                                            <input type="text" class="form-control" name="city" value="{{$patient->city}}" placeholder="Enter City">
+                                            <input type="text" class="form-control" name="city" value="{{$patient->city}}" placeholder="Enter City" autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('province', 'Province') }}
-                                            <input type="text" class="form-control" name="province" value="{{$patient->province}}" placeholder="Enter Province">
+                                            <input type="text" class="form-control" name="province" value="{{$patient->province}}" placeholder="Enter Province"autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('zip', 'Zip Code') }}
-                                            <input type="text" class="form-control" name="zip" value="{{$patient->zip}}" placeholder="Enter Zip Code">
+                                            <input type="text" class="form-control" name="zip" value="{{$patient->zip}}" placeholder="Enter Zip Code"autocomplete="off">
                                         </div>
                                     </div>
                                 </div>
