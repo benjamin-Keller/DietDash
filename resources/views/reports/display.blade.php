@@ -13,8 +13,8 @@
                         <div class="col-sm">
                             <div class="float-right">
                                 @if($history != null)
-                                    <a href="{{action('ReportController@exportFullPDF', $patient->id)}}" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Export History</a>
-                                    <a href="{{action('ReportController@exportPDF', $patient->id)}}" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Export Latest</a>
+                                    <a href="{{action('ReportController@exportFullPDF', $patient->id)}}" class="btn btn-purple btn-m inverted" style="text-decoration: none; color: white;">Export History</a>
+                                    <a href="{{action('ReportController@exportPDF', $patient->id)}}" class="btn btn-purple btn-m inverted" style="text-decoration: none; color: white;">Export Latest</a>
                                 @endif
                             </div>
                         </div>
@@ -24,7 +24,7 @@
 
                 <div class="card-body">
                     <div class="row align-middle pb-3">
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <div class="btn-group btn-group-toggle inverted" data-toggle="buttons">
                             <a href="#Anthro" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Anthropometry</a>
                             <a href="#BioChem" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Biochemestry</a>
                             <a href="#Diet" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Diet</a>

@@ -52,11 +52,11 @@
                     <div class="accordion" id="wh">
                         <div class="card">
                             <div class="card-header" id="headingWH" type="button" data-toggle="collapse" data-target="#collapseWH" aria-expanded="true" aria-controls="collapseWH">
-                                <h2 class="btn text-purple text-bold" >
+                                <h2 class="btn text-purple text-bold inverted" >
                                     Demographics
                                 </h2>
                             </div>
-                            <div id="collapseWH" class="collapse show" aria-labelledby="headingWH" data-parent="#wh">
+                            <div id="collapseWH" class="collapse hide" aria-labelledby="headingWH" data-parent="#wh">
                                 <div class="p-5">
                                     <div class="form-group">
                                         {{ Form::label('home_language', 'Home Language') }}
@@ -97,7 +97,7 @@
                     <hr />
                     <br />
 
-                        {{ Form::submit('Submit', ['class' => 'btn btn-purple']) }}
+                        {{ Form::submit('Submit', ['class' => 'btn btn-purple inverted']) }}
                         {!! Form::close() !!}
                 </div>
                 <br />

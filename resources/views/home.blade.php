@@ -81,8 +81,8 @@
                                         </div>
                                         <div class="col-sm">
                                             <div class="float-right">
-                                                <a href="{{ route('patients.create') }}" class="btn btn-purple btn-m ml-2" style="text-decoration: none; color: white;">Add Patient</a>
-                                                <a href="{{ route('patients.deleted') }}" class="btn btn-m " style="background-color: #be0000; text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></a>
+                                                <a href="{{ route('patients.create') }}" class="btn btn-purple btn-m ml-2 inverted" style="text-decoration: none; color: white;">Add Patient</a>
+                                                <a href="{{ route('patients.deleted') }}" class="btn btn-m inverted" style="background-color: #be0000; text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -93,7 +93,7 @@
                                         <table class="table table-bordered table-striped
                                         table-responsive-sm
                                         table-responsive-md
-                                        table-responsive-lg" id="patients">
+                                        table-responsive-lg " id="patients">
                                             <thead>
                                             <tr>
                                                 <th>{{ 'First Name' }}</th>
@@ -137,7 +137,7 @@
                                         </div>
                                         <div class="col-sm">
                                             <div class="float-right">
-                                                <a href="{{ url('/bookings') }}" class="btn btn-purple btn-m ml-2" style="text-decoration: none; color: white;">Add Booking</a>
+                                                <a href="{{ url('/bookings') }}" class="btn btn-purple btn-m ml-2 inverted" style="text-decoration: none; color: white;">Add Booking</a>
                                             </div>
                                         </div>
                                     </div>

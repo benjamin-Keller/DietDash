@@ -18,16 +18,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <title>{{ config('app.name') }}</title>
 
+    <!-- Dark-Mode -->
+    <link href="{{ asset('css/dark-converter.css') }}" rel="stylesheet">
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/dist/css/adminlte.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    <script
-        src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="{{ asset('bower_components/admin-lte/plugins/jquery/jquery.min.js') }}"></script>
     <style>
         .btn-purple, .btn-purple:active, .btn-purple:visited {
@@ -47,17 +47,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
         .link-purple:hover {
             color: #ac00ac !important;
         }
-        .pagination > li > a, .pagination > li > span{color: #800080;}
-        .pagination > li.active > a, .pagination > li.active > span{
-            background-color: #800080 !important;
-            border-color: #800080 !important;
-        }
+        .pagination > li > a, .pagination > li > span{ color: #800080; }
+        .pagination > li.active > a, .pagination > li.active > span{ background-color: #800080 !important; border-color: #800080 !important; }
+
+        .pagination_invert > li > a, .pagination_invert > li > span{ filter: invert(1) hue-rotate(180deg); }
+        .pagination_invert > li.active > a, .pagination_invert > li.active > span{ filter: invert(1) hue-rotate(180deg); }
+
+
 
     </style>
     <!-- DataTables designed and created by SpryMedia Ltd. Available from https://datatables.net/ -->
-{{--    <script src="https://cdn.datatables.net/v/bs4/dt-1.10.21/b-1.6.3/b-colvis-1.6.3/b-print-1.6.3/r-2.2.5/sp-1.1.1/datatables.min.js"></script>--}}
     <script src="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-{{--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/b-1.6.3/b-colvis-1.6.3/b-print-1.6.3/r-2.2.5/sp-1.1.1/datatables.min.css"/>--}}
     <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}"/>
     <script>
         @yield('scripts')
@@ -86,9 +86,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                    <a class="dropdown-item">
+                        <div class="custom-control custom-switch" >
+                            <input type="checkbox" class="custom-control-input" id="darkmode-Switch"
+                                   onclick="document.documentElement.classList.toggle('dark-mode');
+                                            document.querySelectorAll('.inverted').forEach((result) => result.classList.toggle('invert'));
+                                            document.querySelectorAll('.pagination').forEach((result) => result.classList.toggle('pagination_invert'));">
+                            <label class="custom-control-label" for="darkmode-Switch">Darkmode</label>
+                        </div>
+                    </a>
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
 
@@ -98,7 +106,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
             </li>
             <li class="nav-item" >
-                <a class="nav-link link-purple" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                <a class="nav-link link-purple inverted" data-widget="control-sidebar" data-slide="true" href="#" role="button">
                     <i class="fas fa-question-circle"></i></a>
             </li>
         </ul>
@@ -106,7 +114,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #400040">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 inverted" style="background-color: #400040">
         <!-- Brand Logo -->
         <a href="{{ route('home') }}" class="brand-link">
             <img src="{{ asset('img/logo.png') }}" alt="DietDash Logo" class="brand-image img-circle elevation-3"
@@ -193,7 +201,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="float-right d-none d-sm-inline">
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; {{ date('yy') }} <a href="http://netiquette.co.za">Netiquette</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; {{ date('yy') }} <a href="http://netiquette.co.za" class="text-purple inverted">Netiquette</a>.</strong> All rights reserved.
     </footer>
 </div>
 <!-- ./wrapper -->
@@ -208,5 +216,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- DataTables -->
 <script src="{{ asset('bower_components/admin-lte/plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+
+<script>
+    $(function(){
+        var checkBox = document.getElementById("darkmode-Switch");
+        var test = localStorage.input === 'true'? true: false;
+        $('#darkmode-Switch').prop('checked', test || false);
+
+        if (checkBox.checked == true){
+            document.documentElement.classList.toggle('dark-mode');
+            document.querySelectorAll('.inverted').forEach((result) => result.classList.toggle('invert'));
+            document.querySelectorAll('.pagination').forEach((result) => result.classList.toggle('pagination_invert'));
+
+
+        } else {
+
+            var style = document.createElement('style');
+            style.innerHTML =
+                '.pagination > li > a, .pagination > li > span{ color: #800080; }' +
+                '.pagination > li.active > a, .pagination > li.active > span{ background-color: #800080 !important;border-color: #800080 !important; }' +
+                '.dark-mode {filter: invert(1) hue-rotate(180deg);}' +
+                '.invert {filter: invert(1) hue-rotate(180deg);}';
+
+            // Get the first script tag
+            var ref = document.querySelector('script');
+
+            // Insert our new styles before the first script tag
+            ref.parentNode.insertBefore(style, ref);
+        }
+    });
+
+    $('#darkmode-Switch').on('change', function() {
+        localStorage.input = $(this).is(':checked');
+        console.log($(this).is(':checked'));
+    });
+</script>
 </body>
 </html>

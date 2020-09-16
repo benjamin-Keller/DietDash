@@ -42,7 +42,7 @@
                             <input type="text" class="form-control" name="Email" value="{{$patient->Email}}" placeholder="Enter Email">
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-purple" value="Edit">
+                            <input type="submit" class="btn btn-purple inverted" value="Edit">
                         </div>
 
                     </form>

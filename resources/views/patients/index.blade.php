@@ -17,8 +17,8 @@
                         </div>
                         <div class="col-sm">
                             <div class="float-right">
-                                <a href="{{ route('patients.create') }}" class="btn btn-purple btn-m ml-2" style="text-decoration: none; color: white;">Add Patient</a>
-                                <a href="{{ route('patients.deleted') }}" class="btn btn-danger btn-m " style="text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></a>
+                                <a href="{{ route('patients.create') }}" class="btn btn-purple btn-m ml-2 inverted" style="text-decoration: none; color: white;">Add Patient</a>
+                                <a href="{{ route('patients.deleted') }}" class="btn btn-danger btn-m inverted" style="text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></a>
                             </div>
                         </div>
                     </div>

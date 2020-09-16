@@ -20,8 +20,8 @@
                         </div>
                         <div class="col-sm">
                             <div class="float-right">
-                                <a href="{{ route('bookings.today') }}" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Today</a>
-                                <a href="{{ route('bookings.index') }}" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Back</a>
+                                <a href="{{ route('bookings.today') }}" class="btn btn-purple btn-m inverted" style="text-decoration: none; color: white;">Today</a>
+                                <a href="{{ route('bookings.index') }}" class="btn btn-purple btn-m inverted" style="text-decoration: none; color: white;">Back</a>
                             </div>
                         </div>
                     </div>

@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <div class="">
                                     <select id='patient_name' name='patient_name' class="form-control">
-                                        <option value='null' selected>Select Patient</option>
+                                        <option value='' selected>Select Patient</option>
                                         @foreach ($patient as $key => $value)
                                             <option value='{{ $key }}'>{{ $value }}</option>
                                         @endforeach
@@ -53,7 +53,7 @@
                             {{ Form::label('activeness', 'Activeness') }}
                             <div class="">
                                 <select id='activeness' name='activeness' class="form-control">
-                                    <option value='null' selected>Select Activeness</option>
+                                    <option value='' selected>Select Activeness</option>
                                     <option value='sedentary'>Sedentary</option>
                                     <option value='moderate'>Moderately Active</option>
                                     <option value='very'>Very Active</option>
@@ -64,8 +64,8 @@
                         <div class="accordion" id="wh">
                             <div class="card">
                                 <div class="card-header" id="headingWH" type="button" data-toggle="collapse" data-target="#collapseWH" aria-expanded="true" aria-controls="collapseWH">
-                                    <h2 class="btn text-purple text-bold" >
-                                        Waist / Hip Ratio
+                                    <h2 class="btn text-purple text-bold inverted" >
+                                        <div>Waist / Hip Ratio<p style="display: inline; color: red">*</p></div>
                                     </h2>
                                 </div>
                                 <div id="collapseWH" class="collapse hide" aria-labelledby="headingWH" data-parent="#wh">
@@ -94,7 +94,7 @@
                         <div class="accordion" id="bio">
                             <div class="card">
                                 <div class="card-header" id="headingBio" type="button" data-toggle="collapse" data-target="#collapseBio" aria-expanded="true" aria-controls="headingBio">
-                                    <h2 class="btn text-purple text-bold" >
+                                    <h2 class="btn text-purple text-bold inverted" >
                                        Biochemistry
                                     </h2>
                                 </div>
@@ -263,7 +263,7 @@
                         </div>
 
                         <hr />
-                        {{ Form::submit('Submit', ['class' => 'btn btn-purple']) }}
+                        {{ Form::submit('Submit', ['class' => 'btn btn-purple inverted']) }}
                         {!! Form::close() !!}
                 </div>
             </div>
