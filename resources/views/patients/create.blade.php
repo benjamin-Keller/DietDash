@@ -32,8 +32,8 @@
                             {{ Form::text('LastName', '', ['class'=> 'form-control']) }}
                         </div>
                         <div class="form-group">
-                            {{ Form::label('Gender', 'Gender') }}
                             <div class="">
+                                <label for='Gender'>Gender</label>
                                 <select id='Gender' name='Gender' class="form-control" required>
                                     <option value='' selected>Select Gender</option>
                                     <option value='Male'>Male</option>
