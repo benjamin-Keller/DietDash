@@ -93,7 +93,7 @@
                                         <table class="table table-bordered table-striped
                                         table-responsive-sm
                                         table-responsive-md
-                                        table-responsive-lg " id="patients">
+                                        table-responsive-lg" id="patients">
                                             <thead>
                                             <tr>
                                                 <th>{{ 'First Name' }}</th>

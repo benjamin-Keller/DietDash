@@ -33,7 +33,10 @@
                     @csrf
                     <!--Anthropometry -->
                         <h4>General</h4>
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped
+                            table-responsive-sm
+                            table-responsive-md
+                            table-responsive-lg">
                             <thead>
                                 <tr>
                                     <th>{{ 'Age' }}</th>
@@ -59,7 +62,10 @@
                         </table>
                         <br />
                         <h4 id="Anthro">Anthropometry</h4>
-                        <table class="table table-bordered table-striped table-responsive">
+                        <table class="table table-bordered table-striped
+                            table-responsive-sm
+                            table-responsive-md
+                            table-responsive-lg">
                             <thead>
                                 <tr>
                                     <th>{{ 'BMI' }}</th>
@@ -91,7 +97,10 @@
                         </table>
                         <br />
                         <h4 id="BioChem">Biochemestry</h4>
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped
+                            table-responsive-sm
+                            table-responsive-md
+                            table-responsive-lg">
                             <thead>
                                 <tr>
                                     <th>{{ 'Sodium' }}</th>
@@ -126,7 +135,10 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped
+                            table-responsive-sm
+                            table-responsive-md
+                            table-responsive-lg">
                             <thead>
                                 <tr>
                                     <th>{{ 'HDL' }}</th>
@@ -158,7 +170,10 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped
+                            table-responsive-sm
+                            table-responsive-md
+                            table-responsive-lg">
                             <thead>
                                 <tr>
                                     <th>{{ 'Zinc' }}</th>
@@ -194,7 +209,10 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <table class="table table-bordered table-striped">
+                        <table class="table table-bordered table-striped
+                            table-responsive-sm
+                            table-responsive-md
+                            table-responsive-lg">
                             <thead>
                                 <tr>
                                     <th>{{ 'Haemoglobin' }}</th>
@@ -252,7 +270,10 @@
 
                 <div class="card-body">
                     <!-- General information -->
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped
+                            table-responsive-sm
+                            table-responsive-md
+                            table-responsive-lg">
                         <thead><tr><th>Gender</th><th>Weight</th><th>Height</th><th>Age</th></tr></thead>
                         <tbody><tr><td>{{ $patient->Gender }}</td><td>{{ $patient_info->weight }}</td><td>{{ $patient_info->height }}</td><td>{{ $patient_info->age }}</td></tr></tbody>
                     </table>
@@ -347,15 +368,63 @@
                            }
                         });
                     </script>
+
+                    <style>
+                        @media (min-width:360px) {
+                            /* big landscape tablets, laptops, and desktops */
+                            .chart-container-style {
+                                height:80vh;
+                                width:80vw;
+                                margin: 0 auto;
+                                text-align: center;
+                            }
+                        }
+                        @media (min-width:800px) {
+                            /* big landscape tablets, laptops, and desktops */
+                            .chart-container-style {
+                                height:80vh;
+                                width:80vw;
+                                margin: 0 auto;
+                                text-align: center;
+
+                            }
+                        }
+                        @media (min-width:1025px) {
+                            /* big landscape tablets, laptops, and desktops */
+                            .chart-container-style {
+                                height:40vh;
+                                width:40vw;
+                                margin: 0 auto;
+                                text-align: center;
+
+                            }
+                        }
+                        @media (min-width:1281px) {
+                            /* hi-res laptops and desktops */
+                            .chart-container-style {
+                                height:40vh;
+                                width:40vw;
+                                margin: 0 auto;
+                                text-align: center;
+
+                            }
+                        }
+                    </style>
+
                     <div id="macro-nutrients"></div>
-                    <canvas id="macro-chart" style="width: 400px; height: 225px;"></canvas>
+                    <div class="">
+                        <div id="" class="chart-container-style">
+                            <canvas id="macro-chart" class="chart-container-style"></canvas>
+                        </div>
+                    </div>
+
+
                     <script>
                         function create_chart(sendData) {
                             var ctx = document.getElementById('macro-chart').getContext("2d");
                             if(window.myChart != undefined)
                                 window.myChart.destroy();
                             window.myChart = new Chart(ctx, {});
-
 
                             window.myChart = new Chart(ctx, {
                                 type: 'pie',
