@@ -24,9 +24,10 @@
 
                         {{ __('Fill in the following to calculate:') }}
 
-                        {!! Form::open(['action' => 'CalculatorController@store', 'method' => 'POST', 'autocomplete' => 'off']) !!}
+                        {!! Form::open(['action' => 'CalculatorController@store', 'method' => 'POST', 'autocomplete' => 'off', 'class' => 'pt-3']) !!}
 
                             <div class="form-group">
+                                <div>{{ Form::label('patient_name', 'Patient') }}<p style="display: inline; color: red">*</p></div>
                                 <div class="">
                                     <select id='patient_name' name='patient_name' class="form-control" required>
                                         <option value='' selected>Select Patient</option>
@@ -37,22 +38,22 @@
                                 </div>
                             </div>
                         <div class="form-group">
-                                {{ Form::label('age', 'Age') }}
+                            <div>{{ Form::label('age', 'Age') }}<p style="display: inline; color: red">*</p></div>
                                 {{ Form::text('age', '', ['class'=> 'form-control', 'placeholder' => 'Age']) }}
                         </div>
 
                         <div class="form-group">
-                                {{ Form::label('weight', 'Weight (kg)') }}
+                            <div>{{ Form::label('weight', 'Weight (kg)') }}<p style="display: inline; color: red">*</p></div>
                                 {{ Form::text('weight', '', ['class'=> 'form-control', 'placeholder' => 'Weight']) }}
                         </div>
                         <div class="form-group">
-                                {{ Form::label('height', 'Height (m)') }}
+                            <div>{{ Form::label('height', 'Height (m)') }}<p style="display: inline; color: red">*</p></div>
                                 {{ Form::text('height', '', ['class'=> 'form-control', 'placeholder' => 'Height']) }}
                         </div>
                         <div class="form-group">
-                            {{ Form::label('activeness', 'Activeness') }}
+                            <div>{{ Form::label('activeness', 'Activeness') }}<p style="display: inline; color: red">*</p></div>
                             <div class="">
-                                <select id='activeness' name='activeness' class="form-control">
+                                <select id='activeness' name='activeness' class="form-control" required>
                                     <option value='' selected>Select Activeness</option>
                                     <option value='sedentary'>Sedentary</option>
                                     <option value='moderate'>Moderately Active</option>
@@ -71,19 +72,19 @@
                                 <div id="collapseWH" class="collapse hide" aria-labelledby="headingWH" data-parent="#wh">
                                     <div class="pt-3 pr-5 pb-3 pl-5">
                                         <div class="form-group">
-                                            {{ Form::label('waist', 'Waist Circumference (cm)') }}
+                                            <div>{{ Form::label('waist', 'Waist Circumference (cm)') }}<p style="display: inline; color: red">*</p></div>
                                             {{ Form::text('waist', '', ['class'=> 'form-control', 'placeholder' => 'Waist Circumference']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('hip', 'Hip Circumference (cm)') }}
+                                            <div>{{ Form::label('hip', 'Hip Circumference (cm)') }}<p style="display: inline; color: red">*</p></div>
                                             {{ Form::text('hip', '', ['class'=> 'form-control', 'placeholder' => 'Hip Circumference']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('muac', 'MUAC (cm)') }}
+                                            <div>{{ Form::label('muac', 'MUAC (cm)') }}<p style="display: inline; color: red">*</p></div>
                                             {{ Form::text('muac', '', ['class'=> 'form-control', 'placeholder' => 'MUAC']) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ Form::label('tricept_skinfold', 'Tricept Skinfold (mm)') }}
+                                            <div>{{ Form::label('tricept_skinfold', 'Tricept Skinfold (mm)') }}<p style="display: inline; color: red">*</p></div>
                                             {{ Form::text('tricept_skinfold', '', ['class'=> 'form-control', 'placeholder' => 'Tricept Skinfold']) }}
                                         </div>
                                     </div>
