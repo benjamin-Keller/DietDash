@@ -31,17 +31,20 @@ class ReportController extends Controller
 
     public function display($id) {
         $patient = Patient::find($id);
-        $patient_info = Calculator::find($id);
+        $patient_info = Calculator::all()
+            ->where('patient_name', 'like', $id)
+            ->sortByDesc('created_at')
+            ->first();
 
-        $patient_latest = Patient::find($id);
-        $Calculator_latest = Calculator::find($id)->first();
+        $Calculator_latest = Calculator::all()
+            ->where('patient_name', 'like', $id)
+            ->last();
 
-        $history = Calculator::orderby('date', 'desc')
+        $history = Calculator::orderby('created_at', 'desc')
             ->where('patient_name', 'like', $id)
             ->get()
             ->take(3)
             ->toArray();
-
 
         switch($Calculator_latest->activeness) {
             case 'sedentary':
@@ -56,7 +59,7 @@ class ReportController extends Controller
                     $TEE = 30;
                 }
                 break;
-            case 'moderately':
+            case 'moderate':
                 if($Calculator_latest->bmi_class == "Overweight" || $Calculator_latest->bmi_class == "Obese I" || $Calculator_latest->bmi_class == "Obese II" || $Calculator_latest->bmi_class == "Obese III") {
                     $TEE_text = '30 kcal/kg (Overweight weight)';
                     $TEE = 30;
