@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use mysql_xdevapi\Exception;
 
 class PatientController extends Controller
 {
@@ -52,8 +53,8 @@ class PatientController extends Controller
         $patient = new Patient;
             $this->PatientRequest($patient, $request);
 
-
         return redirect('/patients')->with('success', 'Patient Added.');
+
     }
 
     public function edit($id) {
@@ -111,10 +112,13 @@ class PatientController extends Controller
     public function PatientRequest($patient, Request $request): void
     {
         //Edit Patient
+        $patient->user_id = Auth::id();
         $patient->FirstName = $request->get('FirstName');
         $patient->LastName = $request->get('LastName');
+        $patient->IdNumber = $request->get('IdNumber');
         $patient->PhoneNumber = $request->get('PhoneNumber');
         $patient->Email = $request->get('Email');
+        $patient->Gender = $request->get('Gender');
 
         $patient->home_language = $request->get('home_language');
         $patient->household_size = $request->get('household_size');
@@ -124,6 +128,7 @@ class PatientController extends Controller
         $patient->address_ln2 = $request->get('address_ln2');
         $patient->city = $request->get('city');
         $patient->province = $request->get('province');
+        $patient->country = $request->get('country');
         $patient->zip = $request->get('zip');
 
         $patient->Deleted = '0';

@@ -24,6 +24,7 @@ class Patient extends Model
         'address_ln2',
         'city',
         'province',
+        'country',
         'zip',
     ];
 

@@ -32,6 +32,7 @@ class CreatePatientsTable extends Migration
             $table->string('address_ln2')->nullable();
             $table->string('city')->nullable();
             $table->string('province')->nullable();
+            $table->string('country')->nullable();
             $table->string('zip')->nullable();
 
             $table->boolean('Deleted');
