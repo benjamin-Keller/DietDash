@@ -236,11 +236,11 @@
                             <div class="float-right">
                                 @if($history != null)
                                     <select id='macro' name='macro' class="form-control">
-                                        <option value='null' selected>Select Macro-nutrients</option>
-                                        <option value='sedentary'>55/30/15</option>
-                                        <option value='moderate'>55/25/20</option>
-                                        <option value='very'>60/25/15</option>
-                                        <option value='very1'>45/30/25</option>
+                                        <option class='dropdown-item' value='null' selected>Select Macro-nutrients</option>
+                                        <option class='dropdown-item' value='high_fat'>High fat</option>
+                                        <option class='dropdown-item' value='high_protein'>High protein</option>
+                                        <option class='dropdown-item' value='high_carb'>High carb</option>
+                                        <option class='dropdown-item' value='low_carb'>Low carb</option>
                                     </select>
                                 @endif
                             </div>
@@ -263,13 +263,85 @@
                     <!-- Total Estimated Energy -->
 
                     <!-- Javascript to display below -->
-                        <p class="pt-3">
-                            <strong>Macro-nutrients:</strong> 60/25/15<br />
-                            <strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }}<br /><br />
-                            <strong>Estimated Calories Requirements:</strong> {{ round($TEE_Carb_55*4, 2) }}kcal @ {{ round($TEE_Carb_55, 2) }}g<br />
-                            <strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_30*9, 2) }}kcal @ {{ round($TEE_Fat_30, 2) }}g<br />
-                            <strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_15*4, 2) }}kcal @ {{ round($TEE_Prot_15, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)
-                        </p>
+                    <script>
+                        $('#macro').ready(function () {
+                            document.getElementById("macro-nutrients")
+                                .innerHTML ="<p class=\"pt-3\">\n" +
+                                "<strong>Macro-nutrients:</strong> <br />\n" +
+                                "<strong>Total Estimated Energy (TEE):</strong><br /><br />\n" +
+                                "<strong>Estimated Calories Requirements:</strong> <br />\n" +
+                                "<strong>Estimated Fat Requirements:</strong> <br />\n" +
+                                "<strong>Estimated Protein Requirements:</strong> \n" +
+                                "</p>";
+                        });
+                        $('#macro').on('change', function() {
+                           switch(this.value) {
+                               case 'high_fat':
+                                   document.getElementById("macro-nutrients")
+                                       .innerHTML ="<p class=\"pt-3\">\n" +
+                                       "<strong>Macro-nutrients:</strong> 55/30/15<br />\n" +
+                                       "<strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }}<br /><br />\n" +
+                                       "<strong>Estimated Calories Requirements:</strong> {{ round($TEE_Carb_55*4, 2) }}kcal @ {{ round($TEE_Carb_55, 2) }}g<br />\n" +
+                                       "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_30*9, 2) }}kcal @ {{ round($TEE_Fat_30, 2) }}g<br />\n" +
+                                       "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_15*4, 2) }}kcal @ {{ round($TEE_Prot_15, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)\n" +
+                                       "</p>";
+                                   break;
+                               case 'high_protein':
+                                   document.getElementById("macro-nutrients")
+                                       .innerHTML ="<p class=\"pt-3\">\n" +
+                                       "<strong>Macro-nutrients:</strong> 55/25/20<br />\n" +
+                                       "<strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }}<br /><br />\n" +
+                                       "<strong>Estimated Calories Requirements:</strong> {{ round($TEE_Carb_55*4, 2) }}kcal @ {{ round($TEE_Carb_55, 2) }}g<br />\n" +
+                                       "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_25*9, 2) }}kcal @ {{ round($TEE_Fat_25, 2) }}g<br />\n" +
+                                       "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_20*4, 2) }}kcal @ {{ round($TEE_Prot_20, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)\n" +
+                                       "</p>";
+                                   break;
+                               case 'high_carb':
+                                   document.getElementById("macro-nutrients")
+                                       .innerHTML ="<p class=\"pt-3\">\n" +
+                                       "<strong>Macro-nutrients:</strong> 60/25/15<br />\n" +
+                                       "<strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }}<br /><br />\n" +
+                                       "<strong>Estimated Calories Requirements:</strong> {{ round($TEE_Carb_60*4, 2) }}kcal @ {{ round($TEE_Carb_60, 2) }}g<br />\n" +
+                                       "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_25*9, 2) }}kcal @ {{ round($TEE_Fat_25, 2) }}g<br />\n" +
+                                       "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_15*4, 2) }}kcal @ {{ round($TEE_Prot_15, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)\n" +
+                                       "</p>";
+                                   break;
+                               case 'low_carb':
+                                   document.getElementById("macro-nutrients")
+                                       .innerHTML ="<p class=\"pt-3\">\n" +
+                                       "<strong>Macro-nutrients:</strong> 45/30/25<br />\n" +
+                                       "<strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }}<br /><br />\n" +
+                                       "<strong>Estimated Calories Requirements:</strong> {{ round($TEE_Carb_45*4, 2) }}kcal @ {{ round($TEE_Carb_45, 2) }}g<br />\n" +
+                                       "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_30*9, 2) }}kcal @ {{ round($TEE_Fat_30, 2) }}g<br />\n" +
+                                       "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_25*4, 2) }}kcal @ {{ round($TEE_Prot_25, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)\n" +
+                                       "</p>";
+                                   break;
+                               case '':
+                                   document.getElementById("macro-nutrients")
+                                       .innerHTML ="<p class=\"pt-3\">\n" +
+                                       "<strong>Macro-nutrients:</strong> <br />\n" +
+                                       "<strong>Total Estimated Energy (TEE):</strong><br /><br />\n" +
+                                       "<strong>Estimated Calories Requirements:</strong> <br />\n" +
+                                       "<strong>Estimated Fat Requirements:</strong> <br />\n" +
+                                       "<strong>Estimated Protein Requirements:</strong> \n" +
+                                       "</p>";
+                                   break;
+
+                                   default:
+                                   document.getElementById("macro-nutrients")
+                                       .innerHTML ="<p class=\"pt-3\">\n" +
+                                       "<strong>Macro-nutrients:</strong> <br />\n" +
+                                       "<strong>Total Estimated Energy (TEE):</strong><br /><br />\n" +
+                                       "<strong>Estimated Calories Requirements:</strong> <br />\n" +
+                                       "<strong>Estimated Fat Requirements:</strong> <br />\n" +
+                                       "<strong>Estimated Protein Requirements:</strong> \n" +
+                                       "</p>";
+                                   break;
+                           }
+                        });
+                    </script>
+                    <div id="macro-nutrients"></div>
+
                 </div>
             </div>
         </div>
