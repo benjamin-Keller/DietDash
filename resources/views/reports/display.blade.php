@@ -290,7 +290,7 @@
                                 .innerHTML ="<p class=\"pt-3\">\n" +
                                 "<strong>Macro-nutrients:</strong> <br />\n" +
                                 "<strong>Total Estimated Energy (TEE):</strong><br /><br />\n" +
-                                "<strong>Estimated Calories Requirements:</strong> <br />\n" +
+                                "<strong>Estimated Carbohydrates Requirements:</strong> <br />\n" +
                                 "<strong>Estimated Fat Requirements:</strong> <br />\n" +
                                 "<strong>Estimated Protein Requirements:</strong> \n" +
                                 "</p>";
@@ -302,7 +302,7 @@
                                        .innerHTML ="<p class=\"pt-3\">\n" +
                                        "<strong>Macro-nutrients:</strong> 55/30/15<br />\n" +
                                        "<strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }}<br /><br />\n" +
-                                       "<strong>Estimated Calories Requirements:</strong> {{ round($TEE_Carb_55*4, 2) }}kcal @ {{ round($TEE_Carb_55, 2) }}g<br />\n" +
+                                       "<strong>Estimated Carbohydrates Requirements:</strong> {{ round($TEE_Carb_55*4, 2) }}kcal @ {{ round($TEE_Carb_55, 2) }}g<br />\n" +
                                        "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_30*9, 2) }}kcal @ {{ round($TEE_Fat_30, 2) }}g<br />\n" +
                                        "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_15*4, 2) }}kcal @ {{ round($TEE_Prot_15, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)\n" +
                                        "</p>";
@@ -314,7 +314,7 @@
                                        .innerHTML ="<p class=\"pt-3\">\n" +
                                        "<strong>Macro-nutrients:</strong> 55/25/20<br />\n" +
                                        "<strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }}<br /><br />\n" +
-                                       "<strong>Estimated Calories Requirements:</strong> {{ round($TEE_Carb_55*4, 2) }}kcal @ {{ round($TEE_Carb_55, 2) }}g<br />\n" +
+                                       "<strong>Estimated Carbohydrates Requirements:</strong> {{ round($TEE_Carb_55*4, 2) }}kcal @ {{ round($TEE_Carb_55, 2) }}g<br />\n" +
                                        "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_25*9, 2) }}kcal @ {{ round($TEE_Fat_25, 2) }}g<br />\n" +
                                        "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_20*4, 2) }}kcal @ {{ round($TEE_Prot_20, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)\n" +
                                        "</p>";
@@ -325,7 +325,7 @@
                                        .innerHTML ="<p class=\"pt-3\">\n" +
                                        "<strong>Macro-nutrients:</strong> 60/25/15<br />\n" +
                                        "<strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }}<br /><br />\n" +
-                                       "<strong>Estimated Calories Requirements:</strong> {{ round($TEE_Carb_60*4, 2) }}kcal @ {{ round($TEE_Carb_60, 2) }}g<br />\n" +
+                                       "<strong>Estimated Carbohydrates Requirements:</strong> {{ round($TEE_Carb_60*4, 2) }}kcal @ {{ round($TEE_Carb_60, 2) }}g<br />\n" +
                                        "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_25*9, 2) }}kcal @ {{ round($TEE_Fat_25, 2) }}g<br />\n" +
                                        "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_15*4, 2) }}kcal @ {{ round($TEE_Prot_15, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)\n" +
                                        "</p>";
@@ -337,7 +337,7 @@
                                        .innerHTML ="<p class=\"pt-3\">\n" +
                                        "<strong>Macro-nutrients:</strong> 45/30/25<br />\n" +
                                        "<strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }}<br /><br />\n" +
-                                       "<strong>Estimated Calories Requirements:</strong> {{ round($TEE_Carb_45*4, 2) }}kcal @ {{ round($TEE_Carb_45, 2) }}g<br />\n" +
+                                       "<strong>Estimated Carbohydrates Requirements:</strong> {{ round($TEE_Carb_45*4, 2) }}kcal @ {{ round($TEE_Carb_45, 2) }}g<br />\n" +
                                        "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_30*9, 2) }}kcal @ {{ round($TEE_Fat_30, 2) }}g<br />\n" +
                                        "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_25*4, 2) }}kcal @ {{ round($TEE_Prot_25, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)\n" +
                                        "</p><br />";
@@ -349,7 +349,7 @@
                                        .innerHTML ="<p class=\"pt-3\">\n" +
                                        "<strong>Macro-nutrients:</strong> <br />\n" +
                                        "<strong>Total Estimated Energy (TEE):</strong><br /><br />\n" +
-                                       "<strong>Estimated Calories Requirements:</strong> <br />\n" +
+                                       "<strong>Estimated Carbohydrates Requirements:</strong> <br />\n" +
                                        "<strong>Estimated Fat Requirements:</strong> <br />\n" +
                                        "<strong>Estimated Protein Requirements:</strong> \n" +
                                        "</p>";
@@ -360,7 +360,7 @@
                                        .innerHTML ="<p class=\"pt-3\">\n" +
                                        "<strong>Macro-nutrients:</strong> <br />\n" +
                                        "<strong>Total Estimated Energy (TEE):</strong><br /><br />\n" +
-                                       "<strong>Estimated Calories Requirements:</strong> <br />\n" +
+                                       "<strong>Estimated Carbohydrates Requirements:</strong> <br />\n" +
                                        "<strong>Estimated Fat Requirements:</strong> <br />\n" +
                                        "<strong>Estimated Protein Requirements:</strong> \n" +
                                        "</p>";
@@ -444,8 +444,6 @@
                                 }
                             });
                         }
-
-
                     </script>
                 </div>
             </div>
