@@ -126,5 +126,6 @@
     <orderEntry type="library" name="jquery-3.5.1" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="datatables" level="application" />
+    <orderEntry type="library" name="Chart.js" level="application" />
   </component>
 </module>

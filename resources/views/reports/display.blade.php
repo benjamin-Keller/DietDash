@@ -275,9 +275,9 @@
                                 "</p>";
                         });
                         $('#macro').on('change', function() {
-                           switch(this.value) {
-                               case 'high_fat':
-                                   document.getElementById("macro-nutrients")
+                            switch(this.value) {
+                                case 'high_fat':
+                                document.getElementById("macro-nutrients")
                                        .innerHTML ="<p class=\"pt-3\">\n" +
                                        "<strong>Macro-nutrients:</strong> 55/30/15<br />\n" +
                                        "<strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }}<br /><br />\n" +
@@ -285,7 +285,9 @@
                                        "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_30*9, 2) }}kcal @ {{ round($TEE_Fat_30, 2) }}g<br />\n" +
                                        "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_15*4, 2) }}kcal @ {{ round($TEE_Prot_15, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)\n" +
                                        "</p>";
-                                   break;
+                                    create_chart([{{ round($TEE_Carb_55*4, 2) }},{{ round($TEE_Fat_30*9, 2) }}, {{ round($TEE_Prot_15*4, 2) }}]);
+
+                                    break;
                                case 'high_protein':
                                    document.getElementById("macro-nutrients")
                                        .innerHTML ="<p class=\"pt-3\">\n" +
@@ -295,6 +297,7 @@
                                        "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_25*9, 2) }}kcal @ {{ round($TEE_Fat_25, 2) }}g<br />\n" +
                                        "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_20*4, 2) }}kcal @ {{ round($TEE_Prot_20, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)\n" +
                                        "</p>";
+                                   create_chart([{{ round($TEE_Carb_55*4, 2) }},{{ round($TEE_Fat_25*9, 2) }}, {{ round($TEE_Prot_20*4, 2) }}]);
                                    break;
                                case 'high_carb':
                                    document.getElementById("macro-nutrients")
@@ -305,6 +308,8 @@
                                        "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_25*9, 2) }}kcal @ {{ round($TEE_Fat_25, 2) }}g<br />\n" +
                                        "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_15*4, 2) }}kcal @ {{ round($TEE_Prot_15, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)\n" +
                                        "</p>";
+                                   create_chart([{{ round($TEE_Carb_60*4, 2) }},{{ round($TEE_Fat_25*9, 2) }}, {{ round($TEE_Prot_15*4, 2) }}]);
+
                                    break;
                                case 'low_carb':
                                    document.getElementById("macro-nutrients")
@@ -314,7 +319,9 @@
                                        "<strong>Estimated Calories Requirements:</strong> {{ round($TEE_Carb_45*4, 2) }}kcal @ {{ round($TEE_Carb_45, 2) }}g<br />\n" +
                                        "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_30*9, 2) }}kcal @ {{ round($TEE_Fat_30, 2) }}g<br />\n" +
                                        "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_25*4, 2) }}kcal @ {{ round($TEE_Prot_25, 2) }}g (required for individual: {{ 0.8 * $patient_info->weight}}g)\n" +
-                                       "</p>";
+                                       "</p><br />";
+                                   create_chart([{{ round($TEE_Carb_45*4, 2) }},{{ round($TEE_Fat_30*9, 2) }}, {{ round($TEE_Prot_25*4, 2) }}]);
+
                                    break;
                                case '':
                                    document.getElementById("macro-nutrients")
@@ -341,7 +348,36 @@
                         });
                     </script>
                     <div id="macro-nutrients"></div>
+                    <canvas id="macro-chart" style="width: 400px; height: 225px;"></canvas>
+                    <script>
+                        function create_chart(sendData) {
+                            var ctx = document.getElementById('macro-chart').getContext("2d");
+                            if(window.myChart != undefined)
+                                window.myChart.destroy();
+                            window.myChart = new Chart(ctx, {});
 
+
+                            window.myChart = new Chart(ctx, {
+                                type: 'pie',
+                                data: {
+                                    labels: ["Carbohydrates", "Fats", "Proteins"],
+                                    datasets: [{
+                                        label: "Population (millions)",
+                                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                                        data: sendData
+                                    }]
+                                },
+                                options: {
+                                    title: {
+                                        display: true,
+                                        text: 'Macronutrient chart for {{$patient->FirstName}} {{$patient->LastName}}'
+                                    }
+                                }
+                            });
+                        }
+
+
+                    </script>
                 </div>
             </div>
         </div>
