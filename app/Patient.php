@@ -28,19 +28,16 @@ class Patient extends Model
         'zip',
     ];
 
-    public function user()
-    {
+    public function user() {
         return $this->belongsTo(User::class);
     }
-
     public function bookings() {
         return $this->hasMany(Booking::class);
     }
     public function calculator() {
-        return $this->hasOne(Calculator::class);
+        return $this->hasMany( Calculator::class,'patient_name');
     }
-    public function payments() {
-        return $this->hasMany(Booking::class);
-    }
+
+
 
 }

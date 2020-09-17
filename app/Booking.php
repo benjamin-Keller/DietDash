@@ -22,7 +22,7 @@ class Booking extends Model
     }
 
     public function patient() {
-        return $this->hasOne(Patient::class);
+        return $this->belongsTo(Patient::class);
     }
 
 }
