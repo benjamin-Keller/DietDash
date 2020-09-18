@@ -68,12 +68,6 @@
                                     <th>{{ 'Weight (kg)' }}</th>
                                     <th>{{ 'BMI' }}</th>
                                     <th>{{ 'BMI Classification' }}</th>
-                                    <th>{{ 'Waist Circumference (cm)' }}</th>
-                                    <th>{{ 'Hip Circumference (cm)' }}</th>
-                                    <th>{{ 'Waist/Hip Ratio' }}</th>
-                                    <th>{{ 'Waist/Hip Classification' }}</th>
-                                    <th>{{ 'MUAC (cm)' }}</th>
-                                    <th>{{ 'Tricep skinfold (mm)' }}</th>
                                     <th>{{ 'Date' }}</th>
                                 </tr>
                             </thead>
