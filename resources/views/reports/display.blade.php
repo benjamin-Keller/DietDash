@@ -34,9 +34,9 @@
                     <!--Anthropometry -->
                         <h4>General</h4>
                         <table class="table table-bordered table-striped
-                            table-responsive-sm
-                            table-responsive-md
-                            table-responsive-lg">
+                                        table-responsive-sm
+                                        table-responsive-md
+                                        table-responsive-lg">
                             <thead>
                                 <tr>
                                     <th>{{ 'Age' }}</th>
@@ -84,6 +84,29 @@
                                         <td>{{ $row['weight'] }}</td>
                                         <td>{{ round($row['bmi'], 1) }}</td>
                                         <td>{{ $row['bmi_class'] }}</td>
+                                        <td>{{ $row['date'] }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    <table class="table table-bordered table-striped
+                            table-responsive-sm
+                            table-responsive-md
+                            table-responsive-lg">
+                            <thead>
+                                <tr>
+                                    <th>{{ 'Waist Circumference (cm)' }}</th>
+                                    <th>{{ 'Hip Circumference (cm)' }}</th>
+                                    <th>{{ 'Waist/Hip Ratio' }}</th>
+                                    <th>{{ 'Waist/Hip Classification' }}</th>
+                                    <th>{{ 'MUAC (cm)' }}</th>
+                                    <th>{{ 'Tricep skinfold (mm)' }}</th>
+                                    <th>{{ 'Date' }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($history as $row)
+                                    <tr>
                                         <td>{{ $row['waist'] }}</td>
                                         <td>{{ $row['hip'] }}</td>
                                         <td>{{ round($row['wh_ratio'], 2) }}</td>
