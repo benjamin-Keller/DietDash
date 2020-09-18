@@ -432,7 +432,7 @@
                                     labels: ["Carbohydrates", "Fats", "Proteins"],
                                     datasets: [{
                                         label: "Population (millions)",
-                                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
+                                        backgroundColor: ["#79B473", "#443850","#007EA7"],
                                         data: sendData
                                     }]
                                 },
