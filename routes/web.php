@@ -63,13 +63,6 @@ Route::get('/bookings/history','BookingController@history')->name('bookings.hist
 
 Route::post('/bookings','BookingController@addBooking')->name('bookings.add');
 
-//Payments
-Route::get('/payments', 'PaymentsController@index')->name('payments.index');
-Route::get('/payments/action', 'PaymentsController@action')->name('payments.action');
-Route::get('/payments/create', 'PaymentsController@create')->name('payments.create');
-Route::post('/payments/create', 'PaymentsController@store')->name('payments.store');
-Route::get('/payments/{id}/export','PaymentsController@exportPDF')->name('payments.export');
-
 //Help
 Route::get('/help','HelpController@index')->name('help.index');
 
