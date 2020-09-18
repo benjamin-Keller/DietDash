@@ -41,8 +41,6 @@
                                 <tr>
                                     <th>{{ 'Age' }}</th>
                                     <th>{{ 'Gender' }}</th>
-                                    <th>{{ 'Height (m)' }}</th>
-                                    <th>{{ 'Weight (kg)' }}</th>
                                     <th>{{ 'Comments' }}</th>
                                     <th>{{ 'Date' }}</th>
                                 </tr>
@@ -52,8 +50,6 @@
                                 <tr>
                                     <td>{{ $row['age'] }}</td>
                                     <td>{{ $patient->Gender }}</td>
-                                    <td>{{ $row['height'] }}</td>
-                                    <td>{{ $row['weight'] }}</td>
                                     <td>{{ $row['comment']  }}</td>
                                     <td>{{ $row['date'] }}</td>
                                 </tr>
@@ -68,6 +64,8 @@
                             table-responsive-lg">
                             <thead>
                                 <tr>
+                                    <th>{{ 'Height (m)' }}</th>
+                                    <th>{{ 'Weight (kg)' }}</th>
                                     <th>{{ 'BMI' }}</th>
                                     <th>{{ 'BMI Classification' }}</th>
                                     <th>{{ 'Waist Circumference (cm)' }}</th>
@@ -82,6 +80,8 @@
                             <tbody>
                                 @foreach($history as $row)
                                     <tr>
+                                        <td>{{ $row['height'] }}</td>
+                                        <td>{{ $row['weight'] }}</td>
                                         <td>{{ round($row['bmi'], 1) }}</td>
                                         <td>{{ $row['bmi_class'] }}</td>
                                         <td>{{ $row['waist'] }}</td>
