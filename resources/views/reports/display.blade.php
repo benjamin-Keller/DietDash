@@ -412,7 +412,7 @@
                     </style>
 
                     <div id="macro-nutrients"></div>
-                    <div class="">
+                    <div class="pb-3">
                         <div id="" class="chart-container-style">
                             <canvas id="macro-chart" class="chart-container-style"></canvas>
                         </div>
