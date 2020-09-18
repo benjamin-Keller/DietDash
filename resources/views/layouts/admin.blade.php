@@ -33,7 +33,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
-
+    <!-- fullCalendar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
 
     <style>
         .btn-purple, .btn-purple:active, .btn-purple:visited {
@@ -150,7 +153,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                         <a href="{{ route('calculator.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-calculator"></i>
-                            <p>Calculations</p>
+                            <p>Calculate</p>
                         </a>
                     </li>
                     <li class="nav-item">
