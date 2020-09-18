@@ -31,6 +31,10 @@
                         <div> {{ Form::label('LastName', 'Last Name') }} <p style="display: inline; color: red">*</p></div>
                             {{ Form::text('LastName', '', ['class'=> 'form-control']) }}
                         </div>
+                    <div class="form-group">
+                        <div> {{ Form::label('Age', 'Age') }} <p style="display: inline; color: red">*</p></div>
+                            {{ Form::text('Age', '', ['class'=> 'form-control']) }}
+                        </div>
                         <div class="form-group">
                             <div class="">
                                 <label for='Gender'>Gender</label>

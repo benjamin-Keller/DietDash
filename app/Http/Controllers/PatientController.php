@@ -31,18 +31,15 @@ class PatientController extends Controller
     }
 
     public function create() {
-        $payments = DB::table('payment_types')
-            ->select('description')
-            ->get()
-            ->pluck('description');
 
-        return view('patients.create', compact('payments'));
+        return view('patients.create');
     }
 
     public function store(Request $request) {
         $this->validate($request, [
             'FirstName' => 'required|string',
             'LastName' => 'required|string',
+            'Age' => 'required|numeric|between:0,999.99',
             'Gender' => 'required|string',
             'IdNumber' => 'required|unique:patients,IdNumber',
             'Email' => 'email',
@@ -55,18 +52,12 @@ class PatientController extends Controller
         $this->PatientRequest($patient, $request);
 
         return redirect('/patients')->with('success', 'Patient Added.');
-
     }
 
     public function edit($id) {
         $patient = Patient::find($id);
 
-        $payments = DB::table('payment_types')
-            ->select('description')
-            ->get()
-            ->pluck('description');
-
-        return view('patients.edit', compact('patient', 'id', 'payments'));
+        return view('patients.edit', compact('patient', 'id'));
     }
     public function editReport($id) {
         $patient = Patient::find($id);
@@ -117,6 +108,7 @@ class PatientController extends Controller
         $patient->user_id = Auth::id();
         $patient->FirstName = $request->get('FirstName');
         $patient->LastName = $request->get('LastName');
+        $patient->Age = $request->get('Age');
         $patient->PhoneNumber = $request->get('PhoneNumber');
         $patient->Email = $request->get('Email');
 

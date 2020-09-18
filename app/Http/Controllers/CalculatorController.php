@@ -34,12 +34,10 @@ class CalculatorController extends Controller
 
         $this -> validate($request, [
             'patient_name' => 'required',
-            'age' => 'required',
             'activeness' => 'required',
 
             'weight' => 'required|numeric|between:0,999.99',
             'height' => 'required|numeric|between:0,999.99',
-
             'waist' => 'required|numeric|between:0,900',
             'hip' => 'required|numeric|between:0,999.99',
 
@@ -448,7 +446,6 @@ class CalculatorController extends Controller
         //Create Calculation
             $calculation = new Calculator();
                 $calculation->patient_name = $request->get('patient_name');
-                $calculation->age = $request->get('age');
                 $calculation->activeness = $request->get('activeness');
                 $calculation->comment = $request->get('comment');
 

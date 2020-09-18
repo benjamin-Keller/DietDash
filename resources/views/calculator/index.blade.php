@@ -37,11 +37,6 @@
                                     </select>
                                 </div>
                             </div>
-                        <div class="form-group">
-                            <div>{{ Form::label('age', 'Age') }}<p style="display: inline; color: red">*</p></div>
-                                {{ Form::text('age', '', ['class'=> 'form-control', 'placeholder' => 'Age']) }}
-                        </div>
-
 
                         <div class="form-group">
                             <div>{{ Form::label('activeness', 'Activeness') }}<p style="display: inline; color: red">*</p></div>

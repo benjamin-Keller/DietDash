@@ -38,6 +38,7 @@
                                 <tr>
                                     <th>{{ 'First Name' }}</th>
                                     <th>{{ 'Last Name' }}</th>
+                                    <th>{{ 'Age' }}</th>
                                     <th>{{ 'Gender' }}</th>
                                     <th>{{ 'ID Number' }}</th>
                                     <th>{{ 'Phone Number' }}</th>
@@ -48,19 +49,20 @@
                                 <tbody>
                                 @foreach($patients as $row)
                                     <tr>
-                                        <td>{{$row->FirstName}}</td>
-                                        <td>{{$row->LastName}}</td>
-                                        <td>{{$row->Gender}}</td>
-                                        <td>{{$row->IdNumber}}</td>
-                                        <td>{{$row->PhoneNumber}}</td>
-                                        <td>{{$row->Email}}</td>
-                                        <td><a alt="Edit" href="{{url('/patients/edit/'.$row->id)}}"><i class="far fa-edit"></i></a>
+                                        <td>{{ $row->FirstName }}</td>
+                                        <td>{{ $row->LastName }}</td>
+                                        <td>{{ $row->Age }}</td>
+                                        <td>{{ $row->Gender }}</td>
+                                        <td>{{ $row->IdNumber }}</td>
+                                        <td>{{ $row->PhoneNumber }}</td>
+                                        <td>{{ $row->Email }}</td>
+                                        <td><a alt="Edit" href="{{ url('/patients/edit/'.$row->id) }}"><i class="far fa-edit"></i></a>
                                             @if(!isset($row->calculator->last()->activeness))
-                                                <a alt="Report" href="{{url('/calculator/')}}" style="color: #00b248;"><i class="nav-icon fas fa-calculator"></i></a>
+                                                <a alt="Report" href="{{ url('/calculator/') }}" style="color: #00b248;"><i class="nav-icon fas fa-calculator"></i></a>
                                             @else
-                                                <a alt="Report" href="{{url('/reports/'.$row->id)}}" style="color: #00b248;"><i class="fas fa-book"></i></a>
+                                                <a alt="Report" href="{{ url('/reports/'.$row->id) }}" style="color: #00b248;"><i class="fas fa-book"></i></a>
                                             @endif
-                                            <a alt="Delete" href="{{url('/patients/delete/'.$row->id)}}" style="color: #ff1744;"><i class="far fa-trash-alt"></i></a></td>
+                                            <a alt="Delete" href="{{ url('/patients/delete/'.$row->id) }}" style="color: #ff1744;"><i class="far fa-trash-alt"></i></a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

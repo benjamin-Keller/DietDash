@@ -12,7 +12,7 @@
                         </div>
                         <div class="col-sm">
                             <div class="float-right">
-                                <a href="{{ route('reports.display', $patient->id) }}" class="btn btn-purple btn-m ml-2 inverted" style="text-decoration: none; color: white;">Calculations</a>
+                                <a href="{{ route('reports.display', $patient->id) }}" class="btn btn-purple btn-m ml-2 inverted" style="text-decoration: none; color: white;">Reports</a>
                                 <a href="{{ route('patients.index') }}" class="btn btn-purple btn-m inverted" style="text-decoration: none; color: white;">Back</a>
                             </div>
                         </div>

@@ -8,7 +8,6 @@ class Calculator extends Model
 {
     protected $fillable = [
         'patient_name',
-        'age',
         'comment',
 
         'weight',

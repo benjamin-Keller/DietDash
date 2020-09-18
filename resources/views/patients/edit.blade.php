@@ -30,6 +30,10 @@
                             <input type="text" class="form-control" name="LastName" value="{{$patient->LastName}}" placeholder="Enter Last Name">
                         </div>
                         <div class="form-group">
+                            {{ __('Age:') }}
+                            <input type="text" class="form-control" name="Age" value="{{$patient->Age}}" placeholder="Enter Age">
+                        </div>
+                        <div class="form-group">
                             {{ __('Phone Number:') }}
                             <input type="text" class="form-control" name="PhoneNumber" value="{{$patient->PhoneNumber}}" placeholder="Enter Phone Number">
                         </div>

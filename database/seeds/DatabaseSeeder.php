@@ -25,16 +25,5 @@ class DatabaseSeeder extends Seeder
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
         ]);
-
-
-        DB::table('payment_types')->insert([
-            'description' => 'Cash',
-        ]);
-        DB::table('payment_types')->insert([
-            'description' => 'Card',
-        ]);
-        DB::table('payment_types')->insert([
-            'description' => 'Cheque',
-        ]);
     }
 }

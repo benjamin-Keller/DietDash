@@ -48,7 +48,7 @@
                             <tbody>
                             @foreach($history as $row)
                                 <tr>
-                                    <td>{{ $row['age'] }}</td>
+                                    <td>{{ $patient->Age }}</td>
                                     <td>{{ $patient->Gender }}</td>
                                     <td>{{ $row['comment']  }}</td>
                                     <td>{{ $row['date'] }}</td>
@@ -292,7 +292,7 @@
                             table-responsive-md
                             table-responsive-lg">
                         <thead><tr><th>Gender</th><th>Weight</th><th>Height</th><th>Age</th></tr></thead>
-                        <tbody><tr><td>{{ $patient->Gender }}</td><td>{{ $patient_info->weight }}</td><td>{{ $patient_info->height }}</td><td>{{ $patient_info->age }}</td></tr></tbody>
+                        <tbody><tr><td>{{ $patient->Gender }}</td><td>{{ $patient_info->weight }}</td><td>{{ $patient_info->height }}</td><td>{{ $patient->Age }}</td></tr></tbody>
                     </table>
 
                     <!-- Inset Piechart here -->
@@ -444,7 +444,7 @@
                             window.myChart = new Chart(ctx, {});
 
                             window.myChart = new Chart(ctx, {
-                                type: 'pie',
+                                type: 'doughnut',
                                 data: {
                                     labels: ["Carbohydrates", "Fats", "Proteins"],
                                     datasets: [{
