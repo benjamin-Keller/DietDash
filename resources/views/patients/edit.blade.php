@@ -30,22 +30,6 @@
                             <input type="text" class="form-control" name="LastName" value="{{$patient->LastName}}" placeholder="Enter Last Name">
                         </div>
                         <div class="form-group">
-                            {{ Form::label('Gender', 'Gender') }}
-                            <div class="">
-                                <select id='Gender' name='Gender' class="form-control" required>
-                                    @if($patient->Gender == 'Male')
-                                    <option value=''>Select Gender</option>
-                                    <option value='Male' selected>Male</option>
-                                    <option value='Female'>Female</option>
-                                    @elseif($patient->Gender == 'Female')
-                                        <option value=''>Select Gender</option>
-                                        <option value='Male'>Male</option>
-                                        <option value='Female' selected>Female</option>
-                                    @endif
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             {{ __('Phone Number:') }}
                             <input type="text" class="form-control" name="PhoneNumber" value="{{$patient->PhoneNumber}}" placeholder="Enter Phone Number">
                         </div>

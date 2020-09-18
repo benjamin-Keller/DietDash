@@ -27,7 +27,6 @@ class PatientController extends Controller
 
     public function index()
     {
-
         return view('patients.index', ['patients' => Patient::all()->where('user_id', Auth::user()->id)->where('Deleted', 'like', '0')->all(),]);
     }
 
@@ -51,7 +50,9 @@ class PatientController extends Controller
 
         //Create Patient
         $patient = new Patient;
-            $this->PatientRequest($patient, $request);
+            $patient->IdNumber = $request->get('IdNumber');
+            $patient->Gender = $request->get('Gender');
+        $this->PatientRequest($patient, $request);
 
         return redirect('/patients')->with('success', 'Patient Added.');
 
@@ -80,6 +81,7 @@ class PatientController extends Controller
         ]);
 
         $patient = Patient::findOrFail($id);
+
             $this->PatientRequest($patient, $request);
 
         return redirect('/patients/edit/'.$id);
@@ -115,10 +117,8 @@ class PatientController extends Controller
         $patient->user_id = Auth::id();
         $patient->FirstName = $request->get('FirstName');
         $patient->LastName = $request->get('LastName');
-        $patient->IdNumber = $request->get('IdNumber');
         $patient->PhoneNumber = $request->get('PhoneNumber');
         $patient->Email = $request->get('Email');
-        $patient->Gender = $request->get('Gender');
 
         $patient->home_language = $request->get('home_language');
         $patient->household_size = $request->get('household_size');
