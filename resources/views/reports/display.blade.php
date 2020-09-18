@@ -435,7 +435,6 @@
                         </div>
                     </div>
 
-
                     <script>
                         function create_chart(sendData) {
                             var ctx = document.getElementById('macro-chart').getContext("2d");
