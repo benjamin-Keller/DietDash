@@ -42,14 +42,7 @@
                                 {{ Form::text('age', '', ['class'=> 'form-control', 'placeholder' => 'Age']) }}
                         </div>
 
-                        <div class="form-group">
-                            <div>{{ Form::label('weight', 'Weight (kg)') }}<p style="display: inline; color: red">*</p></div>
-                                {{ Form::text('weight', '', ['class'=> 'form-control', 'placeholder' => 'Weight']) }}
-                        </div>
-                        <div class="form-group">
-                            <div>{{ Form::label('height', 'Height (m)') }}<p style="display: inline; color: red">*</p></div>
-                                {{ Form::text('height', '', ['class'=> 'form-control', 'placeholder' => 'Height']) }}
-                        </div>
+
                         <div class="form-group">
                             <div>{{ Form::label('activeness', 'Activeness') }}<p style="display: inline; color: red">*</p></div>
                             <div class="">
@@ -66,11 +59,19 @@
                             <div class="card">
                                 <div class="card-header" id="headingWH" type="button" data-toggle="collapse" data-target="#collapseWH" aria-expanded="true" aria-controls="collapseWH">
                                     <h2 class="btn text-purple text-bold inverted" >
-                                        <div>Waist / Hip Ratio<p style="display: inline; color: red">*</p></div>
+                                        <div>Anthropometry<p style="display: inline; color: red">*</p></div>
                                     </h2>
                                 </div>
                                 <div id="collapseWH" class="collapse hide" aria-labelledby="headingWH" data-parent="#wh">
                                     <div class="pt-3 pr-5 pb-3 pl-5">
+                                        <div class="form-group">
+                                            <div>{{ Form::label('weight', 'Weight (kg)') }}<p style="display: inline; color: red">*</p></div>
+                                            {{ Form::text('weight', '', ['class'=> 'form-control', 'placeholder' => 'Weight']) }}
+                                        </div>
+                                        <div class="form-group">
+                                            <div>{{ Form::label('height', 'Height (m)') }}<p style="display: inline; color: red">*</p></div>
+                                            {{ Form::text('height', '', ['class'=> 'form-control', 'placeholder' => 'Height']) }}
+                                        </div>
                                         <div class="form-group">
                                             <div>{{ Form::label('waist', 'Waist Circumference (cm)') }}<p style="display: inline; color: red">*</p></div>
                                             {{ Form::text('waist', '', ['class'=> 'form-control', 'placeholder' => 'Waist Circumference']) }}
