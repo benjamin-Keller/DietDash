@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <meta name="keywords" content="diet, food, health, dietitian, management">
     <meta name="description" content="Dashboard to manage being a Dietitian">
+    <meta name="image" content="{{ asset('img/logo.png') }}">
+    <meta name="image" content="{{ route('welcome') }}">
     <meta name="author" content="Netiquette">
 
 

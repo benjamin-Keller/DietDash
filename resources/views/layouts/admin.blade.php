@@ -7,6 +7,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="diet, food, health, dietitian, management">
+    <meta name="description" content="Dashboard to manage being a Dietitian">
+    <meta name="image" content="{{ asset('img/logo.png') }}">
+    <meta name="image" content="{{ route('welcome') }}">
+    <meta name="author" content="Netiquette">
+
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -20,7 +26,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Dark-Mode -->
     <link href="{{ asset('css/dark-converter.css') }}" rel="stylesheet">
-
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
@@ -29,14 +34,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="{{ asset('bower_components/admin-lte/plugins/jquery/jquery.min.js') }}"></script>
-
     <!-- Chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-
     <!-- fullCalendar -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    <!-- DataTables designed and created by SpryMedia Ltd. Available from https://datatables.net/ -->
+    <script src="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}"/>
+    <script>
+        @yield('scripts')
+    </script>
 
     <style>
         .btn-purple, .btn-purple:active, .btn-purple:visited {
@@ -61,16 +70,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         .pagination_invert > li > a, .pagination_invert > li > span{ filter: invert(1) hue-rotate(180deg); }
         .pagination_invert > li.active > a, .pagination_invert > li.active > span{ filter: invert(1) hue-rotate(180deg); }
-
-
-
     </style>
-    <!-- DataTables designed and created by SpryMedia Ltd. Available from https://datatables.net/ -->
-    <script src="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}"/>
-    <script>
-        @yield('scripts')
-    </script>
+
 </head>
 
 <body class="hold-transition sidebar-mini">
