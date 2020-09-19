@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="keywords" content="diet, food, health, dietitian, management">
     <meta name="description" content="Dashboard to manage being a Dietitian">
     <meta name="image" content="{{ asset('img/logo.png') }}">
-    <meta name="image" content="{{ route('welcome') }}">
+    <meta name="url" content="{{ route('welcome') }}">
     <meta name="author" content="Netiquette">
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
