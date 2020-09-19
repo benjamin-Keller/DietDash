@@ -15,18 +15,12 @@ class ReportController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index($id)
     {
-        $patient = Patient::all();
-
-        return view('reports.index', compact('patient'));
-    }
-
-    public function show($id) {
         $patient = Patient::find($id);
         $patient_info = Calculator::find($id);
 
-        return view('reports.show', compact('patient', 'id', 'patient_info'));
+        return view('reports.index', compact('patient', 'id', 'patient_info'));
     }
 
     public function display($id) {

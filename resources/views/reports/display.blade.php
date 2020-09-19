@@ -370,6 +370,7 @@
                                        "<strong>Estimated Fat Requirements:</strong> <br />\n" +
                                        "<strong>Estimated Protein Requirements:</strong> \n" +
                                        "</p>";
+                                   window.myChart.destroy();
                                    break;
 
                                    default:
@@ -381,6 +382,7 @@
                                        "<strong>Estimated Fat Requirements:</strong> <br />\n" +
                                        "<strong>Estimated Protein Requirements:</strong> \n" +
                                        "</p>";
+                                       window.myChart.destroy();
                                    break;
                            }
                         });

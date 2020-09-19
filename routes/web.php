@@ -44,8 +44,7 @@ Route::get('/patients/delete/{id}', 'PatientController@softDelete')->name('patie
 Route::get('/patients/restore/{id}', 'PatientController@restore')->name('patients.restore');
 
 //Reports
-Route::get('/reports', 'ReportController@index')->name('reports.index');
-Route::get('/reports/{id}', 'ReportController@show')->name('reports.show');
+Route::get('/reports/{id}', 'ReportController@index')->name('reports.index');
 Route::get('/reports/{id}/display', 'ReportController@display')->name('reports.display');
 
 Route::get('/reports/{id}/export','ReportController@exportPDF')->name('exports.export');
@@ -54,7 +53,7 @@ Route::get('/reports/{id}/full','ReportController@exportFullPDF')->name('exports
 //Calculator
 Route::get('/calculator', 'CalculatorController@index')->name('calculator.index');
 Route::post('/calculator/create', 'CalculatorController@store')->name('calculator.store');
-Route::get('/reports/{id}', 'ReportController@show')->name('calculator.report');
+Route::get('/reports/{id}', 'ReportController@index')->name('calculator.report');
 
 //Bookings
 Route::get('/bookings','BookingController@index')->name('bookings.index');

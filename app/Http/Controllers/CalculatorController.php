@@ -54,6 +54,7 @@ class CalculatorController extends Controller
         $bmi = $Weight / ($Height * $Height);
 
             //BMI Classification
+        if($Patient->Gender == "Male") {
             if($bmi < 18.5) {
                 $Classification = 'Underweight';
             } else if($bmi >= 18.5 && $bmi < 25) {
@@ -67,6 +68,22 @@ class CalculatorController extends Controller
             } else if($bmi >= 40) {
                 $Classification = 'Obese III';
             }
+            else if($Patient->Gender == "Female") {
+                if($bmi < 18.5) {
+                    $Classification = 'Underweight';
+                } else if($bmi >= 18.5 && $bmi < 25) {
+                    $Classification = 'Normal';
+                } else if($bmi >= 25 && $bmi < 30) {
+                    $Classification = 'Overweight';
+                } else if($bmi >= 30 && $bmi < 35) {
+                    $Classification = 'Obese I';
+                } else if($bmi >= 35 && $bmi < 40) {
+                    $Classification = 'Obese II';
+                } else if($bmi >= 40) {
+                    $Classification = 'Obese III';
+                }
+            }
+        }
 
         //Calculate W/H Ratio
         $WH_ratio = $request->input('waist') / $request->input('hip');
