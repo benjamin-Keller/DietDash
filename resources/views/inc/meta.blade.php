@@ -10,6 +10,7 @@
 <meta property="og:title" content="An easy way to manage being a Dietitian.">
 <meta property="og:description" content="Dashboard to manage being a Dietitian. Manage your Patients, Reports, Calculations and more all without the risk of Human Error!">
 <meta property="og:image" content="{{ asset('img/berries.jpg') }}">
+<meta property="og:author" content="Netiquette">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
@@ -17,6 +18,7 @@
 <meta property="twitter:title" content="An easy way to manage being a Dietitian.">
 <meta property="twitter:description" content="Dashboard to manage being a Dietitian. Manage your Patients, Reports, Calculations and more all without the risk of Human Error!">
 <meta property="twitter:image" content="{{ asset('img/berries.jpg') }}">
+<meta property="twitter:author" content="Netiquette">
 
 
 <!-- Favicon -->
