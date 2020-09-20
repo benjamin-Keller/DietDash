@@ -49,9 +49,7 @@ class CalculatorController extends Controller
         $Patient = Patient::find($request->get('patient_name'));
 
         //Calculate BMI
-        $Height = $request->input('height');
-        $Weight = $request->input('weight');
-        $bmi = $Weight / ($Height * $Height);
+        $bmi = $request->input('weight') / ($request->input('height') * $request->input('height'));
 
             //BMI Classification
             if($bmi < 18.5) {
