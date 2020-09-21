@@ -135,17 +135,38 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ route('patients.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-users"></i>
-                            <p>Patients</p>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>Patients
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('calculator.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-calculator"></i>
-                            <p>Calculate</p>
-                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('patients.index') }}" class="nav-link">
+                                    <div class="pl-3">
+                                        <i class="fas fa-users nav-icon"></i>
+                                        <p>List Patients</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('calculator.index') }}" class="nav-link">
+                                    <div class="pl-3">
+                                        <i class="fas fa-calculator nav-icon "></i>
+                                        <p>Calculate</p>
+                                    </div>
+                                </a>
+                                <a href="{{ route('patients.deleted') }}" class="nav-link">
+                                    <div class="pl-3">
+                                        <i class="fas fa-trash nav-icon"></i>
+                                        <p>Deleted Patients</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <hr />
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('bookings.index') }}" class="nav-link">
@@ -158,6 +179,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.sidebar-menu -->
         </div>
         <!-- /.sidebar -->
+
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
