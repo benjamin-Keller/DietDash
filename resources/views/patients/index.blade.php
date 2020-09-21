@@ -1,8 +1,13 @@
 @extends('layouts.admin')
 
-@section('scripts')
-    $(document).ready(function(){ $('#patients').DataTable({"lengthMenu": [ 5, 10, 25, 50, 75, 100 ]}); });
+@section('scripts')<script>
+    var patient_search = $('#patient_search').t;
+    $(document).ready(function(){ $('#patients').DataTable({"lengthMenu": [ 5, 10, 25, 50, 75, 100 ]}); }).search().draw();
 
+
+    $('#patient_search').on('keyup', function() {
+        table_patients.search(this.value).draw();
+    });</script>
 @endsection
 
 @section('content')
@@ -19,6 +24,9 @@
                             <div class="float-right">
                                 <a href="{{ route('patients.create') }}" class="btn btn-purple btn-m ml-2 inverted" style="text-decoration: none; color: white;">Add Patient</a>
                                 <a href="{{ route('patients.deleted') }}" class="btn btn-danger btn-m inverted" style="text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></a>
+                            </div>
+                            <div class="float-right">
+                                <input type="text" id="patient_search" class="form-control" placeholder="Search Patient">
                             </div>
                         </div>
                     </div>

@@ -4,6 +4,7 @@
     $(document).ready(function(){ $('#patients').DataTable({"lengthMenu": [ 5, 10, 25, 50, 75, 100 ]}); });
     $(document).ready(function(){ $('#bookings').DataTable({"lengthMenu": [ 5, 10, 25, 50, 75, 100 ],"order": [[ 3, "desc" ],[ 4, "asc" ]],}); });
 
+
 @endsection
 
 @section('header')
@@ -81,9 +82,11 @@
                                         </div>
                                         <div class="col-sm">
                                             <div class="float-right">
+
                                                 <a href="{{ route('patients.create') }}" class="btn btn-purple btn-m ml-2 inverted" style="text-decoration: none; color: white;">Add Patient</a>
                                                 <a href="{{ route('patients.deleted') }}" class="btn btn-m inverted" style="background-color: #be0000; text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></a>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
