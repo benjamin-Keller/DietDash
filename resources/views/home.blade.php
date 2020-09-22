@@ -3,8 +3,6 @@
 @section('scripts')
     $(document).ready(function(){ $('#patients').DataTable({"lengthMenu": [ 5, 10, 25, 50, 75, 100 ]}); });
     $(document).ready(function(){ $('#bookings').DataTable({"lengthMenu": [ 5, 10, 25, 50, 75, 100 ],"order": [[ 3, "desc" ],[ 4, "asc" ]],}); });
-
-
 @endsection
 
 @section('header')

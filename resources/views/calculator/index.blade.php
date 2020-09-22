@@ -28,6 +28,7 @@
 
                             <div class="form-group">
                                 <div>{{ Form::label('patient_name', 'Patient') }}<p style="display: inline; color: red">*</p></div>
+
                                 <div class="">
                                     <select id='patient_name' name='patient_name' class="form-control" required>
                                         <option value='' selected>Select Patient</option>
@@ -35,9 +36,9 @@
                                             <option value='{{ $key }}'>{{ $value }}</option>
                                         @endforeach
                                     </select>
+
                                 </div>
                             </div>
-
                         <div class="form-group">
                             <div>{{ Form::label('activeness', 'Activeness') }}<p style="display: inline; color: red">*</p></div>
                             <div class="">
