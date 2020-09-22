@@ -130,5 +130,6 @@
     <orderEntry type="library" name="fullcalendar" level="application" />
     <orderEntry type="library" name="twitter-bootstrap" level="application" />
     <orderEntry type="library" name="moment.js" level="application" />
+    <orderEntry type="library" name="select2" level="application" />
   </component>
 </module>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{Chart.js, fullcalendar, moment.js, twitter-bootstrap}" />
+    <file url="PROJECT" libraries="{Chart.js, fullcalendar, moment.js, select2, twitter-bootstrap}" />
   </component>
 </project>

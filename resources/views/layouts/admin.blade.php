@@ -33,6 +33,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- DataTables designed and created by SpryMedia Ltd. Available from https://datatables.net/ -->
     <script src="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}"/>
+
     <script>
         @yield('scripts')
     </script>
