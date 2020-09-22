@@ -18,25 +18,23 @@
                                 @endif
                             </div>
                         </div>
-
                     </div>
                 </div>
 
                 <div class="card-body">
                     <div class="row align-middle pb-3">
-                        <div class="btn-group btn-group-toggle inverted" data-toggle="buttons">
+                        <div class="btn-group btn-group-toggle inverted" data-toggle="report-nav-buttons">
                             <a href="#Anthro" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Anthropometry</a>
                             <a href="#BioChem" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Biochemestry</a>
                             <a href="#Diet" class="btn btn-purple btn-m" style="text-decoration: none; color: white;">Diet</a>
                         </div>
                     </div>
-                    @csrf
                     <!--Anthropometry -->
                         <h4>General</h4>
                         <table class="table table-bordered table-striped
-                                        table-responsive-sm
-                                        table-responsive-md
-                                        table-responsive-lg">
+                            table-responsive-sm
+                            table-responsive-md
+                            table-responsive-lg">
                             <thead>
                                 <tr>
                                     <th>{{ 'Age' }}</th>
@@ -258,8 +256,6 @@
                             </tbody>
                         </table>
                 </div>
-
-
             </div>
             <div class="card" id="Diet">
                 <div class="card-header container-fluid">
