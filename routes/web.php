@@ -55,12 +55,11 @@ Route::get('/calculator', 'CalculatorController@index')->name('calculator.index'
 Route::post('/calculator/create', 'CalculatorController@store')->name('calculator.store');
 Route::get('/reports/{id}', 'ReportController@index')->name('calculator.report');
 
-//Bookings
-Route::get('/bookings','BookingController@index')->name('bookings.index');
-Route::get('/bookings/today','BookingController@today')->name('bookings.today');
-Route::get('/bookings/history','BookingController@history')->name('bookings.history');
-
-Route::post('/bookings','BookingController@addBooking')->name('bookings.add');
+//Events
+Route::get('/events/', 'EventController@index')->name('events.index');
+Route::get('/events/list', 'EventController@list')->name('events.list');
+Route::post('/events/store', 'EventController@store')->name('events.store');
+Route::get('/events/history','EventController@history')->name('events.history');
 
 //Help
 Route::get('/help','HelpController@index')->name('help.index');

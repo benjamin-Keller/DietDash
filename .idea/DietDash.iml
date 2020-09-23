@@ -132,5 +132,11 @@
     <orderEntry type="library" name="moment.js" level="application" />
     <orderEntry type="library" name="select2" level="application" />
     <orderEntry type="library" name="bootstrap-select" level="application" />
+    <orderEntry type="library" name="moment" level="application" />
+    <orderEntry type="library" name="jquery-3.2.1" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="jquery-ui" level="application" />
+    <orderEntry type="library" name="daterangepicker" level="application" />
   </component>
 </module>

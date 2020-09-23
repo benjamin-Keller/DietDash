@@ -20,8 +20,8 @@
                         </div>
                         <div class="col-sm">
                             <div class="float-right">
-                                <a href="{{ route('bookings.today') }}" class="btn btn-purple btn-m inverted" style="text-decoration: none; color: white;">Today</a>
-                                <a href="{{ route('bookings.index') }}" class="btn btn-purple btn-m inverted" style="text-decoration: none; color: white;">Back</a>
+                                <a href="{{ route('events.today') }}" class="btn btn-purple btn-m inverted" style="text-decoration: none; color: white;">Today</a>
+                                <a href="{{ route('events.index') }}" class="btn btn-purple btn-m inverted" style="text-decoration: none; color: white;">Back</a>
                             </div>
                         </div>
                     </div>
@@ -39,25 +39,19 @@
                             <table class="table table-bordered table-striped
                                     table-responsive-sm
                                     table-responsive-md
-                                    table-responsive-lg" id="history">
-                                <thead>
+                                    table-responsive-lg">
                                 <tr>
-                                    <th>{{ 'Booking Name' }}</th>
-                                    <th>{{ 'Description' }}</th>
-                                    <th>{{ 'Date' }}</th>
-                                    <th>{{ 'Time' }}</th>
+                                    <th>{{ 'Event Name' }}</th>
+                                    <th>{{ 'Start Date' }}</th>
+                                    <th>{{ 'End Date' }}</th>
                                 </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($all as $row)
+                                @foreach($today as $row)
                                     <tr>
-                                        <td>{{ $row['event_name'] }}</td>
-                                        <td>{{ $row['description'] }}</td>
-                                        <td>{{ $row['date'] }}</td>
-                                        <td>{{ $row['time'] }}</td>
+                                        <td>{{ $row['title'] }}</td>
+                                        <td>{{ $row['start'] }}</td>
+                                        <td>{{ $row['end'] }}</td>
                                     </tr>
                                 @endforeach
-                                </tbody>
                             </table>
                         </div>
                     </div>

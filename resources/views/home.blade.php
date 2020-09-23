@@ -32,10 +32,10 @@
 
                     </div>
                 </div>
-                <div class="col">
+                {{--<div class="col">
                     <div class="card shadow h-100 py-2">
                         <!-- Upcoming Bookings Card -->
-                        <a href="{{ route('bookings.index') }}" style="text-decoration: none; color: black;">
+                        <a href="{{ route('events.index') }}" style="text-decoration: none; color: black;">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -49,10 +49,10 @@
                             </div>
                         </a>
                     </div>
-                </div>
+                </div>--}}
                 <div class="col"><div class="card shadow h-100 py-2">
                         <!-- Bookings Today Card -->
-                        <a href="{{ route('bookings.today') }}" style="text-decoration: none; color: black;">
+                        <a href="" style="text-decoration: none; color: black;">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -140,43 +140,12 @@
                                         <div class="col-sm">
                                             <h3 class="float-left">{{ __('Bookings') }}</h3>
                                         </div>
-                                        <div class="col-sm">
-                                            <div class="float-right">
-                                                <a href="{{ url('/bookings') }}" class="btn btn-purple btn-m ml-2 inverted" style="text-decoration: none; color: white;">Add Booking</a>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="pl-5 pr-5 pt-3">
-                                    @include('inc.messages')
+                                    @include('inc.eventBooking')
 
-                                    <table class="table table-bordered table-striped
-                                        table-responsive-sm
-                                        table-responsive-md
-                                        table-responsive-lg" id="bookings">
-                                        <thead>
-                                            <tr>
-                                                <th>{{ 'Booking Name' }}</th>
-                                                <th>{{ 'Description' }}</th>
-                                                <th>{{ 'Patient' }}</th>
-                                                <th>{{ 'Date' }}</th>
-                                                <th>{{ 'Time' }}</th>
-                                                <th>{{ 'Edit' }}</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach($bookings as $row)
-                                                <tr>
-                                                    <td>{{ $row['event_name'] }}</td>
-                                                    <td>{{ $row['description'] }}</td>
-                                                    <td>{{ $row['patient_name'] }}</td>
-                                                    <td>{{ $row['date'] }}</td>
-                                                    <td>{{ $row['time'] }}</td>
-                                                    <td><a href="" style="color: #ff1744;"><i class="far fa-trash-alt"></i></a></td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+
                                 </div>
                             </div>
                         </div>
