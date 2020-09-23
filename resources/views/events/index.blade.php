@@ -25,6 +25,7 @@
                     </div>
                 </div>
 
+                @include('inc.messages')
                 @include('inc.eventBooking')
 
             </div>

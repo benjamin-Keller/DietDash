@@ -32,7 +32,7 @@ class EventController extends Controller
     }
     public function list()
     {
-        $event=Event::latest()->get();
+        $event=Event::latest()->get()->where('Deleted', '=', '0');
         return response()->json($event, 200);
     }
 
@@ -73,28 +73,37 @@ class EventController extends Controller
                         $event->patient_name = $request->get('patient_name');
                         $event->start = $request->get('start');
                         $event->end = $request->input('end');
+                        $event->Deleted = '0';
                     $event->save();
+
+                    $type = "Added";
                 } else {
                     $event = Event::findOrFail($request->event_id);
                         $event->title = $request->input('title');
                         $event->patient_name = $request->get('patient_name');
                         $event->start = $request->get('start');
                         $event->end = $request->input('end');
+                        $event->Deleted = '0';
                     $event->save();
+
+                    $type = "Updated";
                 }
-
-
-                return redirect()->back()->with('success', 'Event was Added.');
+                return redirect()->back()->with('success', 'Event was '.$type.'!');
             }
         } catch(\Exception $e) {
-            return redirect()->back()->with('warning', 'An unexpected error has occured.');
+            return redirect()->back()->with('warning', 'An unexpected error has occurred.');
         }
     }
 
+    public function softDelete($id) {
+        $event = Event::findOrFail($id);
+            $event->Deleted = '1';
+        $event->save();
+
+        return redirect('/events/')->with('success', 'Event Deleted.');
+    }
 
     public function history() {
-
-
         $all = Event::all()
             ->where('user_id', '=', Auth::id())
             ->where('patient_name', '=', Patient::all())
@@ -151,7 +160,7 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         //
     }

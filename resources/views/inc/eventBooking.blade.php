@@ -11,7 +11,7 @@
     <div id="dialog-body">
         <form id="dayClick" method="post" action="{{ route('events.store') }}">
             @csrf
-            <input type="hidden" id="eventId" name="event_id">
+            <input type="hidden" id="event_id" name="event_id">
 
             <div class="form-group">
                 <label>Event Title</label>
@@ -36,7 +36,10 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-purple" name="submit">Submit</button>
+                <button type="submit" class="btn btn-purple" name="submit" id="update">Submit</button>
+                <div class="float-right">
+                    <button id="deleteEventButton" onclick="delete_post()" class="btn btn-danger btn-m inverted" style="text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></button>
+                </div>
             </div>
         </form>
     </div>
@@ -44,7 +47,18 @@
 <script>
     $(document).ready(function() {
 
+        function delete_post(id) {
+            console.log('firing delete post');
+            $.ajax({
+                url: 'delete_onclick/'+id,
+                method: 'post',
+            }).done( function( data ) {
+                alert(data);
+            });
+        }
+
         $('#addEventButton').on('click', function () {
+            $('#update').html('Submit');
             $('#dialog').dialog({
                 title: 'Add Event',
                 width: 600,
@@ -54,14 +68,14 @@
                 hide: {effect: 'clip', duration: 250},
             })
         });
-
         var calendar = $('#calendar').fullCalendar({
             selectable:false,
+            durationEditable: true,
             height: 800,
             showNoneCurrentDates: false,
             editable: false,
             defaultView: 'month',
-            yearColumns: 3,
+            yearColumns: 2,
             header: {
                 left: 'prev,next today',
                 center: 'title',
@@ -69,8 +83,9 @@
             },
             events: "{{ route('events.list') }}",
             dayClick:function(date,event,view) {
-                $('#start').val(date.format('YYYY-MM-DD HH:mm:ss'));
-                $('#end').val(date.format('YYYY-MM-DD HH:mm:ss'));
+                $('#start').val(moment(date).format('YYYY-MM-DD HH:mm:ss'));
+                $('#end').val(moment(date).add(1, 'hours').format('YYYY-MM-DD HH:mm:ss'));
+                $('#update').html('Submit');
                 $('#dialog').dialog({
                     title: 'Add Event',
                     width: 600,
@@ -81,12 +96,14 @@
                 })
 
             },
-            eventClick:function (event) {
+            eventClick:function (event, calEvent) {
+                $('#deleteEventButton').fullCalendar('removeEvents', calEvent.id);
                 $('#title').val(event.title);
-                $('#start').val(event.start.format('YYYY-MM-DD HH:mm:ss'));
-                $('#end').val(event.end.format('YYYY-MM-DD HH:mm:ss'));
+                $('#start').val(moment(event.start).format('YYYY-MM-DD HH:mm:ss'));
+                $('#end').val(moment(event.end).format('YYYY-MM-DD HH:mm:ss'));
                 $('#patient_name').val(event.patient_name);
                 $('#event_id').val(event.id);
+                $('#update').html('Update');
                 $('#dialog').dialog({
                     title: 'Edit Event',
                     width: 600,
@@ -95,7 +112,7 @@
                     show: {effect: 'clip', duration: 350},
                     hide: {effect: 'clip', duration: 250},
                 });
-            }
+            },
         })
     });
 
