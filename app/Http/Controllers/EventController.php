@@ -6,36 +6,13 @@ use App\Patient;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Event;
 use Carbon\Carbon;
 
 class EventController extends Controller
 {
-    //Misc query lookups
-    public function booking() {
-
-        $now = Carbon::today();
-        $userCount = User::count();
-
-        $todays = Booking::WhereDate('start', '=', $now)
-            ->where('user_id', '=', Auth::id())
-            ->get();
-
-        $today = $todays->count();
-
-        $upcomings = Event::WhereDate('start', '>=', $now)
-            ->where('user_id', '=', Auth::id())
-            ->get();
-
-        $upcoming = $upcomings->count();
-
-        $bookings = Event::all()
-            ->where('user_id', '=', Auth::id())
-            ->toArray();
-
-        return view('home', ['userCount' => $userCount, 'today' => $today, 'upcoming' => $upcoming, 'bookings' => $bookings, 'patients' => Patient::all()->where('user_id', Auth::user()->id)->where('Deleted', 'like', '0')->all(),]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +20,15 @@ class EventController extends Controller
      */
     public function index()
     {
-       return view('events.index');
+        $patient_event = DB::table('patients')
+            ->select('id', DB::raw("CONCAT(FirstName, ' ', LastName) AS full_name"))
+            ->where('user_id', 'like', Auth::id())
+            ->where('Deleted', 'like', '0')
+            ->get()
+            ->sortBy('full_name')
+            ->pluck('full_name', 'id');
+
+       return view('events.index', compact('patient_event'));
     }
     public function list()
     {
@@ -69,44 +54,61 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'title' => 'required',
-            'start' => 'required',
-            'end' => 'required',
-        ]);
+        try {
+            $validator = Validator::make($request->all(), [
+                'title' => 'required',
+                'patient_name' => 'required',
+                'start' => 'required',
+                'end' => 'required',
+            ]);
 
-        if ($validator->fails()) {
-            return redirect()->back()->with('error', 'Event was Not Added.');
-        } else {
-            //Create Event
-            if($request->input('allDay') == 1) {
-                $event = new Event;
-                    $event->user_id = Auth::id();
-                    $event->title = $request->input('title');
-                    $event->start = $request->get('start');
-                    $event->end = $request->input('end');
-                    $event->allDay = 1;
-                $event->save();
+            if ($validator->fails()) {
+                return redirect()->back()->with('error', 'Event was Not Added.');
             } else {
-                $event = new Event;
-                    $event->user_id = Auth::id();
-                    $event->title = $request->input('title');
-                    $event->start = $request->get('start');
-                    $event->end = $request->input('end');
-                $event->save();
-            }
+                if(empty($request->event_id)) {
+                    //Create Event
+                    $event = new Event;
+                        $event->user_id = Auth::id();
+                        $event->title = $request->input('title');
+                        $event->patient_name = $request->get('patient_name');
+                        $event->start = $request->get('start');
+                        $event->end = $request->input('end');
+                    $event->save();
+                } else {
+                    $event = Event::findOrFail($request->event_id);
+                        $event->title = $request->input('title');
+                        $event->patient_name = $request->get('patient_name');
+                        $event->start = $request->get('start');
+                        $event->end = $request->input('end');
+                    $event->save();
+                }
 
-            return redirect()->back()->with('success', 'Event was Added.');
+
+                return redirect()->back()->with('success', 'Event was Added.');
+            }
+        } catch(\Exception $e) {
+            return redirect()->back()->with('warning', 'An unexpected error has occured.');
         }
     }
 
+
     public function history() {
+
 
         $all = Event::all()
             ->where('user_id', '=', Auth::id())
+            ->where('patient_name', '=', Patient::all())
             ->toArray();
 
-        return view('events.history', compact('all'));
+        $patient_event = DB::table('patients')
+            ->select('id', DB::raw("CONCAT(FirstName, ' ', LastName) AS full_name"))
+            ->where('user_id', 'like', Auth::id())
+            ->where('Deleted', 'like', '0')
+            ->get()
+            ->sortBy('full_name')
+            ->pluck('full_name', 'id');
+
+        return view('events.history', compact('all', 'patient_event'));
     }
 
     /**

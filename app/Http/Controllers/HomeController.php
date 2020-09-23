@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Booking;
+use App\Event;
 use App\Patient;
 use App\User;
 
@@ -23,30 +23,34 @@ class HomeController extends Controller
         $now = Carbon::today();
         $userCount = User::count();
 
-        $todays = Booking::WhereDate('date', '=', $now)
-            ->where('user_id', '=', Auth::id())
-            ->where('time', '<=', time())
-            ->where('active', '=', '1')
-            ->get();
+        $todays = Event::WhereDate('start', '=', $now)->where('user_id', '=', Auth::id())->get();
 
         $today = $todays->count();
 
-        $upcomings = Booking::WhereDate('date', '>=', $now)
+        $upcomings = Event::WhereDate('start', '>=', $now)
             ->where('user_id', '=', Auth::id())
-            ->where('active', '=', '1')
             ->get();
 
         $upcoming = $upcomings->count();
 
-        $bookings = Booking::all()
+        $bookings = Event::all()
             ->where('user_id', '=', Auth::id())
-            ->where('active', '=', '1')
             ->toArray();
+
+        $patient_event =  DB::table('patients')
+            ->select('id', DB::raw("CONCAT(FirstName, ' ', LastName) AS full_name"))
+            ->where('user_id', 'like', Auth::id())
+            ->where('Deleted', 'like', '0')
+            ->get()
+            ->sortBy('full_name')
+            ->pluck('full_name', 'id');
+
         return view('home', [
             'userCount' => $userCount,
             'today' => $today,
             'upcoming' => $upcoming,
             'bookings' => $bookings,
+            'patient_event' => $patient_event,
             'patients' => Patient::all()->where('user_id', Auth::user()->id)->where('Deleted', 'like', '0')->all()]);
     }
 

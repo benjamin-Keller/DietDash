@@ -20,7 +20,6 @@
                         </div>
                         <div class="col-sm">
                             <div class="float-right">
-                                <a href="{{ route('events.today') }}" class="btn btn-purple btn-m inverted" style="text-decoration: none; color: white;">Today</a>
                                 <a href="{{ route('events.index') }}" class="btn btn-purple btn-m inverted" style="text-decoration: none; color: white;">Back</a>
                             </div>
                         </div>
@@ -36,18 +35,20 @@
                 <!-- Patient table -->
                     <div class="row">
                         <div class="col-md-12">
-                            <table class="table table-bordered table-striped
+                            <table id="history" class="table table-bordered table-striped
                                     table-responsive-sm
                                     table-responsive-md
                                     table-responsive-lg">
                                 <tr>
                                     <th>{{ 'Event Name' }}</th>
+                                    <th>{{ 'Patient Name' }}</th>
                                     <th>{{ 'Start Date' }}</th>
                                     <th>{{ 'End Date' }}</th>
                                 </tr>
-                                @foreach($today as $row)
+                                @foreach($all as $row)
                                     <tr>
                                         <td>{{ $row['title'] }}</td>
+                                        <td>{{ $row['patient_name'] }}</td>
                                         <td>{{ $row['start'] }}</td>
                                         <td>{{ $row['end'] }}</td>
                                     </tr>

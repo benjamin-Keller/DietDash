@@ -72,7 +72,6 @@ class PatientController extends Controller
         ]);
 
         $patient = Patient::findOrFail($id);
-
             $this->PatientRequest($patient, $request);
 
         return redirect('/patients/edit/'.$id);

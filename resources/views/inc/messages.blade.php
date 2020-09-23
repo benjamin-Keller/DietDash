@@ -17,6 +17,12 @@
         <strong>Error!</strong> {{ session('error') }}
     </div>
 @endif
+@if(session('error'))
+    <div class="alert alert-warning" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Warning!</strong> {{ session('warning') }}
+    </div>
+@endif
 
 <script>
     window.setTimeout(function() {

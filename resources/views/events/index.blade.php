@@ -18,6 +18,7 @@
 
                         <div class="col-sm">
                             <div class="float-right">
+                                <button class="btn btn-purple" id="addEventButton">Add Event</button>
                                 <a href="{{ route('events.history') }}" class="btn btn-purple btn-m inverted" style="text-decoration: none; color: white;">Booking History</a>
                             </div>
                         </div>

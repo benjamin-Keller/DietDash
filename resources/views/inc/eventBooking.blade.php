@@ -11,17 +11,28 @@
     <div id="dialog-body">
         <form id="dayClick" method="post" action="{{ route('events.store') }}">
             @csrf
+            <input type="hidden" id="eventId" name="event_id">
+
             <div class="form-group">
                 <label>Event Title</label>
-                <input type="text" class="form-control" name="title" placeholder="Event title" required>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Event title" required>
             </div>
             <div class="form-group">
-                <label>Start Date/Time</label>
-                <input type="datetime-local" class="form-control" name="start" id="start">
+                <label>Patient</label>
+                <select id='patient_name' name='patient_name' class="form-control">
+                    <option value='' selected>Select Patient</option>
+                    @foreach ($patient_event as $key => $value)
+                        <option value='{{ $value }}'>{{ $value }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
-                <label>End Date/Time</label>
-                <input type="datetime-local" class="form-control" name="end" id="end">
+                <label>Start Date/Time (24 hour)</label>
+                <input type="text" class="form-control" name="start" id="start">
+            </div>
+            <div class="form-group">
+                <label>End Date/Time (24 hour)</label>
+                <input type="text" class="form-control" name="end" id="end">
             </div>
 
             <div class="form-group">
@@ -32,26 +43,20 @@
 </div>
 <script>
     $(document).ready(function() {
-        function convert(str) {
-            const d = new Date(str);
-            let day = '' + d.getDay();
-            let month = '' + (d.getMonth()+1);
-            let year = '' + d.getFullYear();
-            if(day.length < 2) day = '0' + day;
-            if(month.length < 2) month = '0' + month;
 
-            let hour = '' + (d.getUTCHours()+2);
-            let minutes = '' + d.getUTCMinutes();
-            let seconds = '' + d.getUTCSeconds();
-            if(hour.length < 2) hour = '0' + hour;
-            if(minutes.length < 2) minutes = '0' + minutes;
-            if(seconds.length < 2) seconds = '0' + seconds;
-
-            return [year, month, day].join('-')+' '+[hour,minutes,seconds].join(':')
-        }
+        $('#addEventButton').on('click', function () {
+            $('#dialog').dialog({
+                title: 'Add Event',
+                width: 600,
+                height: 480,
+                modal: true,
+                show: {effect: 'clip', duration: 350},
+                hide: {effect: 'clip', duration: 250},
+            })
+        });
 
         var calendar = $('#calendar').fullCalendar({
-            selectable:true,
+            selectable:false,
             height: 800,
             showNoneCurrentDates: false,
             editable: false,
@@ -64,18 +69,33 @@
             },
             events: "{{ route('events.list') }}",
             dayClick:function(date,event,view) {
-                $('#start').val(date);
-                $('#end').val(convert(date));
+                $('#start').val(date.format('YYYY-MM-DD HH:mm:ss'));
+                $('#end').val(date.format('YYYY-MM-DD HH:mm:ss'));
                 $('#dialog').dialog({
                     title: 'Add Event',
                     width: 600,
-                    height: 380,
+                    height: 480,
                     modal: true,
                     show: {effect: 'clip', duration: 350},
                     hide: {effect: 'clip', duration: 250},
                 })
 
             },
+            eventClick:function (event) {
+                $('#title').val(event.title);
+                $('#start').val(event.start.format('YYYY-MM-DD HH:mm:ss'));
+                $('#end').val(event.end.format('YYYY-MM-DD HH:mm:ss'));
+                $('#patient_name').val(event.patient_name);
+                $('#event_id').val(event.id);
+                $('#dialog').dialog({
+                    title: 'Edit Event',
+                    width: 600,
+                    height: 480,
+                    modal: true,
+                    show: {effect: 'clip', duration: 350},
+                    hide: {effect: 'clip', duration: 250},
+                });
+            }
         })
     });
 
@@ -85,8 +105,6 @@
         #dialog{
             display: none;
         }
-
-
         .ui-dialog-titlebar-close {
             background: url("http://code.jquery.com/ui/1.10.3/themes/smoothness/images/ui-icons_888888_256x240.png") repeat scroll -93px -128px rgba(0, 0, 0, 0);
             border: medium none;

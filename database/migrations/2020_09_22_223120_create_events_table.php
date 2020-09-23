@@ -18,6 +18,7 @@ class CreateEventsTable extends Migration
             $table->foreignId('user_id');
 
             $table->string('title', 200);
+            $table->string('patient_name')->nullable();
             $table->dateTime('start');
             $table->dateTime('end');
 

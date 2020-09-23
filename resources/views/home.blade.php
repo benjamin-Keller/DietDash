@@ -13,7 +13,7 @@
     <div class="container">
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col pt-2">
                     <div class="card shadow h-100 py-2">
                         <!-- Total Patients Card -->
                         <a href="{{ route('patients.index') }}" style="text-decoration: none; color: black;">
@@ -32,8 +32,8 @@
 
                     </div>
                 </div>
-                {{--<div class="col">
-                    <div class="card shadow h-100 py-2">
+                <div class="col pt-2">
+                    <div class="card shadow h-100 py-2 ">
                         <!-- Upcoming Bookings Card -->
                         <a href="{{ route('events.index') }}" style="text-decoration: none; color: black;">
                             <div class="card-body">
@@ -49,8 +49,9 @@
                             </div>
                         </a>
                     </div>
-                </div>--}}
-                <div class="col"><div class="card shadow h-100 py-2">
+                </div>
+                <div class="col pt-2">
+                    <div class="card shadow h-100 py-2">
                         <!-- Bookings Today Card -->
                         <a href="" style="text-decoration: none; color: black;">
                             <div class="card-body">
@@ -80,7 +81,6 @@
                                         </div>
                                         <div class="col-sm">
                                             <div class="float-right">
-
                                                 <a href="{{ route('patients.create') }}" class="btn btn-purple btn-m ml-2 inverted" style="text-decoration: none; color: white;">Add Patient</a>
                                                 <a href="{{ route('patients.deleted') }}" class="btn btn-m inverted" style="background-color: #be0000; text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></a>
                                             </div>
@@ -140,9 +140,16 @@
                                         <div class="col-sm">
                                             <h3 class="float-left">{{ __('Bookings') }}</h3>
                                         </div>
+                                        <div class="col-sm">
+                                            <div class="float-right">
+                                                <button class="btn btn-purple" id="addEventButton">Add Event</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="pl-5 pr-5 pt-3">
+                                    @include('inc.messages')
+
                                     @include('inc.eventBooking')
 
 
