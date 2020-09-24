@@ -32,7 +32,8 @@ class EventController extends Controller
     }
     public function list()
     {
-        $event=Event::latest()->get()->where('Deleted', '=', '0');
+        $event=Event::latest()->where('Deleted', 'like', '0')->get();
+
         return response()->json($event, 200);
     }
 
@@ -83,7 +84,7 @@ class EventController extends Controller
                         $event->patient_name = $request->get('patient_name');
                         $event->start = $request->get('start');
                         $event->end = $request->input('end');
-                        $event->Deleted = '0';
+                        $event->Deleted = $request->input('delete');
                     $event->save();
 
                     $type = "Updated";
@@ -93,14 +94,6 @@ class EventController extends Controller
         } catch(\Exception $e) {
             return redirect()->back()->with('warning', 'An unexpected error has occurred.');
         }
-    }
-
-    public function softDelete($id) {
-        $event = Event::findOrFail($id);
-            $event->Deleted = '1';
-        $event->save();
-
-        return redirect('/events/')->with('success', 'Event Deleted.');
     }
 
     public function history() {

@@ -9,7 +9,7 @@
 <!-- dayClick Dialog -->
 <div id="dialog">
     <div id="dialog-body">
-        <form id="dayClick" method="post" action="{{ route('events.store') }}">
+        <form id="dayClick" method="post" action="{{ route('events.store') }}" autocomplete="false">
             @csrf
             <input type="hidden" id="event_id" name="event_id">
 
@@ -34,12 +34,16 @@
                 <label>End Date/Time (24 hour)</label>
                 <input type="text" class="form-control" name="end" id="end">
             </div>
+            <div class="form-group" id="deleteGroup">
+                <label>Delete?</label>
+                <select id='delete' name='delete' class="form-control">
+                    <option value='0' selected>No</option>
+                    <option value='1'>Yes</option>
+                </select>
+            </div>
 
-            <div class="form-group">
+            <div class="form-group float-left">
                 <button type="submit" class="btn btn-purple" name="submit" id="update">Submit</button>
-                <div class="float-right">
-                    <button id="deleteEventButton" onclick="delete_post()" class="btn btn-danger btn-m inverted" style="text-decoration: none; color: white;"><i class="far fa-trash-alt"></i></button>
-                </div>
             </div>
         </form>
     </div>
@@ -47,18 +51,10 @@
 <script>
     $(document).ready(function() {
 
-        function delete_post(id) {
-            console.log('firing delete post');
-            $.ajax({
-                url: 'delete_onclick/'+id,
-                method: 'post',
-            }).done( function( data ) {
-                alert(data);
-            });
-        }
-
         $('#addEventButton').on('click', function () {
             $('#update').html('Submit');
+            $('#deleteGroup').hide();
+
             $('#dialog').dialog({
                 title: 'Add Event',
                 width: 600,
@@ -86,6 +82,7 @@
                 $('#start').val(moment(date).format('YYYY-MM-DD HH:mm:ss'));
                 $('#end').val(moment(date).add(1, 'hours').format('YYYY-MM-DD HH:mm:ss'));
                 $('#update').html('Submit');
+                $('#deleteGroup').hide();
                 $('#dialog').dialog({
                     title: 'Add Event',
                     width: 600,
@@ -94,16 +91,15 @@
                     show: {effect: 'clip', duration: 350},
                     hide: {effect: 'clip', duration: 250},
                 })
-
             },
             eventClick:function (event, calEvent) {
-                $('#deleteEventButton').fullCalendar('removeEvents', calEvent.id);
                 $('#title').val(event.title);
                 $('#start').val(moment(event.start).format('YYYY-MM-DD HH:mm:ss'));
                 $('#end').val(moment(event.end).format('YYYY-MM-DD HH:mm:ss'));
                 $('#patient_name').val(event.patient_name);
                 $('#event_id').val(event.id);
                 $('#update').html('Update');
+
                 $('#dialog').dialog({
                     title: 'Edit Event',
                     width: 600,

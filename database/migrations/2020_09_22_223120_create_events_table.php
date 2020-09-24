@@ -22,7 +22,7 @@ class CreateEventsTable extends Migration
             $table->dateTime('start');
             $table->dateTime('end');
 
-            $table->boolean('Deleted');
+            $table->boolean('Deleted')->nullable();
 
             $table->timestamps();
         });

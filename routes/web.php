@@ -60,8 +60,6 @@ Route::get('/events', 'EventController@index')->name('events.index');
 Route::get('/events/list', 'EventController@list')->name('events.list');
 Route::post('/events/store', 'EventController@store')->name('events.store');
 Route::get('/events/history','EventController@history')->name('events.history');
-Route::get('/events/deleted/action', 'EventController@deletedAction')->name('events.deletedAction');
-Route::get('/events/delete/{id}', 'EventController@softDelete')->name('events.delete');
 
 //Help
 Route::get('/help','HelpController@index')->name('help.index');
