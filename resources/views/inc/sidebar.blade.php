@@ -17,6 +17,14 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
+                    <a href="{{ route('patients.create') }}" class="nav-link">
+                        <div class="pl-3">
+                            <i class="fas fa-user-plus"></i>
+                            <p>Add Patient</p>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('patients.index') }}" class="nav-link">
                         <div class="pl-3">
                             <i class="fas fa-users nav-icon"></i>

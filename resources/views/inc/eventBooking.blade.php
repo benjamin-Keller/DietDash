@@ -75,7 +75,7 @@
             header: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'year,month,basicWeek,basicDay'
+                right: 'basicDay,basicWeek,month,year'
             },
             events: "{{ route('events.list') }}",
             dayClick:function(date,event,view) {

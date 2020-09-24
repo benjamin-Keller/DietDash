@@ -205,10 +205,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             document.documentElement.classList.toggle('dark-mode');
             document.querySelectorAll('.inverted').forEach((result) => result.classList.toggle('invert'));
             document.querySelectorAll('.pagination').forEach((result) => result.classList.toggle('pagination_invert'));
-
-
         } else {
-
             var style = document.createElement('style');
             style.innerHTML =
                 '.pagination > li > a, .pagination > li > span{ color: #800080; }' +
