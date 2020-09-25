@@ -64,7 +64,7 @@
             })
         });
         var calendar = $('#calendar').fullCalendar({
-            dayMaxEvents: true,
+            timeFormat: 'hh:mm a',
             eventColor: '#800080',
             eventTextColor: '#FFFFFF',
             selectable:false,
@@ -86,8 +86,8 @@
             },
             events: "{{ route('events.list') }}",
             dayClick:function(date,event,view) {
-                $('#start').val(moment(date).format('YYYY-MM-DD HH:mm:ss'));
-                $('#end').val(moment(date).add(1, 'hours').format('YYYY-MM-DD HH:mm:ss'));
+                $('#start').val(moment(date).add(8, 'hours').format('YYYY-MM-DD HH:mm:ss'));
+                $('#end').val(moment(date).add(9, 'hours').format('YYYY-MM-DD HH:mm:ss'));
                 $('#update').html('Submit');
                 $('#deleteGroup').hide();
                 $('#dialog').dialog({
