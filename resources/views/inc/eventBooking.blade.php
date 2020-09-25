@@ -50,7 +50,6 @@
 </div>
 <script>
     $(document).ready(function() {
-
         $('#addEventButton').on('click', function () {
             $('#update').html('Submit');
             $('#deleteGroup').hide();
