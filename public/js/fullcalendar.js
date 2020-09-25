@@ -837,7 +837,6 @@
         return (mom1.isBefore(mom2) ? mom1 : mom2).clone();
     }
 
-
 // Returns the moment that's later in time. Always a copy.
     function maxMoment(mom1, mom2) {
         return (mom1.isAfter(mom2) ? mom1 : mom2).clone();

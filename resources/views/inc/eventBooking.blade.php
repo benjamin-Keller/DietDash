@@ -64,7 +64,7 @@
             })
         });
         var calendar = $('#calendar').fullCalendar({
-
+            dayMaxEvents: true,
             eventColor: '#800080',
             eventTextColor: '#FFFFFF',
             selectable:false,
