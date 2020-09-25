@@ -57,7 +57,7 @@
 
             $('#dialog').dialog({
                 title: 'Add Event',
-                width: 600,
+                width: 400,
                 height: 480,
                 modal: true,
                 show: {effect: 'clip', duration: 350},
@@ -85,7 +85,7 @@
                 $('#deleteGroup').hide();
                 $('#dialog').dialog({
                     title: 'Add Event',
-                    width: 600,
+                    width: 400,
                     height: 480,
                     modal: true,
                     show: {effect: 'clip', duration: 350},
@@ -102,8 +102,8 @@
 
                 $('#dialog').dialog({
                     title: 'Edit Event',
-                    width: 600,
-                    height: 480,
+                    width: 400,
+                    height: 550,
                     modal: true,
                     show: {effect: 'clip', duration: 350},
                     hide: {effect: 'clip', duration: 250},
