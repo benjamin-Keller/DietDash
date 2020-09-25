@@ -77,9 +77,9 @@
             themeSystem: 'bootstrap',
             yearColumns: 2,
             header: {
-                left: 'prev,next today',
+                left: 'year,month,basicWeek,listWeek',
                 center: 'title',
-                right: 'listWeek,basicWeek,month,year'
+                right: 'prevYear,prev,next,nextYear'
             },
             events: "{{ route('events.list') }}",
             dayClick:function(date,event,view) {
