@@ -81,6 +81,9 @@
                 center: 'title',
                 right: 'prevYear,prev,next,nextYear'
             },
+            footer: {
+                right: 'prev,next'
+            },
             events: "{{ route('events.list') }}",
             dayClick:function(date,event,view) {
                 $('#start').val(moment(date).format('YYYY-MM-DD HH:mm:ss'));
