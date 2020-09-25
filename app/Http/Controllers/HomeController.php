@@ -29,6 +29,7 @@ class HomeController extends Controller
 
         $upcomings = Event::WhereDate('start', '>=', $now)
             ->where('user_id', '=', Auth::id())
+            ->where('Deleted', '=', '0')
             ->get();
 
         $upcoming = $upcomings->count();
