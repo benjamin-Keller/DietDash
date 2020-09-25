@@ -49,7 +49,7 @@ class PatientController extends Controller
         $patient = new Patient;
             $patient->IdNumber = $request->get('IdNumber');
             $patient->Gender = $request->get('Gender');
-        $this->PatientRequest($patient, $request);
+            $this->PatientRequest($patient, $request);
 
         return redirect('/patients')->with('success', 'Patient Added.');
     }
