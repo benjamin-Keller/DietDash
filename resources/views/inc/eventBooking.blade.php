@@ -64,7 +64,7 @@
             })
         });
         var calendar = $('#calendar').fullCalendar({
-            timeFormat: 'hh:mm a',
+            timeFormat: 'hh:mm',
             eventColor: '#800080',
             eventTextColor: '#FFFFFF',
             selectable:false,
