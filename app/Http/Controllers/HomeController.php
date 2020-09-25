@@ -21,40 +21,17 @@ class HomeController extends Controller
     public function index()
     {
         $now = Carbon::today();
-        $userCount = User::count();
 
-        $todays = Event::WhereDate('start', '=', $now)
-            ->where('Deleted', '=', '0')
-            ->where('user_id', '=', Auth::id())
-            ->get();
+        $todays = Event::WhereDate('start', '=', $now)->where('Deleted', '=', '0')->where('user_id', '=', Auth::id())->get();
 
-        $today = $todays->count();
-
-        $upcomings = Event::WhereDate('start', '>=', $now)
-            ->where('user_id', '=', Auth::id())
-            ->where('Deleted', '=', '0')
-            ->get();
-
-        $upcoming = $upcomings->count();
-
-        $bookings = Event::all()
-            ->where('user_id', '=', Auth::id())
-            ->toArray();
-
-        $patient_event =  DB::table('patients')
-            ->select('id', DB::raw("CONCAT(FirstName, ' ', LastName) AS full_name"))
-            ->where('user_id', 'like', Auth::id())
-            ->where('Deleted', 'like', '0')
-            ->get()
-            ->sortBy('full_name')
-            ->pluck('full_name', 'id');
+        $upcomings = Event::WhereDate('start', '>=', $now)->where('user_id', '=', Auth::id())->where('Deleted', '=', '0')->get();
 
         return view('home', [
-            'userCount' => $userCount,
-            'today' => $today,
-            'upcoming' => $upcoming,
-            'bookings' => $bookings,
-            'patient_event' => $patient_event,
+            'userCount' => User::count(),
+            'today' => $todays->count(),
+            'upcoming' => $upcomings->count(),
+            'bookings' => Event::all()->where('user_id', '=', Auth::id())->toArray(),
+            'patient_event' => DB::table('patients')->select('id', DB::raw("CONCAT(FirstName, ' ', LastName) AS full_name"))->where('user_id', 'like', Auth::id())->where('Deleted', 'like', '0')->get()->sortBy('full_name')->pluck('full_name', 'id'),
             'patients' => Patient::all()->where('user_id', Auth::user()->id)->where('Deleted', 'like', '0')->all()]);
     }
 
