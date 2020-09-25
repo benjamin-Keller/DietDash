@@ -12,6 +12,7 @@
 @section('content')
     <div class="container">
         <div class="container">
+            @include('inc.messages')
             <div class="row">
                 <div class="col pt-2">
                     <div class="card shadow h-100 py-2">
@@ -89,8 +90,6 @@
                                     </div>
                                 </div>
                                     <div class="pl-5 pr-5 pt-3 pb-3">
-                                        @include('inc.messages')
-
                                         <table class="table table-bordered table-striped
                                         table-responsive-sm
                                         table-responsive-md
@@ -148,11 +147,7 @@
                                     </div>
                                 </div>
                                 <div class="pl-5 pr-5 pt-3">
-                                    @include('inc.messages')
-
                                     @include('inc.eventBooking')
-
-
                                 </div>
                             </div>
                         </div>

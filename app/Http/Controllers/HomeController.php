@@ -23,7 +23,10 @@ class HomeController extends Controller
         $now = Carbon::today();
         $userCount = User::count();
 
-        $todays = Event::WhereDate('start', '=', $now)->where('user_id', '=', Auth::id())->get();
+        $todays = Event::WhereDate('start', '=', $now)
+            ->where('Deleted', '=', '0')
+            ->where('user_id', '=', Auth::id())
+            ->get();
 
         $today = $todays->count();
 
