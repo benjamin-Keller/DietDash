@@ -86,8 +86,10 @@
             },
             events: "{{ route('events.list') }}",
             dayClick:function(date,event,view) {
-                $('#start').val(moment(date).add(8, 'hours').format('YYYY-MM-DD HH:mm:ss'));
-                $('#end').val(moment(date).add(9, 'hours').format('YYYY-MM-DD HH:mm:ss'));
+                var startTime = 8;
+                var timeModifier = 1;
+                $('#start').val(moment(date).add(startTime, 'hours').format('YYYY-MM-DD HH:mm:ss'));
+                $('#end').val(moment(date).add(startTime+timeModifier, 'hours').format('YYYY-MM-DD HH:mm:ss'));
                 $('#update').html('Submit');
                 $('#deleteGroup').hide();
                 $('#dialog').dialog({
