@@ -64,17 +64,22 @@
             })
         });
         var calendar = $('#calendar').fullCalendar({
+
+            eventColor: '#800080',
+            eventTextColor: '#FFFFFF',
             selectable:false,
+            weekNumbers: true,
             durationEditable: true,
             height: 800,
             showNoneCurrentDates: false,
             editable: false,
             defaultView: 'month',
+            themeSystem: 'bootstrap',
             yearColumns: 2,
             header: {
                 left: 'prev,next today',
                 center: 'title',
-                right: 'basicDay,basicWeek,month,year'
+                right: 'listWeek,basicWeek,month,year'
             },
             events: "{{ route('events.list') }}",
             dayClick:function(date,event,view) {
