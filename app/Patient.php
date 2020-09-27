@@ -38,6 +38,11 @@ class Patient extends Model
     public function calculator() {
         return $this->hasMany( Calculator::class,'patient_name');
     }
+    public function Diseases()
+    {
+        return $this->belongsToMany('App\Diseases');
+    }
+
 
 
 
