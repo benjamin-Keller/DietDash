@@ -9,7 +9,7 @@
 <!-- dayClick Dialog -->
 <div id="dialog">
     <div id="dialog-body">
-        <form id="dayClick" method="post" action="{{ route('events.store') }}" autocomplete="false">
+        <form id="dayClick" method="post" action="{{ route('events.store') }}" autocomplete="off">
             @csrf
             <input type="hidden" id="event_id" name="event_id">
 
@@ -43,7 +43,7 @@
             </div>
 
             <div class="form-group float-left">
-                <button type="submit" class="btn btn-purple" name="submit" id="update">Submit</button>
+                <button type="submit" class="btn btn-purple inverted" name="submit" id="update">Submit</button>
             </div>
         </form>
     </div>

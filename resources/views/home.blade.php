@@ -74,7 +74,7 @@
             </div><div class="row">
                 <div class="col pt-2 float-right">
                     <div class="float-right ">
-                        <a href="{{ route('stats.index') }}" class="text-purple text-bold">More stats...</a>
+                        <a href="{{ route('stats.index') }}" class="text-purple text-bold inverted">More stats...</a>
                     </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                                         </div>
                                         <div class="col-sm">
                                             <div class="float-right">
-                                                <button class="btn btn-purple" id="addEventButton">Add Event</button>
+                                                <button class="btn btn-purple inverted" id="addEventButton">Add Event</button>
                                             </div>
                                         </div>
                                     </div>

@@ -64,6 +64,12 @@ Route::get('/events/history','EventController@history')->name('events.history');
 //Statistics
 Route::get('/stats','StatsController@index')->name('stats.index');
 
+//User Profile
+Route::get('/user/','ProfilesController@index')->name('profile.index');
+Route::get('/user/edit/{id}','ProfilesController@edit')->name('profile.edit');
+Route::get('/user/edit/{id}/update','ProfilesController@update')->name('profile.update');
+Route::get('/user/settings','ProfilesController@settings')->name('profile.settings');
+
 //Databindings
 Route::get('/home', 'BookingController@booking')->name('home');
 

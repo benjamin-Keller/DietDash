@@ -6,7 +6,7 @@
 
 @section('content')
         <div class="container">
-            <a href="{{ route('home') }}" class="btn btn-purple float-right">Back</a>
+            <a href="{{ route('home') }}" class="btn btn-purple float-right inverted">Back</a>
             <h4 class="pt-3 mb-0">Bookings</h4>
             <div class="row">
                 <div class="col pt-2">
@@ -53,12 +53,12 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-md font-weight-bold mb-1" style="color: #009881">Total</div>
+                                        <div class="text-md font-weight-bold mb-1 inverted" style="color: #009881">Total</div>
 
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $today }}</div>
                                     </div>
                                     <div class="col-auto">
-                                        <i class="fas fa-calendar fa-2x text-gray-300  pt-2" style="color: #009881"></i>
+                                        <i class="fas fa-calendar fa-2x text-gray-300 pt-2 inverted" style="color: #009881"></i>
                                     </div>
                                 </div>
                             </div>
@@ -93,10 +93,11 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-md font-weight-bold text-primary mb-1">Diabetes</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ Auth::user()->patients->where('Deleted','=','0')->count() }}</div>
+                                        <div class="text-md font-weight-bold mb-1 inverted" style="color: #be2820">Deleted Patients</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ Auth::user()->patients->where('Deleted','=','1')->count() }}</div>
                                     </div>
                                     <div class="col-auto">
+                                        <i class="fas fa-trash-alt fa-2x text-gray-300 inverted" style="color: #BE2820"></i>
                                     </div>
                                 </div>
                             </div>

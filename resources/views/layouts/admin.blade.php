@@ -80,7 +80,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
         </ul>
 
-
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
             <!-- Notifications Dropdown Menu -->
@@ -90,6 +89,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ route('profile.index') }}">
+                        {{ __('Profile') }}
+                    </a>
                     <a class="dropdown-item">
                         <div class="custom-control custom-switch" >
                             <input type="checkbox" class="custom-control-input" id="darkmode-Switch"
@@ -99,6 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <label class="custom-control-label" for="darkmode-Switch">Darkmode</label>
                         </div>
                     </a>
+
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
