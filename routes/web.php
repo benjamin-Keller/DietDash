@@ -61,8 +61,8 @@ Route::get('/events/list', 'EventController@list')->name('events.list');
 Route::post('/events/store', 'EventController@store')->name('events.store');
 Route::get('/events/history','EventController@history')->name('events.history');
 
-//Help
-Route::get('/help','HelpController@index')->name('help.index');
+//Statistics
+Route::get('/stats','StatsController@index')->name('stats.index');
 
 //Databindings
 Route::get('/home', 'BookingController@booking')->name('home');
