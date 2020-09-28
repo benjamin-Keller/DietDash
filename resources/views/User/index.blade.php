@@ -20,7 +20,14 @@
                 <div class="card-body container-fluid mb-3">
                     <div class="row align-middle">
                         <div class="col-sm text-center">
-                            <img class="img-circle img-bordered img-thumbnail inverted" src="{{ asset('img/logo.png') }}" oncontextmenu="return false" ondragstart="return false">
+                            <div>
+                                <img class="img-circle img-bordered img-thumbnail profile-user-img inverted" style="margin-left: auto; margin-right: auto; width: 75%; height: auto; object-fit: cover"
+                                     @if(Auth::user()->profile_picture == null)
+                                     src="{{ asset('img/logo.png') }}"
+                                     @else
+                                     src="{{ Auth::user()->profile_picture }}"
+                                     @endif oncontextmenu="return false" ondragstart="return false">
+                            </div>
                         </div>
                         <div class="col-md">
                             <div class="">

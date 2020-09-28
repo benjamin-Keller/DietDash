@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('Ben102030*'),
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
+            'profile_picture' => '',
         ]);
         DB::table('users')->insert([
             'name' => 'Inge Jung',
@@ -24,6 +25,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('Cheddar97'),
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now(),
+            'profile_picture' => '',
         ]);
     }
 }

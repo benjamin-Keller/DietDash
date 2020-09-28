@@ -42,6 +42,7 @@
                             <label>Email</label>
                             <input type="text" class="form-control" name="Email" value="{{$patient->Email}}" readonly>
                         </div>
+
                     <div class="accordion" id="wh">
                         <div class="card">
                             <div class="card-header" id="headingWH" type="button" data-toggle="collapse" data-target="#collapseWH" aria-expanded="true" aria-controls="collapseWH">

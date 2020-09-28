@@ -31,7 +31,7 @@
             <b>Full Name:</b> {{ $patientInfo->FirstName }} {{ $patientInfo->LastName }}<br />
             <b>ID Number:</b> {{ $patientInfo->IdNumber }}<br />
             <b>Gender:</b> {{ $patientInfo->Gender }}<br />
-            <b>Age:</b> {{ $patientInfo->age }}<br />
+            <b>Age:</b> {{ $patientInfo->Age }}<br />
             <b>Phone Number:</b> {{ $patientInfo->PhoneNumber }}<br /><br />
 
         </td>

@@ -82,7 +82,7 @@ class PatientController extends Controller
             $patient->Deleted = '1';
         $patient->save();
 
-        return redirect('/patients/')->with('success', 'Patient Deleted.');
+        return redirect()->back()->with('success', 'Patient Deleted.');
     }
 
     public function deleted() {

@@ -17,12 +17,15 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <div class="text-center w-100">
                     <a href="{{ route('profile.index') }}">
-                        <img class="dropdown-item img-circle img-bordered w-50 h-50" style="margin-left: auto; margin-right: auto;"
-                             @if(Auth::user()->profile_picture == null)
-                             src="{{ asset('img/logo.png') }}"
-                             @else
-                             src="{{ asset('img/logo.png') }}"
-                            @endif oncontextmenu="return false" ondragstart="return false">
+                        <div>
+                            <img class="img-circle img-bordered-sm img-thumbnail profile-user-img inverted" style="margin-left: auto; margin-right: auto;"
+                                 @if(Auth::user()->profile_picture == null)
+                                 src="{{ asset('img/logo.png') }}"
+                                 @else
+                                 src="{{ Auth::user()->profile_picture }}"
+                                 @endif oncontextmenu="return false" ondragstart="return false">
+                        </div>
+
                         <a class="dropdown-item">{{ __('Profile') }}</a>
                     </a>
                 </div>

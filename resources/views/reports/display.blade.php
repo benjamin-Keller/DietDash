@@ -31,14 +31,49 @@
                     </div>
                     <!--Anthropometry -->
                         <h4>General</h4>
+                    <div class="accordion" id="wh">
+                        <div class="card">
+                            <div class="card-header" id="headingGen" type="button" data-toggle="collapse" data-target="#collapseGen" aria-expanded="true" aria-controls="collapseGen">
+                                <h2 class="btn text-purple text-bold inverted" >
+                                    General Information
+                                </h2>
+                            </div>
+                            <div id="collapseGen" class="collapse hide" aria-labelledby="headingGen" data-parent="#wh">
+                                <div class="p-5">
+                                    <div class="form-group">
+                                        {{ Form::label('FirstName', 'Full Name') }}
+                                        <input type="text" class="form-control" name="FirstName" value="{{$patient->FirstName}} {{$patient->LastName}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('IdNumber', 'ID Number') }}
+                                        <input type="text" class="form-control" name="IdNumber" value="{{$patient->IdNumber}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('PhoneNumber', 'Phone Number') }}
+                                        <input type="text" class="form-control" name="PhoneNumber" value="{{$patient->PhoneNumber}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('address_ln1', 'Email') }}
+                                        <input type="text" class="form-control" name="Email" value="{{$patient->Email}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('Age', 'Age') }}
+                                        <input type="text" class="form-control" name="Age" value="{{$patient->Age}}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ Form::label('Gender', 'Gender') }}
+                                        <input type="text" class="form-control" name="Gender" value="{{$patient->Gender}}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                         <table class="table table-bordered table-striped
                             table-responsive-sm
                             table-responsive-md
                             table-responsive-lg">
                             <thead>
                                 <tr>
-                                    <th>{{ 'Age' }}</th>
-                                    <th>{{ 'Gender' }}</th>
                                     <th>{{ 'Comments' }}</th>
                                     <th>{{ 'Date' }}</th>
                                 </tr>
@@ -46,8 +81,6 @@
                             <tbody>
                             @foreach($history as $row)
                                 <tr>
-                                    <td>{{ $patient->Age }}</td>
-                                    <td>{{ $patient->Gender }}</td>
                                     <td>{{ $row['comment']  }}</td>
                                     <td>{{ $row['date'] }}</td>
                                 </tr>

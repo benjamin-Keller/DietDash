@@ -89,7 +89,7 @@
                 <div class="col pt-2">
                     <div class="card shadow h-100 py-2">
                         <!-- Total Patients Card -->
-                        <a href="{{ route('patients.index') }}" style="text-decoration: none; color: black;">
+                        <a href="{{ route('patients.deleted') }}" style="text-decoration: none; color: black;">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">

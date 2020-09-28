@@ -23,13 +23,17 @@ class ProfilesController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
-            'profile_picture' => '',
+            'profile_picture' => 'max:255',
         ]);
 
         $user = User::find(Auth::user()->id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->profile_picture = $request->input('profile_picture');
+        if($request->input('profile_picture') != null || $request->input('profile_picture') != '') {
+            $user->profile_picture = $request->input('profile_picture');
+        } else {
+            $user->profile_picture = '';
+        }
         $user->save();
 
         return Redirect()->back()->with('success', 'User Information has been updated');
