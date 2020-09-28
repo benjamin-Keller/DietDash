@@ -12,7 +12,7 @@
                         </div>
                         <div class="col-sm">
                             <div class="float-right">
-                                <a href="{{ route('reports.display', $patient->id) }}" class="btn btn-purple btn-m ml-2 inverted" style="text-decoration: none; color: white;">Reports</a>
+                                <a href="" class="btn btn-purple btn-m ml-2 inverted" style="text-decoration: none; color: white;">Reports</a>
                                 <a href="{{ route('patients.index') }}" class="btn btn-purple btn-m inverted" style="text-decoration: none; color: white;">Back</a>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
                     <h4>General Information</h4>
                         <div class="form-group">
                             <label>First Name</label>
-                            <input type="text" class="form-control" name="FirstName" value="{{$patient->FirstName}}" readonly>
+                            <input type="text" class="form-control" name="FirstName" value="" readonly>
                         </div>
 
                 </div>

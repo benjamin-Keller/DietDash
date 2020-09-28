@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\User;
+use Illuminate\Support\Facades\Redirect;
 
 class ProfilesController extends Controller
 {
@@ -11,23 +13,30 @@ class ProfilesController extends Controller
         return view('User.index');
     }
 
-    public function edit($id) {
-        return view('User.edit');
+    public function edit() {
+        return view('User.edit', [
+            'user' => User::find(Auth::user()->id)
+        ]);
     }
 
-    public function settings() {
-        return view('');
-    }
-    public function update(Request $request) {
-        $id = Auth::id();
+    public function saveUser(Request $request) {
+
         $this->validate($request, [
-            'email' => 'email',
+            'name' => 'required',
+            'email' => 'required',
+            'profile_picture' => '',
         ]);
 
-            $user = User::findOrFail($id);
-        $this->UserRequest($user, $request);
+        $user = User::find(Auth::user()->id);
+        $user->profile_picture = $request->input('profile_picture');
+        $user->save();
 
-        return redirect('/User/'.$id);
+        return Redirect()->back()->with('success', 'User Information has been updated');
+    }
+    public function update(Request $request) {
+
+
+        return redirect('/user/');
     }
 
     public function UserRequest($user, Request $request): void

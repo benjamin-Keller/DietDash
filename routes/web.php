@@ -66,8 +66,8 @@ Route::get('/stats','StatsController@index')->name('stats.index');
 
 //User Profile
 Route::get('/user/','ProfilesController@index')->name('profile.index');
-Route::get('/user/edit/{id}','ProfilesController@edit')->name('profile.edit');
-Route::get('/user/edit/{id}/update','ProfilesController@update')->name('profile.update');
+Route::get('/user/edit/','ProfilesController@edit')->name('profile.edit');
+Route::patch('/user/edit/','ProfilesController@saveUser')->name('profile.update');
 Route::get('/user/settings','ProfilesController@settings')->name('profile.settings');
 
 //Databindings

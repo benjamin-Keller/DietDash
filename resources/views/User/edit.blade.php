@@ -19,25 +19,28 @@
                 </div>
 
                 <div class="card-body">
-                    @csrf
+                    @include('inc.messages')
                     <h4>General Information</h4>
-                    <form method="post" action="{{action('ProfilesController@update', Auth::user()->id)}}" autocomplete="off">
+                    <form method="post" action="{{ route('profile.update')}} " autocomplete="off">
                         @csrf
                         <input type="hidden" name="_method" value="PATCH" />
 
                         <div class="form-group">
                             {{ __('Name:') }}
-                            <input type="text" class="form-control" name="Name" value="{{ Auth::user()->name }}" placeholder="Enter Name">
+                            <input type="text" class="form-control" name="name" value="{{ Auth::user()->name }}" placeholder="Enter Full Name">
                         </div>
                         <div class="form-group">
                             {{ __('Email Address:') }}
-                            <input type="text" class="form-control" name="Email" value="{{ Auth::user()->email }}" placeholder="Enter Email">
+                            <input type="text" class="form-control" name="email" value="{{ Auth::user()->email }}" placeholder="Enter Email">
+                        </div>
+                        <div class="form-group">
+                            {{ __('Profile Picture:') }}
+                            <input type="text" class="form-control" name="profile_picture" value="{{ Auth::user()->profile_picture }}" placeholder="Enter Profile Picture link">
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" class="btn btn-purple inverted" value="Edit">
+                            <button class="btn btn-purple inverted" type="submit">Safe info</button>
                         </div>
-
                     </form>
 
                 </div>
