@@ -39,7 +39,8 @@
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-purple inverted" type="submit">Safe info</button>
+                            <a href="{{ route('password.request') }}" class="btn btn-purple inverted" >Reset Password</a>
+                            <button class="btn btn-purple inverted" type="submit">Save Info</button>
                         </div>
                     </form>
 

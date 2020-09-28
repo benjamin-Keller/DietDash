@@ -20,7 +20,6 @@ class ProfilesController extends Controller
     }
 
     public function saveUser(Request $request) {
-
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
@@ -28,14 +27,14 @@ class ProfilesController extends Controller
         ]);
 
         $user = User::find(Auth::user()->id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
         $user->profile_picture = $request->input('profile_picture');
         $user->save();
 
         return Redirect()->back()->with('success', 'User Information has been updated');
     }
-    public function update(Request $request) {
-
-
+    public function update() {
         return redirect('/user/');
     }
 
