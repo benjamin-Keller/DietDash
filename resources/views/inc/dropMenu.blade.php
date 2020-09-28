@@ -18,7 +18,7 @@
                 <div class="text-center w-100">
                     <a href="{{ route('profile.index') }}">
                         <div>
-                            <img class="img-circle img-bordered-sm img-thumbnail profile-user-img inverted" style="margin-left: auto; margin-right: auto;"
+                            <img class="img-fluid img-bordered-sm inverted" style="overflow:hidden; height:100px; width:100px; border-radius:50%;"
                                  @if(Auth::user()->profile_picture == null)
                                  src="{{ asset('img/logo.png') }}"
                                  @else
@@ -26,7 +26,7 @@
                                  @endif oncontextmenu="return false" ondragstart="return false">
                         </div>
 
-                        <a class="dropdown-item">{{ __('Profile') }}</a>
+                        <div class="dropdown-item">{{ __('Profile') }}</div>
                     </a>
                 </div>
                 <a class="dropdown-item">

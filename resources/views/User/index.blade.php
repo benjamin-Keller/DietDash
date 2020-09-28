@@ -21,7 +21,7 @@
                     <div class="row align-middle">
                         <div class="col-sm text-center">
                             <div>
-                                <img class="img-circle img-bordered img-thumbnail profile-user-img inverted" style="margin-left: auto; margin-right: auto; width: 75%; height: auto; object-fit: cover"
+                                <img class="img-fluid img-bordered inverted" style="overflow:hidden; height:250px; width:250px; border-radius:50%;"
                                      @if(Auth::user()->profile_picture == null)
                                      src="{{ asset('img/logo.png') }}"
                                      @else
