@@ -350,7 +350,7 @@
                                        "<strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }} kcal<br /><br />\n" +
                                        "<strong>Estimated Carbohydrates Requirements:</strong> {{ round($TEE_Carb_55*4, 2) }} kcal @ {{ round($TEE_Carb_55, 2) }} g<br />\n" +
                                        "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_30*9, 2) }} kcal @ {{ round($TEE_Fat_30, 2) }} g<br />\n" +
-                                       "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_15*4, 2) }} kcal @ {{ round($TEE_Prot_15, 2) }} g (required for individual: {{ 0.8 * $patient_info->weight}} g)\n" +
+                                       "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_15*4, 2) }} kcal @ {{ round($TEE_Prot_15, 2) }} g (required: {{ 0.8 * $patient_info->weight}} g)\n" +
                                        "</p>";
                                     create_chart([{{ round($TEE_Carb_55*4, 2) }},{{ round($TEE_Fat_30*9, 2) }}, {{ round($TEE_Prot_15*4, 2) }}]);
 
@@ -362,9 +362,10 @@
                                        "<strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }} kcal<br /><br />\n" +
                                        "<strong>Estimated Carbohydrates Requirements:</strong> {{ round($TEE_Carb_55*4, 2) }} kcal @ {{ round($TEE_Carb_55, 2) }} g<br />\n" +
                                        "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_25*9, 2) }} kcal @ {{ round($TEE_Fat_25, 2) }} g<br />\n" +
-                                       "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_20*4, 2) }} kcal @ {{ round($TEE_Prot_20, 2) }} g (required for individual: {{ 0.8 * $patient_info->weight}} g)\n" +
+                                       "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_20*4, 2) }} kcal @ {{ round($TEE_Prot_20, 2) }} g (required: {{ 0.8 * $patient_info->weight}} g)\n" +
                                        "</p>";
                                    create_chart([{{ round($TEE_Carb_55*4, 2) }},{{ round($TEE_Fat_25*9, 2) }}, {{ round($TEE_Prot_20*4, 2) }}]);
+
                                    break;
                                case 'high_carb':
                                    document.getElementById("macro-nutrients")
@@ -373,7 +374,7 @@
                                        "<strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }} kcal<br /><br />\n" +
                                        "<strong>Estimated Carbohydrates Requirements:</strong> {{ round($TEE_Carb_60*4, 2) }} kcal @ {{ round($TEE_Carb_60, 2) }} g<br />\n" +
                                        "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_25*9, 2) }} kcal @ {{ round($TEE_Fat_25, 2) }} g<br />\n" +
-                                       "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_15*4, 2) }} kcal @ {{ round($TEE_Prot_15, 2) }} g (required for individual: {{ 0.8 * $patient_info->weight}} g)\n" +
+                                       "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_15*4, 2) }} kcal @ {{ round($TEE_Prot_15, 2) }} g (required: {{ 0.8 * $patient_info->weight}} g)\n" +
                                        "</p>";
                                    create_chart([{{ round($TEE_Carb_60*4, 2) }},{{ round($TEE_Fat_25*9, 2) }}, {{ round($TEE_Prot_15*4, 2) }}]);
 
@@ -385,7 +386,7 @@
                                        "<strong>Total Estimated Energy (TEE):</strong> {{ $TEE_text }}<br /><strong>Energy Requirements:</strong> {{ $TEE_Total }} kcal<br /><br />\n" +
                                        "<strong>Estimated Carbohydrates Requirements:</strong> {{ round($TEE_Carb_45*4, 2) }} kcal @ {{ round($TEE_Carb_45, 2) }} g<br />\n" +
                                        "<strong>Estimated Fat Requirements:</strong> {{ round($TEE_Fat_30*9, 2) }} kcal @ {{ round($TEE_Fat_30, 2) }} g<br />\n" +
-                                       "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_25*4, 2) }} kcal @ {{ round($TEE_Prot_25, 2) }} g (required for individual: {{ 0.8 * $patient_info->weight}} g)\n" +
+                                       "<strong>Estimated Protein Requirements:</strong> {{ round($TEE_Prot_25*4, 2) }} kcal @ {{ round($TEE_Prot_25, 2) }} g (required: {{ 0.8 * $patient_info->weight}} g)\n" +
                                        "</p><br />";
                                    create_chart([{{ round($TEE_Carb_45*4, 2) }},{{ round($TEE_Fat_30*9, 2) }}, {{ round($TEE_Prot_25*4, 2) }}]);
 
@@ -400,9 +401,9 @@
                                        "<strong>Estimated Protein Requirements:</strong> \n" +
                                        "</p>";
                                    window.myChart.destroy();
-                                   break;
 
-                                   default:
+                                   break;
+                               default:
                                    document.getElementById("macro-nutrients")
                                        .innerHTML ="<p class=\"pt-3\">\n" +
                                        "<strong>Macro-nutrients:</strong> <br />\n" +
@@ -412,6 +413,7 @@
                                        "<strong>Estimated Protein Requirements:</strong> \n" +
                                        "</p>";
                                        window.myChart.destroy();
+
                                    break;
                            }
                         });
@@ -467,6 +469,7 @@
                     </div>
 
                     <script>
+
                         function create_chart(sendData) {
                             var ctx = document.getElementById('macro-chart').getContext("2d");
                             if(window.myChart != undefined)
