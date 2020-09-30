@@ -267,7 +267,6 @@
                             </div>
                         </div>
 
-
                         <hr />
                         <div class="form-group">
                             {{ Form::label('comment', 'Comments') }}

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Diseases;
 use App\Patient;
+use App\Patient_Disease;
 use App\User;
 use App\Payment;
 
@@ -15,8 +17,7 @@ use mysql_xdevapi\Exception;
 class PatientController extends Controller
 {
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth');
     }
     public function patient() {
@@ -25,14 +26,32 @@ class PatientController extends Controller
         return view('patient.users', compact('userCount'));
     }
 
-    public function index()
-    {
+    public function index() {
         return view('patients.index', ['patients' => Patient::all()->where('user_id', Auth::user()->id)->where('Deleted', 'like', '0')->all(),]);
     }
 
     public function create() {
+        $NonC = DB::table('diseases')
+            ->select('id', 'name')
+            ->where('group', 'like', 'Non-Communicable')
+            ->get()
+            ->sortBy('name')
+            ->pluck('name', 'id');
+        $Con = DB::table('diseases')
+            ->select('id', 'name')
+            ->where('group', 'like', 'Communicable')
+            ->get()
+            ->sortBy('name')
+            ->pluck('name', 'id');
+        $Paed = DB::table('diseases')
+            ->select('id', 'name')
+            ->where('group', 'like', 'Paediatrics')
+            ->get()
+            ->sortBy('name')
+            ->pluck('name', 'id');
 
-        return view('patients.create');
+        $diseases = Diseases::all('name');
+        return view('patients.create', compact('NonC','Con', 'Paed'));
     }
 
     public function store(Request $request) {
@@ -50,6 +69,8 @@ class PatientController extends Controller
             $patient->IdNumber = $request->get('IdNumber');
             $patient->Gender = $request->get('Gender');
             $this->PatientRequest($patient, $request);
+
+            //Make individual checkboxes for Diseases
 
         return redirect('/patients')->with('success', 'Patient Added.');
     }
@@ -101,8 +122,7 @@ class PatientController extends Controller
      * @param $patient
      * @param Request $request
      */
-    public function PatientRequest($patient, Request $request): void
-    {
+    public function PatientRequest($patient, Request $request): void {
         //Edit Patient
         $patient->user_id = Auth::id();
         $patient->FirstName = $request->get('FirstName');

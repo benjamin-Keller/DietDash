@@ -59,18 +59,6 @@ class DiseaseSeeder extends Seeder
         ]);
         DB::table('diseases')->insert([
             'group' => 'Paediatrics',
-            'name' => 'Pneumonia',
-        ]);
-        DB::table('diseases')->insert([
-            'group' => 'Paediatrics',
-            'name' => 'HIV',
-        ]);
-        DB::table('diseases')->insert([
-            'group' => 'Paediatrics',
-            'name' => 'TB',
-        ]);
-        DB::table('diseases')->insert([
-            'group' => 'Paediatrics',
             'name' => 'Dehydration',
         ]);
         DB::table('diseases')->insert([

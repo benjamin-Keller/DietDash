@@ -359,6 +359,38 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="accordion" id="diseases">
+                        <div class="card">
+                            <div class="card-header" id="headingDiseases" type="button" data-toggle="collapse" data-target="#collapseDiseases" aria-expanded="true" aria-controls="collapseDiseases">
+                                <h2 class="btn text-purple text-bold inverted" >
+                                    Diseases
+                                </h2>
+                            </div>
+                            <div id="collapseDiseases" class="collapse hide" aria-labelledby="headingDiseases" data-parent="#wh">
+                                <div class="pt-3 pr-5 pb-3 pl-5">
+                                    <div class="form-group">
+                                        <div class="row">
+
+                                            @foreach ($NonC as $key => $value)
+                                                <div class="col-3"><input type="checkbox" value="$key" id="disease[]"> {{$value}}</div>
+                                            @endforeach
+
+                                            @foreach ($Con as $key => $value)
+                                                <div class="col-3"><input type="checkbox" value="$key" id="disease[]"> {{$value}}</div>
+                                            @endforeach
+
+                                            @foreach ($Paed as $key => $value)
+                                                <div class="col-3"><input type="checkbox" value="$key" id="disease[]"> {{$value}}</div>
+                                            @endforeach
+                                                <div class="col-3"><input type="checkbox" value="$key" id="disease[]"> Other</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <hr />
                     <br />
 
