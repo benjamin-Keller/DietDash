@@ -35,7 +35,7 @@
                         <div class="card">
                             <div class="card-header" id="headingGen" type="button" data-toggle="collapse" data-target="#collapseGen" aria-expanded="true" aria-controls="collapseGen">
                                 <h2 class="btn text-purple text-bold inverted" >
-                                    General Information
+                                    {{$patient->FirstName}} {{$patient->LastName}}'s Information
                                 </h2>
                             </div>
                             <div id="collapseGen" class="collapse hide" aria-labelledby="headingGen" data-parent="#wh">

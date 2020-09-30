@@ -16,7 +16,7 @@ class CalculatorController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index($id)
     {
         $patient = DB::table('patients')
             ->select('id', DB::raw("CONCAT(FirstName, ' ', LastName) AS full_name"))
@@ -26,7 +26,7 @@ class CalculatorController extends Controller
             ->sortBy('full_name')
             ->pluck('full_name', 'id');
 
-        return view('calculator.index', compact('patient'));
+        return view('calculator.index', compact('patient', 'id'));
     }
 
 

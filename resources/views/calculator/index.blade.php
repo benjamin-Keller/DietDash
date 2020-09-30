@@ -30,13 +30,27 @@
                                 <div>{{ Form::label('patient_name', 'Patient') }}<p style="display: inline; color: red">*</p></div>
 
                                 <div class="">
-                                    <select id='patient_name' name='patient_name' class="form-control" required>
-                                        <option value='' selected>Select Patient</option>
-                                        @foreach ($patient as $key => $value)
-                                            <option value='{{ $key }}'>{{ $value }}</option>
-                                        @endforeach
-                                    </select>
+                                    @if($id == null)
+                                        <select id='patient_name' name='patient_name' class="form-control" required>
+                                            <option value=''>Select Patient</option>
+                                            @foreach ($patient as $key => $value)
+                                                <option value='{{ $key }}'>{{ $value }}</option>
+                                            @endforeach
+                                        </select>
+                                    @else
+                                        <select id='patient_name' name='patient_name' class="form-control" required>
+                                            <option value=''>Select Patient</option>
+                                            @foreach ($patient as $key => $value)
+                                                @if($key == $id)
+                                                    <option value='{{ $key }}' selected>{{ $value }}</option>
+                                                @endif
+                                                    @if($key != $id)
+                                                        <option value='{{ $key }}'>{{ $value }}</option>
+                                                    @endif
+                                            @endforeach
+                                        </select>
 
+                                    @endif
                                 </div>
                             </div>
                         <div class="form-group">

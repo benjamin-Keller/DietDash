@@ -66,9 +66,9 @@
                                         <td>{{ $row->Email }}</td>
                                         <td><a alt="Edit" href="{{ url('/patients/edit/'.$row->id) }}"><i class="far fa-edit"></i></a>
                                             @if(!isset($row->calculator->last()->activeness))
-                                                <a alt="Report" href="{{ url('/calculator/') }}" style="color: #00b248;"><i class="nav-icon fas fa-calculator"></i></a>
+                                                <a alt="Report" href="{{ url('/calculator/'.$row->id) }}" style="color: #00b248;"><i class="nav-icon fas fa-calculator"></i></a>
                                             @else
-                                                <a alt="Report" href="{{ url('/reports/'.$row->id) }}" style="color: #00b248;"><i class="fas fa-book"></i></a>
+                                                <a alt="Report" href="{{ route('reports.display', $row->id) }}" style="color: #00b248;"><i class="fas fa-book"></i></a>
                                             @endif
                                             <a alt="Delete" href="{{ url('/patients/delete/'.$row->id) }}" style="color: #ff1744;"><i class="far fa-trash-alt"></i></a></td>
                                     </tr>
