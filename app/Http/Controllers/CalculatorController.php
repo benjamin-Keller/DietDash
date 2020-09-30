@@ -16,7 +16,7 @@ class CalculatorController extends Controller
         $this->middleware('auth');
     }
 
-    public function index($id)
+    public function index($id = null)
     {
         $patient = DB::table('patients')
             ->select('id', DB::raw("CONCAT(FirstName, ' ', LastName) AS full_name"))
