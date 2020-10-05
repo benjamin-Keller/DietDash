@@ -28,7 +28,7 @@
                     <a href="{{ route('patients.index') }}" class="nav-link">
                         <div class="pl-3">
                             <i class="nav-icon fas fa-users nav-icon"></i>
-                            <p>List Patients</p>
+                            <p>View Patients</p>
                         </div>
                     </a>
                 </li>
