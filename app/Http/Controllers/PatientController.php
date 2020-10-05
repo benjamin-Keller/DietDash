@@ -70,15 +70,19 @@ class PatientController extends Controller
             $patient->Gender = $request->get('Gender');
             $this->PatientRequest($patient, $request);
 
-            //Make individual checkboxes for Diseases
+        $disease = new Patient_Disease;
+            $disease->patient_id = $patient->id;
+            $this->PatientDisease($disease, $request);
+            $disease->save();
 
         return redirect('/patients')->with('success', 'Patient Added.');
     }
 
     public function edit($id) {
         $patient = Patient::find($id);
+        $disease = Patient_Disease::where('patient_id', 'like', $id)->get();
 
-        return view('patients.edit', compact('patient', 'id'));
+        return view('patients.edit', compact('patient', 'id', 'disease'));
     }
     public function editReport($id) {
         $patient = Patient::find($id);
@@ -94,6 +98,10 @@ class PatientController extends Controller
 
         $patient = Patient::findOrFail($id);
             $this->PatientRequest($patient, $request);
+
+        $disease = Patient_Disease::where('patient_id', 'like', $id)->first();
+            $this->PatientDisease($disease, $request);
+            $disease->save();
 
         return redirect('/patients/edit/'.$id);
     }
@@ -144,5 +152,80 @@ class PatientController extends Controller
 
         $patient->Deleted = '0';
         $patient->save();
+    }
+
+
+    public function PatientDisease($disease, Request $request) {
+        if(in_array('Arthritis', $request->get('disease'))) {
+            $disease->arthritis = 1;
+        } else {
+            $disease->arthritis = 0;
+        }
+        if(in_array('Renal_Failure', $request->get('disease'))) {
+            $disease->renal_failure = 1;
+        } else {
+            $disease->renal_failure = 0;
+        }
+        if(in_array('Dehydration', $request->get('disease'))) {
+            $disease->dehydration = 1;
+        } else {
+            $disease->dehydration = 0;
+        }
+        if(in_array('Underweight', $request->get('disease'))) {
+            $disease->underweight = 1;
+        } else {
+            $disease->underweight = 0;
+        }
+        if(in_array('Diabetes', $request->get('disease'))) {
+            $disease->diabetes = 1;
+        } else {
+            $disease->diabetes = 0;
+        }
+        if(in_array('HIV', $request->get('disease'))) {
+            $disease->hiv = 1;
+        } else {
+            $disease->hiv = 0;
+        }
+        if(in_array('MAM', $request->get('disease'))) {
+            $disease->mam = 1;
+        } else {
+            $disease->mam = 0;
+        }
+        if(in_array('Wasted', $request->get('disease'))) {
+            $disease->wasted = 1;
+        } else {
+            $disease->wasted = 0;
+        }
+        if(in_array('Epilepsy', $request->get('disease'))) {
+            $disease->epilepsy = 1;
+        } else {
+            $disease->epilepsy = 0;
+        }
+        if(in_array('Pneumonia', $request->get('disease'))) {
+            $disease->pneumonia = 1;
+        } else {
+            $disease->pneumonia = 0;
+        }
+        if(in_array('SAM', $request->get('disease'))) {
+            $disease->sam = 1;
+        } else {
+            $disease->sam = 0;
+        }
+        if(in_array('Hypertension', $request->get('disease'))) {
+            $disease->hypertension = 1;
+        } else {
+            $disease->hypertension = 0;
+        }
+        if(in_array('TB', $request->get('disease'))) {
+            $disease->tb = 1;
+        } else {
+            $disease->tb = 0;
+        }
+        if(in_array('Stunted', $request->get('disease'))) {
+            $disease->stunted = 1;
+        } else {
+            $disease->stunted = 0;
+        }
+
     }
 }

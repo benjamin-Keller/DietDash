@@ -371,19 +371,28 @@
                                 <div class="pt-3 pr-5 pb-3 pl-5">
                                     <div class="form-group">
                                         <div class="row">
-
-                                            @foreach ($NonC as $key => $value)
-                                                <div class="col-3"><input type="checkbox" value="$key" id="disease[]"> {{$value}}</div>
-                                            @endforeach
-
-                                            @foreach ($Con as $key => $value)
-                                                <div class="col-3"><input type="checkbox" value="$key" id="disease[]"> {{$value}}</div>
-                                            @endforeach
-
-                                            @foreach ($Paed as $key => $value)
-                                                <div class="col-3"><input type="checkbox" value="$key" id="disease[]"> {{$value}}</div>
-                                            @endforeach
-                                                <div class="col-3"><input type="checkbox" value="$key" id="disease[]"> Other</div>
+                                                <div class="col-3">
+                                                    <div><input type="checkbox" name="disease[]" value="Arthritis"> Arthritis</div>
+                                                    <div><input type="checkbox" name="disease[]" value="Renal_Failure"> Renal Failure</div>
+                                                    <div><input type="checkbox" name="disease[]" value="Dehydration"> Dehydration</div>
+                                                    <div><input type="checkbox" name="disease[]" value="Underweight"> Underweight</div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div><input type="checkbox" name="disease[]" value="Diabetes"> Diabetes</div>
+                                                    <div><input type="checkbox" name="disease[]" value="HIV"> HIV</div>
+                                                    <div><input type="checkbox" name="disease[]" value="MAM"> MAM</div>
+                                                    <div><input type="checkbox" name="disease[]" value="Wasted"> Wasted</div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div><input type="checkbox" name="disease[]" value="Epilepsy"> Epilepsy</div>
+                                                    <div><input type="checkbox" name="disease[]" value="Pneumonia"> Pneumonia</div>
+                                                    <div><input type="checkbox" name="disease[]" value="SAM"> SAM</div>
+                                                    <div><input type="checkbox" name="disease[]" value="Hypertension"> Hypertension</div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div><input type="checkbox" name="disease[]" value="TB"> TB</div>
+                                                    <div><input type="checkbox" name="disease[]" value="Stunted"> Stunted</div>
+                                                </div>
                                         </div>
                                     </div>
 

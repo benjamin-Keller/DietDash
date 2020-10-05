@@ -6,12 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Patient_Disease extends Model
 {
-    protected $fillable = ['patient_id', 'disease_id'];
+    public $table = 'patient_disease';
+    protected $fillable = [
+        'patient_id',
+        'arthritis',
+        'renal_failure',
+        'dehydration',
+        'underweight',
+        'diabetes',
+        'hiv',
+        'mam',
+        'wasted',
+        'epilepsy',
+        'pneumonia',
+        'sam',
+        'hypertension',
+        'tb',
+        'stunted',
+    ];
 
-    public function diseases() {
-        return $this->belongsToMany( 'App\Diseases', 'id', 'patient_id');
-    }
-    public function patients() {
-        return $this->belongsToMany( 'App\Patient', 'id', 'disease_id');
-    }
+
+
 }
