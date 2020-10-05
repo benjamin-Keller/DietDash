@@ -460,40 +460,22 @@
                     </script>
 
                     <style>
-                        @media (min-width:360px) {
-                            /* big landscape tablets, laptops, and desktops */
-                            .chart-container-style {
-                                height:80vh;
-                                width:80vw;
-                                margin: 0 auto;
-                                text-align: center;
-                            }
-                        }
                         @media (min-width:800px) {
                             /* big landscape tablets, laptops, and desktops */
                             .chart-container-style {
                                 height:80vh;
-                                width:80vw;
+                                width:70vw;
                                 margin: 0 auto;
                                 text-align: center;
 
                             }
                         }
-                        @media (min-width:1025px) {
-                            /* big landscape tablets, laptops, and desktops */
-                            .chart-container-style {
-                                height:40vh;
-                                width:40vw;
-                                margin: 0 auto;
-                                text-align: center;
 
-                            }
-                        }
                         @media (min-width:1281px) {
                             /* hi-res laptops and desktops */
                             .chart-container-style {
-                                height:40vh;
-                                width:40vw;
+                                height:30vh;
+                                width:30vw;
                                 margin: 0 auto;
                                 text-align: center;
 
@@ -509,7 +491,6 @@
                     </div>
 
                     <script>
-
                         function create_chart(sendData) {
                             var ctx = document.getElementById('macro-chart').getContext("2d");
                             if(window.myChart != undefined)
