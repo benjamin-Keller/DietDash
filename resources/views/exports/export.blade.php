@@ -41,6 +41,53 @@
 
 <table>
     <td>
+        <h2>Diseases:</h2>
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->arthritis) == '1')
+            Arthritis<br />
+        @endif
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->renal_failure) == '1')
+            Renal Failure<br />
+        @endif
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->dehydration) == '1')
+            Dehydration<br />
+        @endif
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->underweight) == '1')
+            Underweight<br />
+        @endif
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->diabetes) == '1')
+            Diabetes<br />
+        @endif
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->hiv) == '1')
+            HIV<br />
+        @endif
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->mam) == '1')
+            MAM<br />
+        @endif
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->wasted) == '1')
+            Wasted<br />
+        @endif
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->epilepsy) == '1')
+            Epilepsy<br />
+        @endif
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->pneumonia) == '1')
+            Pneumonia<br />
+        @endif
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->sam) == '1')
+            SAM<br />
+        @endif
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->hypertension) == '1')
+            Hypertension<br />
+        @endif
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->tb) == '1')
+            TB<br />
+        @endif
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->stunted) == '1')
+            Stunted<br />
+        @endif
+    </td>
+</table>
+<table>
+    <td>
         <h2>Anthropometry:</h2>
         <b>Weight:</b> {{ $calc->weight }}kg<br />
         <b>Height:</b> {{ $calc->height }}m<br />
@@ -53,8 +100,6 @@
         <b>MUAC:</b> {{ $calc->muac }}cm<br />
         <b>Tricept Skinfold:</b> {{ $calc->tricept_skinfold }}mm
     </td>
-
-
 </table>
 <table>
     <td>

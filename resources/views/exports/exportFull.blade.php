@@ -37,12 +37,47 @@
         </td>
     </tr>
 </table>
+<table>
+    <td>
+        <h2>Diseases:</h2>
+        @if((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->arthritis) == '1')
+            Arthritis<br />
+        @elseif((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->renal_failure) == '1')
+            Renal Failure<br />
+        @elseif((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->dehydration) == '1')
+            Dehydration<br />
+        @elseif((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->underweight) == '1')
+            Underweight<br />
+        @elseif((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->diabetes) == '1')
+            Diabetes<br />
+        @elseif((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->hiv) == '1')
+            HIV<br />
+        @elseif((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->mam) == '1')
+            MAM<br />
+        @elseif((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->wasted) == '1')
+            Wasted<br />
+        @elseif((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->epilepsy) == '1')
+            Epilepsy<br />
+        @elseif((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->pneumonia) == '1')
+            Pneumonia<br />
+        @elseif((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->sam) == '1')
+            SAM<br />
+        @elseif((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->hypertension) == '1')
+            Hypertension<br />
+        @elseif((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->tb) == '1')
+            TB<br />
+        @elseif((\App\Patient_Disease::where('patient_id', '=', $patientInfo->id)->first()->stunted) == '1')
+            Stunted<br />
+        @else
+            N/A<br />
+        @endif
+    </td>
+</table>
 @foreach($history as $row)
     <h2 style="margin-bottom: auto">{{$row['date']}}</h2>
     <h3 style="margin-bottom: auto">Comments:</h3>
     <p>{{$row['comment']}}</p>
     <table>
-
         <td>
             <h2>Anthropometry:</h2>
             <b>Weight:</b> {{ $row['weight'] }}kg<br />

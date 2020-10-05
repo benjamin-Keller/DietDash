@@ -68,7 +68,47 @@
                             </div>
                         </div>
                     </div>
-                        <table class="table table-bordered table-striped
+                    <div class="accordion" id="diseases">
+                        <div class="card">
+                            <div class="card-header" id="headingDiseases" type="button" data-toggle="collapse" data-target="#collapseDiseases" aria-expanded="true" aria-controls="collapseDiseases">
+                                <h2 class="btn text-purple text-bold inverted" >
+                                    Diseases
+                                </h2>
+                            </div>
+                            <div id="collapseDiseases" class="collapse hide" aria-labelledby="headingDiseases" data-parent="#wh">
+                                <div class="pt-3 pr-5 pb-3 pl-5">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div><input type="checkbox" name="disease[]" value="Arthritis" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->arthritis == '1') checked @endif> Arthritis</div>
+                                                <div><input type="checkbox" name="disease[]" value="Renal_Failure" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->renal_failure == '1') checked @endif> Renal Failure</div>
+                                                <div><input type="checkbox" name="disease[]" value="Dehydration" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->dehydration == '1') checked @endif> Dehydration</div>
+                                                <div><input type="checkbox" name="disease[]" value="Underweight" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->underweight == '1') checked @endif> Underweight</div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div><input type="checkbox" name="disease[]" value="Diabetes" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->diabetes == '1') checked @endif> Diabetes</div>
+                                                <div><input type="checkbox" name="disease[]" value="HIV" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->hiv == '1') checked @endif> HIV</div>
+                                                <div><input type="checkbox" name="disease[]" value="MAM" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->mam == '1') checked @endif> MAM</div>
+                                                <div><input type="checkbox" name="disease[]" value="Wasted" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->wasted == '1') checked @endif> Wasted</div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div><input type="checkbox" name="disease[]" value="Epilepsy" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->epilepsy == '1') checked @endif> Epilepsy</div>
+                                                <div><input type="checkbox" name="disease[]" value="Pneumonia" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->pneumonia == '1') checked @endif> Pneumonia</div>
+                                                <div><input type="checkbox" name="disease[]" value="SAM" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->sam == '1') checked @endif> SAM</div>
+                                                <div><input type="checkbox" name="disease[]" value="Hypertension" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->hypertension == '1') checked @endif> Hypertension</div>
+                                            </div>
+                                            <div class="col-3">
+                                                <div><input type="checkbox" name="disease[]" value="TB" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->tb == '1') checked @endif> TB</div>
+                                                <div><input type="checkbox" name="disease[]" value="Stunted" disabled @if(\App\Patient_Disease::where('patient_id', '=', $patient->id)->first()->stunted == '1') checked @endif> Stunted</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-striped
                             table-responsive-sm
                             table-responsive-md
                             table-responsive-lg">
