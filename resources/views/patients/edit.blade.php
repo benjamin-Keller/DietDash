@@ -23,23 +23,23 @@
                         <input type="hidden" name="_method" value="PATCH" />
                         <div class="form-group">
                             {{ __('First Name:') }}
-                            <input type="text" class="form-control" name="FirstName" value="{{$patient->FirstName}}" placeholder="Enter First Name">
+                            <input type="text" class="form-control" name="FirstName" value="{{$patient->FirstName}}">
                         </div>
                         <div class="form-group">
                             {{ __('Last Name:') }}
-                            <input type="text" class="form-control" name="LastName" value="{{$patient->LastName}}" placeholder="Enter Last Name">
+                            <input type="text" class="form-control" name="LastName" value="{{$patient->LastName}}">
                         </div>
                         <div class="form-group">
                             {{ __('Age:') }}
-                            <input type="text" class="form-control" name="Age" value="{{$patient->Age}}" placeholder="Enter Age">
+                            <input type="text" class="form-control" name="Age" value="{{$patient->Age}}" data-mask='009' >
                         </div>
                         <div class="form-group">
                             {{ __('Phone Number:') }}
-                            <input type="text" class="form-control" name="PhoneNumber" value="{{$patient->PhoneNumber}}" placeholder="Enter Phone Number">
+                            <input type="text" class="form-control" name="PhoneNumber" value="{{$patient->PhoneNumber}}" data-mask='(000) 000 0000' placeholder="(123) 456 7891" >
                         </div>
                         <div class="form-group">
                             {{ __('Email Address:') }}
-                            <input type="text" class="form-control" name="Email" value="{{$patient->Email}}" placeholder="Enter Email">
+                            <input type="text" class="form-control" name="Email" value="{{$patient->Email}}" placeholder="example@example.com">
                         </div>
                         <div class="accordion" id="wh">
                             <div class="card">
@@ -52,15 +52,15 @@
                                     <div class="p-5">
                                         <div class="form-group">
                                             {{ Form::label('home_language', 'Home Language') }}
-                                            <input type="text" class="form-control" name="home_language" value="{{$patient->home_language}}" placeholder="Enter Home Language" autocomplete="off">
+                                            <input type="text" class="form-control" name="home_language" value="{{$patient->home_language}}" autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('household_size', 'Household size') }}
-                                            <input type="text" class="form-control" name="household_size" value="{{$patient->household_size}}" placeholder="Enter Household size" autocomplete="off">
+                                            <input type="text" class="form-control" name="household_size" value="{{$patient->household_size}}" autocomplete="off" data-mask='099'>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('approx_Income', 'Approximate Income') }}
-                                            <input type="text" class="form-control" name="approx_Income" value="{{$patient->approx_Income}}" placeholder="Enter Approximate Income" autocomplete="off">
+                                            <input type="text" class="form-control" name="approx_Income" value="{{$patient->approx_Income}}" autocomplete="off" data-mask='R###999999999999999.99' placeholder='R123.45'>
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('address_ln1', 'Address Line 1') }}
@@ -72,11 +72,11 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('city', 'City') }}
-                                            <input type="text" class="form-control" name="city" value="{{$patient->city}}" placeholder="Enter City" autocomplete="off">
+                                            <input type="text" class="form-control" name="city" value="{{$patient->city}}" autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('province', 'Province') }}
-                                            <input type="text" class="form-control" name="province" value="{{$patient->province}}" placeholder="Enter Province"autocomplete="off">
+                                            <input type="text" class="form-control" name="province" value="{{$patient->province}}" autocomplete="off">
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('country', 'Country') }}
@@ -335,7 +335,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('zip', 'Zip Code') }}
-                                            <input type="text" class="form-control" name="zip" value="{{$patient->zip}}" placeholder="Enter Zip Code"autocomplete="off">
+                                            <input type="text" class="form-control" name="zip" value="{{$patient->zip}}" autocomplete="off" data-mask='00009' placeholder='1234'>
                                         </div>
                                     </div>
                                 </div>

@@ -33,7 +33,7 @@
                         </div>
                     <div class="form-group">
                         <div> {{ Form::label('Age', 'Age') }} <p style="display: inline; color: red">*</p></div>
-                            {{ Form::text('Age', '', ['class'=> 'form-control']) }}
+                            {{ Form::text('Age', '', ['class'=> 'form-control', 'data-mask' => '009']) }}
                         </div>
                         <div class="form-group">
                             <div class="">
@@ -47,16 +47,16 @@
                         </div>
                         <div class="form-group">
                             <div> {{ Form::label('IdNumber', 'ID Number') }} <p style="display: inline; color: red">*</p></div>
-                            {{ Form::text('IdNumber', '', ['class'=> 'form-control']) }}
+                            {{ Form::text('IdNumber', '', ['class'=> 'form-control', 'data-mask' => '000000 0000 000', 'placeholder' => '123456 7891 234']) }}
                         </div>
 
                     <div class="form-group">
                         {{ Form::label('PhoneNumber', 'Phone Number') }}
-                        {{ Form::text('PhoneNumber', '', ['class'=> 'form-control']) }}
+                        {{ Form::text('PhoneNumber', '', ['class'=> 'form-control', 'data-mask' => '(000) 000 0000', 'placeholder' => '(123) 456 7891']) }}
                     </div>
                     <div class="form-group">
                        {{ Form::label('Email', 'Email') }}
-                        {{ Form::text('Email', '', ['class'=> 'form-control']) }}
+                        {{ Form::text('Email', '', ['class'=> 'form-control', 'placeholder' => 'example@example.com']) }}
                     </div>
 
                     <div class="accordion" id="wh">
@@ -74,11 +74,11 @@
                                     </div>
                                     <div class="form-group">
                                         {{ Form::label('household_size', 'Household size') }}
-                                        {{ Form::text('household_size', '', ['class'=> 'form-control']) }}
+                                        {{ Form::text('household_size', '', ['class'=> 'form-control', 'data-mask' => '099']) }}
                                     </div>
                                     <div class="form-group">
                                         {{ Form::label('approx_Income', 'Approximate Income') }}
-                                        {{ Form::text('approx_Income', '', ['class'=> 'form-control']) }}
+                                        {{ Form::text('approx_Income', '', ['class'=> 'form-control', 'data-mask' => 'R###999999999999999.99', 'placeholder' => 'R123.45']) }}
                                     </div>
                                     <div class="form-group">
                                         {{ Form::label('address_ln1', 'Address Line 1') }}
@@ -353,7 +353,7 @@
                                     </div>
                                     <div class="form-group">
                                         {{ Form::label('zip', 'Zip Code') }}
-                                        {{ Form::text('zip', '', ['class'=> 'form-control']) }}
+                                        {{ Form::text('zip', '', ['class'=> 'form-control', 'data-mask' => '00009', 'placeholder' => '1234']) }}
                                     </div>
                                 </div>
                             </div>
@@ -403,7 +403,7 @@
                     <hr />
                     <br />
 
-                        {{ Form::submit('Submit', ['class' => 'btn btn-purple inverted']) }}
+                        {{ Form::submit('Add Patient', ['class' => 'btn btn-purple inverted']) }}
                         {!! Form::close() !!}
                 </div>
                 <br />
@@ -411,7 +411,18 @@
         </div>
     </div>
 </div>
+    <script>
+        $('#Email').mask("A", {
+            translation: {
+                "A": { pattern: /[\w@\-.+]/, recursive: true }
+            }
+        });
+    </script>
+
+
 @endsection
+
+
 
 
 

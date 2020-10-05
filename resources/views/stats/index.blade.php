@@ -350,7 +350,7 @@
                 </div>
 
                 <div id="row">
-                    <div id="canvas-holder" style="width:410px;float: right;" class="col">
+                    <div id="canvas-holder" style="width:420px;float: right;" class="col">
                         <canvas id="com-chart" class="chart-container-style "></canvas>
                     </div>
                     <!-- <div style="width: 50%"><canvas id="canvas" height="450" width="600"></canvas></div>-->
@@ -359,10 +359,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
 
             <script>
                 create_chart_Com([{{$diabetes}}, {{$hypertension}}, {{$arthritis}},
