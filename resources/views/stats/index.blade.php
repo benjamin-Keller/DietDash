@@ -348,46 +348,83 @@
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="pb-3">
-                <div id="" class="chart-container-style">
-                    <canvas id="macro-chart" class="chart-container-style"></canvas>
+
+                <div id="row">
+                    <div id="canvas-holder" style="width:410px;float: right;" class="col">
+                        <canvas id="com-chart" class="chart-container-style "></canvas>
+                    </div>
+                    <!-- <div style="width: 50%"><canvas id="canvas" height="450" width="600"></canvas></div>-->
+                    <div id="canvas-holder" style="width:400px;float: right;" class="col">
+                        <canvas id="paed-chart" class="chart-container-style "></canvas>
+                    </div>
                 </div>
             </div>
 
+
+
+
+
             <script>
-                create_chart([{{ $arthritis }}, {{ $renal_failure }}, {{ $dehydration }},
-                    {{$underweight}}, {{$diabetes}}, {{$hiv}},
-                    {{$mam}}, {{$wasted}}, {{$epilepsy}},
-                    {{$pneumonia}}, {{$sam}}, {{$hypertension}},
-                    {{$tb}}, {{$stunted}}]);
+                create_chart_Com([{{$diabetes}}, {{$hypertension}}, {{$arthritis}},
+                    {{$epilepsy}}, {{$renal_failure}}, {{$tb}},
+                    {{$hiv}}, {{$pneumonia}}]);
 
-                function create_chart(sendData) {
-                    var ctx = document.getElementById('macro-chart').getContext("2d");
-                    if(window.myChart != undefined)
-                        window.myChart.destroy();
-                    window.myChart = new Chart(ctx, {});
+                create_chart_Paed([{{ $wasted }}, {{ $underweight }}, {{ $stunted }},
+                    {{$dehydration}}, {{$sam}}, {{$mam}}]);
 
-                    window.myChart = new Chart(ctx, {
+
+                function create_chart_Com(sendData) {
+                    var ctx = document.getElementById('com-chart').getContext("2d");
+                    if (window.comChart != undefined)
+                        window.comChart.destroy();
+                    window.comChart = new Chart(ctx, {});
+
+                    window.comChart = new Chart(ctx, {
                         type: 'doughnut',
                         data: {
-                            labels: ["Arthritis", "Renal Failure", "Dehydration",
-                                "Underweight", "Diabetes", "HIV",
-                                "MAM", "Wasted", "Epilepsy",
-                                "Pneumonia", "SAM", "Hypertension",
-                                "TB", "Stunted"],
+                            labels: ["Diabetese", "Hypertension", "Arthritis",
+                                "Epilepsy", "Renal Failure", "TB",
+                                "HIV", "Pneumonia"],
                             datasets: [{
                                 label: "Population (millions)",
-                                backgroundColor: ["#EABFCB","#2F004F","#2fbc63",
-                                    "#3ea4a4", "#c191a1","#c5dca0","#a4508b","#95BF8F",
-                                    "#f5f2b8", "#5F0A87", "#E2E1B9", "#3E000C", "#7C6A0A", "#0A1128"],
+                                backgroundColor: ["#EABFCB", "#2F004F", "#2fbc63",
+                                    "#3ea4a4", "#c191a1", "#c5dca0", "#a4508b", "#f5f2b8"],
                                 data: sendData
                             }]
                         },
                         options: {
                             title: {
                                 display: true,
-                                text: 'Diseases'
+                                text: '(Non-)Communicable'
+                            }
+                        }
+                    });
+                }
+                function create_chart_Paed(sendData) {
+
+                    var ctx = document.getElementById('paed-chart').getContext("2d");
+                    if(window.paedChart != undefined)
+                        window.paedChart.destroy();
+                    window.paedChart = new Chart(ctx, {});
+
+                    window.paedChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ["Wasted", "Underweight",
+                                "Stunted", "Dehydration", "SAM",
+                                "MAM"],
+                            datasets: [{
+                                label: "Population (millions)",
+                                backgroundColor: ["#95BF8F",
+                                    "#5F0A87", "#E2E1B9", "#3E000C",
+                                    "#7C6A0A", "#0A1128"],
+                                data: sendData
+                            }]
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: 'Paediatrics'
                             }
                         }
                     });
@@ -398,8 +435,8 @@
                 @media (min-width:800px) {
                     /* big landscape tablets, laptops, and desktops */
                     .chart-container-style {
-                        height:80vh;
-                        width:70vw;
+                        height:400px;
+                        width:400px;
                         margin: 0 auto;
                         text-align: center;
 
@@ -409,8 +446,8 @@
                 @media (min-width:1281px) {
                     /* hi-res laptops and desktops */
                     .chart-container-style {
-                        height:30vh;
-                        width:30vw;
+                        height:400px;
+                        width:400px;
                         margin: 0 auto;
                         text-align: center;
 
