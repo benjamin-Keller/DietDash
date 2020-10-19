@@ -13,5 +13,12 @@ With DietDash you can:
 - Make Calculations without any User-Error for each Patient.
 - View Statistics to easily Manage and make Critical decisions.
 
-##
+## Made By
+**Main Developer:**
+- [Benjamin Keller](https://github.com/benjamin-Keller)
 
+
+**Massive Help:**
+- [Celeste](https://github.com/CelesteMagisteel)
+
+ 
