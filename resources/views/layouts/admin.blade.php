@@ -29,6 +29,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
+    <!-- Pace-Progress -->
+    <script src="{{ asset('bower_components/admin-lte/plugins/pace-progress/pace.min.js') }}"></script>
+
     <!-- jQuery UI -->
     <link rel="stylesheet" href="{{ asset('bower_components/admin-lte/plugins/jquery-ui/jquery-ui.min.css') }}">
 
@@ -42,6 +45,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </script>
 
     <style>
+        .pace {
+            -webkit-pointer-events: none;
+            pointer-events: none;
+
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        .pace-inactive {
+            display: none;
+        }
+
+        .pace .pace-progress {
+            background: #800080;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            right: 100%;
+            width: 100%;
+            height: 2px;
+        }
+
         .btn-purple, .btn-purple:active, .btn-purple:visited {
             background-color: #800080;
             color: white;
@@ -76,7 +102,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4 inverted" style="background-color: #400040">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 inverted" style="background-color: #400040;">
         <!-- Brand Logo -->
         <a href="{{ route('home') }}" class="brand-link">
             <img src="{{ asset('img/logo.png') }}" alt="DietDash Logo" class="brand-image img-circle elevation-3"
@@ -152,6 +178,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('bower_components/admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <!-- jQuery Mask -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<!-- Select2 -->
+<link href="{{ asset('bower_components/admin-lte/plugins/select2/css/select2.min.css') }}" rel="stylesheet" />
+<link href="{{ asset('bower_components/admin-lte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}" rel="stylesheet" />
+<script src="{{ asset('bower_components/admin-lte/plugins/select2/js/select2.full.min.js') }}"></script>
 
 @yield('footer')
 

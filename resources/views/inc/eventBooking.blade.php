@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label>Patient</label>
-                <select id='patient_name' name='patient_name' class="form-control">
+                <select id='patient_name' name='patient_name' class="form-control select2bs4">
                     <option value='' selected>Select Patient</option>
                     @foreach ($patient_event as $key => $value)
                         <option value='{{ $value }}'>{{ $value }}</option>
@@ -121,6 +121,15 @@
         })
     });
 
+</script>
+<script>
+    $(document).ready(function() {
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            placeholder: 'Select an option',
+            theme: 'bootstrap4'
+        })
+    });
 </script>
 @section('head')
     <style>

@@ -80,7 +80,7 @@
                                         </div>
                                         <div class="form-group">
                                             {{ Form::label('country', 'Country') }}
-                                            <select id='country' name='Country' class="form-control" >
+                                            <select id='country' name='Country' class="form-control select2bs4" >
                                                 <option value="">Select Country</option>
                                                 <option value="AF">Afghanistan</option>
                                                 <option value="AX">Åland Islands</option>
@@ -392,6 +392,15 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            placeholder: 'Select an option',
+            theme: 'bootstrap4'
+        })
+    });
+</script>
 @endsection
 
 

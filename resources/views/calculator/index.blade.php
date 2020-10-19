@@ -31,16 +31,16 @@
 
                                 <div class="">
                                     @if($id == null)
-                                        <select id='patient_name' name='patient_name' class="form-control" required>
+                                        <select id='patient_name' name='patient_name' class="form-control select2bs4" required>
                                             <option value=''>Select Patient</option>
-                                            @foreach ($patient as $key => $value)
+                                        @foreach ($patient as $key => $value)
                                                 <option value='{{ $key }}'>{{ $value }}</option>
                                             @endforeach
                                         </select>
                                     @else
-                                        <select id='patient_name' name='patient_name' class="form-control" required>
+                                        <select id='patient_name' name='patient_name' class="form-control select2bs4" required>
                                             <option value=''>Select Patient</option>
-                                            @foreach ($patient as $key => $value)
+                                        @foreach ($patient as $key => $value)
                                                 @if($key == $id)
                                                     <option value='{{ $key }}' selected>{{ $value }}</option>
                                                 @endif
@@ -49,15 +49,14 @@
                                                     @endif
                                             @endforeach
                                         </select>
-
                                     @endif
                                 </div>
                             </div>
                         <div class="form-group">
                             <div>{{ Form::label('activeness', 'Activeness') }}<p style="display: inline; color: red">*</p></div>
                             <div class="">
-                                <select id='activeness' name='activeness' class="form-control" required>
-                                    <option value='' selected>Select Activeness</option>
+                                <select id='activeness' name='activeness' class="form-control select2bs4" required>
+                                    <option value=''>Select Activeness</option>
                                     <option value='sedentary'>Sedentary</option>
                                     <option value='moderate'>Moderately Active</option>
                                     <option value='very'>Very Active</option>
@@ -280,7 +279,18 @@
             </div>
         </div>
     </div>
+
 </div>
+<script>
+    $(document).ready(function() {
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            placeholder: 'Select an option',
+            theme: 'bootstrap4'
+        })
+    });
+</script>
+
 @endsection
 
 @section('sidebar')
@@ -291,3 +301,4 @@
 
     <br />
 @endsection
+
