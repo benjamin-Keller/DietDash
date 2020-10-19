@@ -21,4 +21,4 @@ With DietDash you can:
 **Massive Help:**
 - [Celeste](https://github.com/CelesteMagisteel)
 
- 
+ _Developed live on [Twitch.tv](https://twitch.tv/NerdyDragon42)_
